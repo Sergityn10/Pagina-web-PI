@@ -1,19 +1,30 @@
 body{
     font-family: sans-serif;
-    background-color: #003b95;
-    width: 80%;
-    margin: 0px auto;
-}
-.header{
-    color:white;
-    padding:8px 16px 0px;
+    width: 100%;
 }
 
-nav#cabecera-nav{
+.header{
+    color:white;
+    padding:8px 16px;
+    background-color: #003b95;
     display:flex;
-    align-items: center;
-    justify-content: space-around;
+    justify-content:space-between;
+    position: relative;
+}
+
+
+
+nav#cabecera-nav{
+    display: flex;
     
+    
+    
+}
+nav#navegacion-flights{
+    position:absolute;
+    left: 10px;;
+    top:auto;
+    display: block;
 }
 .title{
     width: 50%;
@@ -22,20 +33,22 @@ nav#cabecera-nav{
 #botones-header{
     display: flex;
     justify-content: space-around;
+    
 
 }
-button.seleccion{
-    background-color: rgba(255,255,255,0);
+.seleccion{
+    background-color: transparent;
     border-style: none;
     color:white;
     padding: 8px 12px;
+    text-decoration: none;
 }
-button:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+.seleccion:hover{
+    background-color: rgba(255, 255, 255, 0.1);
 }
 a.formulario{
     text-decoration: none;
-    color:rgb(0, 68, 255);
+    color:#0044ff;
     background-color: white;
     border-radius: 2px;
     padding:4px 12px;
@@ -45,20 +58,38 @@ a.formulario{
 #button-flights{
     border:white solid 3px;
     color:white;
-    border-radius: 8px;
+    border-radius: 100px;
     text-decoration: none;
     padding:5px;
+    max-width: none;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+    text-align: center;
 }
-nav.boton-vuelos{
-    display:flex;
+nav.navegation-flights{
+    
+    
+    margin-right: 10px;
 }
 
+.boton-vuelos svg {
+    display: inline-block;
+    vertical-align: top;
+    height: 20px;
+    width: auto;
+}
 
 .filtros{
     border:orange solid 4px;
     border-radius: 16px;
     height: max-content;
     background-color: white;
+}
+.busqueda-destino-formulario div{
+    border-right: solid;
+   
 }
 .filtros input{
     height: 50px;
@@ -68,9 +99,7 @@ nav.boton-vuelos{
     display: flex;
     justify-content:space-evenly;
 }
-.personas-formulario{
-    
-}
+
 
 .container-estancias{
     padding: 64px 5px 78px;
@@ -91,6 +120,7 @@ nav.boton-vuelos{
     /*scrollbar-width: none; se utilza para desaparecer la barra de scroll horizontal del carrusel*/ 
     
 }
+
 li{
     display:list-item;
     flex: 0 0 auto;
