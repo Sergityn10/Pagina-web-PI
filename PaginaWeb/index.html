@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        
+        <nav id="cabecera-nav">
+            <div class="title">
+                <h1>Booking.com</h1>
+            </div>
+            
+            <div id="botones-header">
+                <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EU</button> <!-- Botón de selección de la moneda-->
+                <button class="seleccion" type="button" title="Selecciona tu idioma" aria-expanded="false">España</button> <!-- botón de selección del idioma-->
+                <Input type="image" src="" ></Input> <!--Botón de atención al cliente-->
+                <a class="alojamiento" href="registrarAlojhamiento/index.html">Registra tu alojamiento</a>
+                <a class="formulario" href="crear-cuenta/registrarse.html">Hazte tu cuenta</a>
+                <a class="formulario" href="Inicio-sesión/inicio-sesion.html">Inicia sesión</a>
+                
+            </div>
+            
+        </nav>
+        <nav class="navegacion-flights">
+                <a id="button-flights" href="flights/index.html">
+                   <span class="boton-vuelos">
+                        <img src="imagenes/Vuelo.svg" alt="icono vuelos"/>
+                   </span> 
+                   <span>Vuelos</span>
+                </a>
+            
+                
+        </nav>
+    </header>
+    <main>
+        <div class="container-estancias header">
+            <h1>Encuentra tu próxima estancia</h1>
+            <h2>Busca ofertas en hoteles, casas y mucho más... </h2>
+        </div>
+        <div class="filtros">
+            <form action="" method="get" class="busqueda-destino-formulario">
+                <label for="adonde-vas"  class="label-busqueda"><img src="" alt=""></label>
+                <input type="text" placeholder="¿Adonde vas?" name="adonde-vas" id="lugar-destino" aria-autocomplete="list" list="lista-lugares">
+                <datalist id="lista-lugares"> <!-- Lista de lugares que se muestra en el autocompletado de los destinos. Utilzar mejor javaScript para no repetir código-->
+                    <option value="Madrid"></option>
+                    <option value="Barcelona"></option>
+                    <option value="Valencia"></option>
+                    <option value="Sevilla"></option>
+                    <option value="Granada"></option>
+                </datalist>
+                <div class="fechas-formulario">
+                    <input type="date" name="check-in" id="check-in" placeholder="Check-in">
+                    <input type="date" name="check-out" id="check-out" placeholder="Check-out">
+                </div>
+                <div class="personas-formulario">
+                    <span class="num-adultos cantidad">
+                        <input type="number" name="adultos" id="adultos">Adultos</span>
+                    <span class="num-menores cantidad"> · 
+                        <input type="number" name="menores" id="menores" min="0" max="99" /> Menores
+                    </span>
+                    <span class="num-habitaciones cantidad">
+                        <input type="number" name="habitaciones" id="habitaciones" min="1"> Habitaciones</span>
+
+                </div>
+                
+            </form>
+                
+        </div>
+        
+
+        <!-- Carrusel de imagenes sobre los destinos a descubrir en España o país de origen-->
+        <ul class="tarjetas-descubrir" aria-atomic="false">
+            <li>España</li>
+            <li>Francia</li>
+            <li>Italia</li>
+            <li>Portugal</li>
+            <li>Argentina</li>
+            <li>Costa Rica</li>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem ratione, adipisci praesentium deserunt quo recusandae commodi hic vitae laudantium nesciunt natus dolores reprehenderit error vel accusamus? Reiciendis vitae temporibus perferendis.</li>
+            <li>México DF.</li>
+            <li>Nueva York (EUA)</li>
+        </ul>
+    </main>
+</body>
+</html>
