@@ -84,9 +84,7 @@ a.formulario{
     border-right: solid;
     border-color: orange;
 }
-.personas-formulario{
-    
-}
+
 
 .container-estancias{
     padding: 64px 5px 78px;
@@ -112,7 +110,7 @@ a.formulario{
     background-color: #003b95;
     color:white;
     height: 100%;
-
+    
 }
 li{
     display:list-item;

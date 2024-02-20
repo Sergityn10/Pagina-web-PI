@@ -1,0 +1,33 @@
+.reservas-carrito{
+    display: grid;
+    grid-template-areas: 
+    "pasos pasos pasos"
+    "side content content";
+    grid-template-columns: 33.33333%;
+    grid-gap: 5px;
+    
+}
+.pasos-carrito{
+    grid-area:pasos;
+    text-align: center;
+}
+aside{
+    grid-area:side;
+    
+    
+    
+}
+.contenido-carrito{
+    grid-area: content;
+    display:flex;
+    flex-direction: column;
+    
+   
+}
+
+.box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
+    border-style: solid;
+}
+.asterisco-obligatorio{
+    color:red;
+}
