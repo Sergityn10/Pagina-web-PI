@@ -80,6 +80,10 @@ a.formulario{
     display: flex;
     justify-content:space-evenly;
 }
+.busqueda-destino-formulario>div{
+    border-right: solid;
+    border-color: orange;
+}
 .personas-formulario{
     
 }
@@ -103,6 +107,13 @@ a.formulario{
     /*scrollbar-width: none; se utilza para desaparecer la barra de scroll horizontal del carrusel*/ 
     
 }
+.boton-buscar button{
+    border-style: none;
+    background-color: #003b95;
+    color:white;
+    height: 100%;
+
+}
 li{
     display:list-item;
     flex: 0 0 auto;
@@ -111,6 +122,26 @@ li{
     scroll-snap-align: start;
     
 }
+/*PROPIEDADES CORRESPONDIENTES A LA PÁGINA CARRITO COMPRA*/
+.reservas-carrito{
+    display: grid;
+    grid-template-areas: 
+    "pasos pasos pasos"
+    "side content content"
+    "foot foot foot";
+    grid-template-columns: 20%;
+
+}
+.pasos-carrito{
+    grid-area:pasos;
+}
+aside{
+    grid-area:side;
+}
+.contenido-carrito{
+    grid-area: content;
+}
+
 @media (min-width:768px){ /*Se debe especificar el cambio de layout cuando la pantalla tenga un ancho minimo, ya que puede provocar colapsos en nuestro diseño*/
     a:hover .tarjeta{
         transform: scale(1.04) rotate(-7deg);

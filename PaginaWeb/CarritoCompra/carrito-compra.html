@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Book</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
     <header class="header">
@@ -38,59 +38,17 @@
                 
         </nav>
     </header>
-    <main>
-        <div class="container-estancias header">
-            <h1>Encuentra tu próxima estancia</h1>
-            <h2>Busca ofertas en hoteles, casas y mucho más... </h2>
+    <main class="reservas-carrito">
+        <div class="pasos-carrito">
+            <h1>pasoso</h1>
         </div>
-        <div class="filtros">
-            <form action="" method="get" class="busqueda-destino-formulario">
-                <div>
-                    <label for="adonde-vas"  class="label-busqueda"><img src="" alt=""></label>
-                <input type="text" placeholder="¿Adonde vas?" name="adonde-vas" id="lugar-destino" aria-autocomplete="list" list="lista-lugares">
-                </div>
-                
-                <datalist id="lista-lugares"> <!-- Lista de lugares que se muestra en el autocompletado de los destinos. Utilzar mejor javaScript para no repetir código-->
-                    <option value="Madrid"></option>
-                    <option value="Barcelona"></option>
-                    <option value="Valencia"></option>
-                    <option value="Sevilla"></option>
-                    <option value="Granada"></option>
-                </datalist>
-                <div class="fechas-formulario">
-                    <input type="date" name="check-in" id="check-in" placeholder="Check-in">
-                    <input type="date" name="check-out" id="check-out" placeholder="Check-out">
-                </div>
-                <div class="personas-formulario">
-                    <span class="num-adultos cantidad">
-                        <input type="number" name="adultos" id="adultos">Adultos</span>
-                    <span class="num-menores cantidad"> · 
-                        <input type="number" name="menores" id="menores" min="0" max="99" /> Menores
-                    </span>
-                    <span class="num-habitaciones cantidad">
-                        <input type="number" name="habitaciones" id="habitaciones" min="1"> Habitaciones</span>
-
-                </div>
-                <span class="boton-buscar"><button type="submit">Buscar</button></span>
-                
-                
-            </form>
-                
+        <aside>
+            <h1>Tu carrito de compras:</h1><br/>
+        </aside>
+        <div class="contenido-carrito">
+            <h1>contenido</h1>
         </div>
-        
 
-        <!-- Carrusel de imagenes sobre los destinos a descubrir en España o país de origen-->
-        <ul class="tarjetas-descubrir" aria-atomic="false">
-            <li>España</li>
-            <li>Francia</li>
-            <li>Italia</li>
-            <li>Portugal</li>
-            <li>Argentina</li>
-            <li>Costa Rica</li>
-            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem ratione, adipisci praesentium deserunt quo recusandae commodi hic vitae laudantium nesciunt natus dolores reprehenderit error vel accusamus? Reiciendis vitae temporibus perferendis.</li>
-            <li>México DF.</li>
-            <li>Nueva York (EUA)</li>
-        </ul>
     </main>
 </body>
 </html>
