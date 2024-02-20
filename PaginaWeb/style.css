@@ -1,41 +1,55 @@
 body{
     font-family: sans-serif;
-    background-color: #003b95;
-    width: 80%;
-    margin: 0px auto;
+    
+    width: 100%;
+    
 }
+
 .header{
     color:white;
     padding:8px 16px 0px;
+    height: 124px;
+    background-color: #003b95;
 }
 
 nav#cabecera-nav{
     display:flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0px auto;
+    width: 80%;
     
 }
 .title{
     width: 50%;
     padding:8px 16px 8px;
 }
+svg{
+    width: 20px;
+    color:white;
+    vertical-align: middle;
+}
 #botones-header{
     display: flex;
     justify-content: space-around;
 
 }
-button.seleccion{
-    background-color: rgba(255,255,255,0);
+.seleccion{
+    background-color: transparent;
     border-style: none;
     color:white;
     padding: 8px 12px;
+    cursor: pointer;
 }
-button:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+.alojamiento{
+    text-decoration: none;
+}
+.seleccion:hover{
+    background-color: rgba(255, 255, 255, 0.1);
 }
 a.formulario{
     text-decoration: none;
-    color:rgb(0, 68, 255);
+    color:#003b95;
     background-color: white;
     border-radius: 2px;
     padding:4px 12px;
@@ -49,9 +63,7 @@ a.formulario{
     text-decoration: none;
     padding:5px;
 }
-nav.boton-vuelos{
-    display:flex;
-}
+
 
 
 .filtros{
