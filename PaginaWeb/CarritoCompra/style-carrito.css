@@ -3,8 +3,10 @@
     grid-template-areas: 
     "pasos pasos pasos"
     "side content content";
-    grid-template-columns: 33.33333%;
-    grid-gap: 5px;
+    /*grid-template-columns: 33.33333%;*/
+    grid-gap: 10px;
+    width: 80%;
+    margin:3px auto;
     
 }
 .pasos-carrito{
@@ -27,6 +29,7 @@ aside{
 
 .box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
     border-style: solid;
+    margin-top: 4px;
 }
 .asterisco-obligatorio{
     color:red;
