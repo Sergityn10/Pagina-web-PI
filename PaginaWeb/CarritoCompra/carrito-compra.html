@@ -21,61 +21,149 @@
             <h1>pasoso</h1>
         </div>
         <aside>
-            <h1>Tu carrito de compras:</h1><br/>
+            <section class="box-carrito">
+                <p>Apartamento NUM ESTRELLAS</p>
+                <h4>NOMBRE APARTAMENTO</h4>
+                <p>DIRECCION APARTAMENTO/HOTEL JUNTO DIRECCIÓN POSTAL</p>
+                <small id="estado-ubicacion">Excelente ubicación- VALORACIÓN EN NUMERO HASTA 10 DE LA UBICACIÓN</small>
+
+
+                <div class="contenido-valoracion-apartamento">
+                    <div id="valoracion-apartamento">
+                        <p>10</p>
+                    </div>
+                    <p>ESTADO VALORACION - NUM COMENTARIOS</p>
+                </div>
+
+                <div class="informacion-apartamento-imagenes">
+                    <p>Wifi gratis</p>
+                    <p>Parking</p>
+                </div>
+            </section>
+
+            <section class="box-carrito">
+                <h4>Los datos de tu reserva</h4>
+                <div id="fechas-reserva">
+                    <p>Fecha Entrada:</p><br>
+                    <p>DSEMANA, DIA MES AÑO</p>
+                    <P>RANGO HORA ENTRADA</P>
+                    <hr>
+                    <p>Fecha Salida:</p>
+                    <p>DSEMANA, DIA MES AÑO</p>
+                    <P>RANGO HORA SALIDA</P>
+                </div>
+                <p>Duracion de la estancia: X dias y X noches.</p>
+                <hr>
+                
+                <details>
+                    <summary>Has seleccionado <br> NUM HABITACIONES para NUMERO TIPO PERSONA</summary>
+                    <p>NUM HABITACIONES - TIPO APARTAMENTO</p>
+                    <p>NUMERO TIPO-PERSONAS</p>
+                </details>
+                
+                <a class="botno-seleccion" href="">Cambia tu selección</a>
+            </section>
+
+            <section class="box-carrito">
+                <h4>Desglose del precio</h4>
+                <p>Precio original  <span class="precio">MONEDA PRECIO</span></p>
+                <p>DESCUENTO  <span class="precio">-MONEDA DESCUENTO</span></p>
+
+                <div id="inf-precio-a-pagar">
+                    <H3>TOTAL A PAGAR</H3>
+                    <div id="totalAPagar">
+                        <span class="precio-origina-tachado">MONEDA PRECIO</span>
+                        <strong class="precio-con-descuento">MONEDA PRECIO</strong>
+                        <p>Incluye impuesto y cargos (en letra pequeña)</p>
+                    </div>
+
+                </div>
+                
+                <section id="inf-sobre-precio">
+                    <h4>Información sobre el precio</h4>
+                    <img src="" alt="image-billetes-dinero">
+                    <details>
+                        <summary>INFORMACIÓN SOBRE IMPUESTOS Y CARGOS</summary>
+                        <p>PORCENTAJE  DEL IVA/IVS   <span class="precio">MONEDA PRECIO</span></p>
+                    </details>
+                    
+                </section>
+
+            </section>
+            <section class="box-carrito">
+                    <h4>¿Cuánto cuesta la cancelación?</h4>
+                    <p class="parrafo-verde">CANCELACIÓN GRATIS antes del DIA MES</p>
+                    <p class="parrafo-gris">Después de esa fecha, se aplicará un cargo de:<span class="precio">MONEDA CARGO </span></p>
+            </section>
+            
         </aside>
+
+        
         <div class="contenido-carrito">
             <div class="box-carrito box-usuario"> <!-- Div dedicado a mostrar el nombre del usuario y su correo y foto de perfil-->
                 <div class="foto-perfil-usuario">
-                    <img src="" alt=""> <!--Foto usuario-->
+                    <img class="img-perfil" src="../images/Generales/foto-perfil-usuario.svg" alt="foto-perfil"> <!--Foto usuario-->
                 </div>
-                <h3>Has iniciado sesión</h3>
-                <p class="nombre-usuario">pepito.gutierrez@gmail.com</p>
+                <div>
+                    <h3>Has iniciado sesión</h3>
+                    <p class="nombre-usuario">pepito.gutierrez@gmail.com</p>
+                </div>
+                
             </div>
 
             <form action="" method="post">
-                <div class="box-carrito datos-usuario-formulario">
+                <section class="box-carrito datos-usuario-formulario">
                     <h3>Introduce tus datos</h3>
                 
-                    <div class="datos-personales">
+                    <div class="datos-personales">     
                         <label for="Nombre">Nombre <span class="asterisco-obligatorio">*</span></label>
-                        <input type="text" id="Nombre" name="Nombre">
+                        <input class="input-datos-personales" type="text" id="Nombre" name="Nombre"> 
+                    
+                    
                         <label for="Apellidos">Apellidos <span class="asterisco-obligatorio">*</span></label>
-                        <input type="text" id="Apellidos" name="Apellidos">
+                        <input class="input-datos-personales" type="text" id="Apellidos" name="Apellidos">
+                                
+                                
                         
                         <label for="e-mail">E-mail <span class="asterisco-obligatorio">*</span></label>
-                        <input type="email" id="e-mail" name="Correo">
+                        <input class="input-datos-personales" type="email" id="e-mail" name="Correo">
 
                         <label for="pais">País <span class="asterisco-obligatorio">*</span></label> <!-- Se establecerá mediante la base de datos todos los paises disponibles-->
-                        <select name="pais" id="pais">
+                        <select class="input-datos-personales" name="pais" id="pais">
                             <option value="España">España</option>
                             <option value="Estados Unidos">Estados Unidos</option>
                             <option value="Francia">Francia</option>
                         </select>
 
                         <label for="telefono">Teléfono móvil <span class="asterisco-obligatorio">*</span></label>
-                        <input type="tel" name="telefono" id="telefono">
+                        <input class="input-datos-personales" type="tel" name="telefono" id="telefono">
 
-                        <input type="checkbox" name="confirmacion-dig" id="confirmacion-dig">
-                        <label for="confirmacion-dig">Sí, quiero recibir la confirmación digital gratis (recomendado)</label>
-                        <small>Te enviaremos un enlace por SMS para descargar la app</small>
+                        
+                        <p>
+                            <input type="checkbox" name="confirmacion-dig" id="confirmacion-dig">
+                            <label for="confirmacion-dig">Sí, quiero recibir la confirmación digital gratis (recomendado)</label> <br>
+                            <small>Te enviaremos un enlace por SMS para descargar la app</small>
+                        </p>
+                            
+                        
                     </div>
 
-                    <div class="para-quien-reserva">
+                    <section class="para-quien-reserva">
                         <h4>Para quien es esta reserva?</h4>
-                        <input type="radio" name="tipoUsuario" value="Propietario"> Esta rerserva es para mí<br>
-                        <input type="radio" name="tipoUsuario" value="Arrendatario">La reserva es para otra persona<br>
-                    </div>
+                        <input type="radio" name="tipoUsuario" value="Propietario"> Esta rerserva es para mí <br>
+                        <input type="radio" name="tipoUsuario" value="Arrendatario">La reserva es para otra persona
+                    </section>
 
-                    <div class="viajar-por-trabajo">
+                    <section class="viajar-por-trabajo">
                         <h4>¿Viajas por trabajo?</h4>
                         <input type="radio" name="vpt" id="si" value="Si">
                         <label for="si">Sí</label>
                         <input type="radio" name="vpt" id="no" value="No">
                         <label for="no">No</label><br>
 
-                    </div>
+                    </section>
                 
-                </div>
+                </section>
 
                 <div class="box-carrito informacion-util">
                     <h2>Información útil</h2>
