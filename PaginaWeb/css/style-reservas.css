@@ -1,0 +1,40 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    
+    
+}
+h2{
+    width: 50%;
+}
+.box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
+    border:1px solid rgba(0, 0, 0, 0.208);
+    padding:5px;
+    border-radius: 10px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.menu{
+    height: 20px;
+    width: 20px;
+}
+.font-size-small{
+    font-size: small;
+}
+

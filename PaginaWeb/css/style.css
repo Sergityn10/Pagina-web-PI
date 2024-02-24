@@ -1,23 +1,29 @@
+@import "colors.css";
 body{
+    background: linear-gradient(var(--color-principal),white);
+    background-repeat: no-repeat;
+    
+   
+}
+.container{
     font-family: sans-serif;
-    
-    width: 100%;
-    
+    background-color: var(--color-principal);
+    max-width: 1200px;
+    margin: 0px auto;
 }
 
 .header{
     color:white;
-    padding:8px 16px 0px;
-    height: 124px;
-    background-color: #003b95;
+    
+    padding:var(--bui_spacing_3x);
+    background-color: var(--color-principal);
 }
 
 nav#cabecera-nav{
     display:flex;
     align-items: center;
     justify-content: space-around;
-    margin: 0px auto;
-    width: 80%;
+    
     
 }
 .title{
@@ -193,6 +199,28 @@ aside{
     }
 
 }
+
+/*Para moviles*/
+@media only screen  and (max-width: 600px) {
+
+}
+/*Para  tablets*/
+@media only screen  and (min-width: 600px) {
+
+}
+/*Para escritorios*/
+@media only screen  and (min-width: 768px) {
+
+}
+
+@media only screen  and (min-width: 1024px) {
+
+}
+
+@media only screen  and (min-width: 1200px) {
+
+}
+
 @media (min-width: 1024px){
     .cabecera-nav {
         padding: 4px 16px 8px;
