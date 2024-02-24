@@ -1,4 +1,6 @@
-
+*{
+    box-sizing: border-box;
+}
 body {
    
     font-family: 'Open Sans', sans-serif;
@@ -65,18 +67,79 @@ a img{
 }
 
 
-.container-fotos{
-    display: flex;
 
-    width: 1000px;
-    height:  100px;
-    overflow: hidden;
-    border:solid;
-    transition: transform 0.5s ease-in-out;
+/*COMIENZA EL CARRUSEL DE FOTOS DINAMICA*/
+
+.carrusel-fotos{
+    position: relative;
+    
 }
+.container-fotos{
+    
+   
+
+    
+}
+
+
 .card-foto{
-    width: 100%/4;
-    height: auto;
+     /*Se divide el ancho del contenedor entre las imagenes para que estén en una cuadrícula de 4 columnas */
+  
+   align-items: stretch;
+    padding: 10px;
+    
 }
+.card-foto a{
+    text-decoration: none;
+    font-size: small;
+}
+.container-fotos ul{
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-direction: row;
+    list-style: none;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type:  x mandatory;
+    width: 100%;
+    scroll-snap-align:  start;
+}
+
+.container-fotos ul li{
+    flex:0 0 auto !important;
+    
+    
+    width: calc(100%/6);
+    box-sizing: border-box;
+}
+
+.card-foto img {
+    width: 100%;
+    height:150px ;
+    min-height: 150px;
+    max-height: 200px;
+    
+}
+/*REglas para los botones del carrusel*/
+.boton-carrusel{
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index:99;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    border-radius: 50%;
+}
+
+#anterior{
+    left: 0px;
+}
+
+#siguiente{
+    right: 0px;
+}
+
 
 
