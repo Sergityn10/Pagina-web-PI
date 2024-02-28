@@ -18,19 +18,21 @@ body {
     
 }
 .row1-cards-destinations{
+    
     display: flex;
     align-items: center;
     justify-content: space-around;
-    height: 50%;
+    
 }
 
 .row1-cards-destinations .card-destino{
-    width: 50%;
-    max-height: 100%;
+    flex-grow: 1;
+    
     margin:10px ;
 
 }
 .row2-cards-destinations{
+    flex:1;
     display: flex;
     align-items: center;
     
@@ -76,9 +78,14 @@ a img{
 }
 .container-fotos{
     
+   display:flex;
+   flex-direction: row;
+   overflow: hidden;
+   overflow-x: auto;
+   scroll-behavior: smooth;
+   -webkit-overflow-scrolling: touch; /* Enables native smoothing on iOS */
+   scroll-snap-type:  x mandatory; /* This enables the "snapping" effect (mandatory means it always snaps) */
    
-
-    
 }
 
 
@@ -87,6 +94,12 @@ a img{
   
    align-items: stretch;
     padding: 10px;
+    flex:0 0 auto !important;
+    
+    
+    width: calc(100%/6);
+    box-sizing: border-box;
+
     
 }
 .card-foto a{
@@ -106,13 +119,13 @@ a img{
     scroll-snap-align:  start;
 }
 
-.container-fotos ul li{
+/*.container-fotos ul li{
     flex:0 0 auto !important;
     
     
     width: calc(100%/6);
     box-sizing: border-box;
-}
+}*/
 
 .card-foto img {
     width: 100%;
