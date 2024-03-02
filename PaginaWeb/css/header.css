@@ -1,0 +1,93 @@
+.container-header{
+    background-color: #003b95;
+    color:white;
+
+}
+.container-header>*{
+    max-width: 1200px;
+    margin: 0px auto;
+    
+}
+
+nav#cabecera-nav{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title{
+    padding:8px 16px 8px;
+}
+.title a{
+    color:white;
+    text-decoration: none;
+}
+#botones-header{
+    display:flex;
+}
+#img-bandera{
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+}
+header svg{
+    fill:white;
+    width: 20px;
+    height: 20px;
+    
+    
+}
+
+#botones-header{
+    display: flex;
+    justify-content: space-around;
+
+}
+#botones-header >a{
+    display:flex;
+    align-items: center;
+}
+.seleccion{
+    background-color: transparent;
+    border-style: none;
+    color:white;
+    padding: 8px 12px;
+    cursor: pointer;
+    width: auto;
+    
+}
+.alojamiento{
+    text-decoration: none;
+    
+}
+.seleccion:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+a.formulario{
+    text-decoration: none;
+    color:#003b95;
+    background-color: white;
+    border-radius: 2px;
+    padding:4px 12px;
+    margin:5px;
+    
+    
+}
+.navegacion-flights{
+    border-radius: 32px;
+    border:white solid 3px;
+    width: fit-content;
+}
+
+#button-flights{
+    display:flex;
+    justify-content: space-evenly;
+    color:white;
+    text-decoration: none;
+    padding:10px;
+    
+}
+#button-flights span:first-child{
+    margin-right: 10px;
+    margin-left: 10px;
+}

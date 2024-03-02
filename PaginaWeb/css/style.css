@@ -1,166 +1,26 @@
 @import "colors.css";
+@import "style-trendin-destinations.css";
+@import "header.css";
+@import "buscador.css";
 body{
-    background: linear-gradient(0deg,white 20%, var(--color-principal) 20% );
-    background-repeat: no-repeat;
+    background-color: white;
     font-family: sans-serif;
    
 }
-.container{
-    
 
-    
+
+main{
     max-width: 1200px;
     margin: 0px auto;
-}
-
-.header{
-    color:white;
-    
-    padding:var(--bui_spacing_3x);
-    
-}
-
-nav#cabecera-nav{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-    
-}
-
-.title{
-    padding:8px 16px 8px;
-}
-#botones-header{
-    display:flex;
-}
-#img-bandera{
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-}
-.header svg{
-    fill:white;
-    width: 20px;
-    height: 20px;
-    
-    
-}
-
-#botones-header{
-    display: flex;
-    justify-content: space-around;
-
-}
-#botones-header >a{
-    display:flex;
-    align-items: center;
-}
-.seleccion{
-    background-color: transparent;
-    border-style: none;
-    color:white;
-    padding: 8px 12px;
-    cursor: pointer;
-    width: auto;
-    
-}
-.alojamiento{
-    text-decoration: none;
-    
-}
-.seleccion:hover{
-    background-color: rgba(255, 255, 255, 0.1);
-}
-a.formulario{
-    text-decoration: none;
-    color:#003b95;
-    background-color: white;
-    border-radius: 2px;
-    padding:4px 12px;
-    margin:5px;
-    
-    
-}
-.navegacion-flights{
-    border-radius: 32px;
-    border:white solid 3px;
-    width: fit-content;
-}
-
-#button-flights{
-    display:flex;
-    justify-content: space-evenly;
-    color:white;
-    text-decoration: none;
-    padding:10px;
-    
-}
-#button-flights span:first-child{
-    margin-right: 10px;
-    margin-left: 10px;
-}
-
-
-
-.filtros{
-    border:orange solid 4px;
-    border-radius: 16px;
-    height: max-content;
-    background-color: white;
-    border:orange solid;
-}
-.filtros input{
-    height: 50px;
-    border-style: none;
-}
-
-.busqueda-destino-formulario{
-    display: flex;
-    justify-content:space-evenly;
-    flex-wrap: wrap;
-}
-.busqueda-destino-formulario>div{
-    border: solid;
-    border-color: orange;
     
 }
 
 
-.container-estancias{
-    padding: 64px 5px 78px;
-}
-.tarjetas-descubrir{
-    list-style: none;
-    display: flex;
-    margin:0;
-    flex-wrap: nowrap;
-    scroll-behavior: smooth;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    box-sizing: border-box;
-    backface-visibility: hidden;
-    width: 100%;
-    padding-block: 8px;
-    /*scrollbar-width: none; se utilza para desaparecer la barra de scroll horizontal del carrusel*/ 
-    
-}
-.boton-buscar button{
-    border-style: none;
-    background-color: #003b95;
-    color:white;
-    width: 100%;
-    height: 100%;
-    
-}
-li{
-    display:list-item;
-    flex: 0 0 auto;
-    box-sizing: border-box;
-    margin-inline-end: var(--bui_spacing_3x);
-    scroll-snap-align: start;
-    
-}
+
+
+
+
+
 /*PROPIEDADES CORRESPONDIENTES A LA PÁGINA CARRITO COMPRA*/
 .reservas-carrito{
     display: grid;
@@ -179,6 +39,74 @@ aside{
 }
 .contenido-carrito{
     grid-area: content;
+}
+
+
+
+/*Reglas que establecen el estilo del carrusel de alojamientos*/
+main section:first-child {
+    margin-top:50px;
+}
+
+.carrusel-alojamientos{
+    position: relative;
+    
+}
+.container-alojamientos{
+
+   display:flex;
+   flex-direction: row;
+   overflow: hidden;
+   overflow-x: auto;
+   scroll-behavior: smooth;
+   -webkit-overflow-scrolling: touch; /* Enables native smoothing on iOS */
+   scroll-snap-type:  x mandatory; /* This enables the "snapping" effect (mandatory means it always snaps) */
+  
+}
+
+
+.card-alojamiento{
+     /*Se divide el ancho del contenedor entre las imagenes para que estén en una cuadrícula de 4 columnas */
+  
+   align-items: stretch;
+    padding: 10px;
+    flex:0 0 auto !important;
+    width: calc(100%/4);
+    box-sizing: border-box;
+
+    
+}
+.card-alojamiento a{
+    text-decoration: none;
+    font-size: small;
+}
+
+.card-alojamiento img {
+    width: 100%;
+    min-height: 150px;
+    max-height: 200px;
+    
+}
+/*REglas para los botones del carrusel*/
+.boton-carrusel{
+    position:absolute;
+    top:50%;
+    
+    
+    cursor: pointer;
+    z-index:99;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:white;
+    border-radius: 50%;
+}
+
+#anterior{
+    left: 0px;
+    transition: translateX(50%);
+}
+
+#siguiente{
+    right: 0px;
 }
 
 @media (min-width:768px){ /*Se debe especificar el cambio de layout cuando la pantalla tenga un ancho minimo, ya que puede provocar colapsos en nuestro diseño*/

@@ -1,3 +1,4 @@
+@import "header.css";
 .reservas-carrito{
     display: grid;
     grid-template-areas: 
@@ -9,6 +10,7 @@
     margin:auto;
     
 }
+
 .pasos-carrito{
     grid-area:pasos;
     text-align: center;
