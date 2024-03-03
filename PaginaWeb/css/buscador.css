@@ -4,59 +4,9 @@
     width: 100%;
     min-height: 50px;
     margin:0 auto;
-    padding: 0px 0px 60px 0px;
+    padding: 0;
 }
 
-.item-busqueda, .item-boton-buscar{
-    display: flex;
-    border-radius: 4px;
-    border:solid orange;
-    background-color: white;
-    color:black;
-    justify-content: center;
-}
-.item-busqueda:first-child{
-    flex:4;
-    display:flex;
-    justify-content: flex-end;
-}
-
-.item-busqueda:nth-child(2){
-   flex:2;
-}
-.item-busqueda:nth-child(3){
-   flex:2;
-}
-.item-busqueda:nth-child(4){
-   flex:3;
-}
-.item-boton-buscar{
-    display: flex;
-    flex:1;
-
-    
-}
-button.boton-buscar:hover{
-    background-color: #003c95cf;
-}
-.boton-buscar{
-    background-color: #003b95;
-    border:none;
-    color:white;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    padding: 5px;
-}
-
-.filtros{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    color:white;
-    top: calc(100% - 25px);
-    width: 100%;
-}
 form{
     display: flex;
     width: 100%;
@@ -69,3 +19,86 @@ form input[type="text"]{
     width: 80%;
     
 }
+
+.filtros{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: calc(100% - 25px);
+    width: 100%;
+    border: 4px solid #ffb700;
+    border-radius: 5px;
+    background-color: #ffb700;
+}
+
+.filtros svg {
+    fill:grey;
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+#icono-persona svg{
+    fill:grey;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.filtros ::placeholder{
+    color: #1a1a1a;
+}
+
+.item-busqueda{
+    margin-right: 4px;
+    align-items: center;
+}
+
+.item-busqueda, .item-boton-buscar{
+    display: flex;
+    border-radius: 5px;
+    background-color: white;
+    color:black;
+    justify-content: center;
+}
+
+.item-busqueda:first-child{
+    flex:4;
+}
+
+.item-busqueda:nth-child(2){
+   flex:2;
+}
+
+.item-busqueda:nth-child(3){
+   flex:2;
+}
+.item-busqueda:nth-child(4){
+   flex:3;
+}
+
+.item-boton-buscar{
+    display: flex;
+    flex:2;    
+}
+
+button.boton-buscar:hover {
+    background-color: #003c95cf;
+}
+
+.boton-buscar {
+    background-color: #006ce4;
+    border:none;
+    color:white;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
