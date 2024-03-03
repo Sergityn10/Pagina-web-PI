@@ -5,15 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book</title>
     <link rel="stylesheet" href="../css/style-carrito.css">
-    <style>
-        body{
-        font-family: sans-serif;
     
-    
-    
-    }
-
-    </style>
 </head>
 <body>
     <div class="container-header">
@@ -144,25 +136,32 @@
 
             <section class="box-carrito">
                 <h4>Desglose del precio</h4>
-                <p>Precio original  <span class="precio">MONEDA PRECIO</span></p>
-                <p>DESCUENTO  <span class="precio">-MONEDA DESCUENTO</span></p>
+                <!--
+                    <p>Precio original  <span class="precio">MONEDA PRECIO</span></p>
+                    <p>DESCUENTO  <span class="precio">-MONEDA DESCUENTO</span></p> -->
 
                 <div id="inf-precio-a-pagar">
-                    <H3>TOTAL A PAGAR</H3>
+                    <h3>TOTAL</h3>
                     <div id="totalAPagar">
-                        <span class="precio-origina-tachado">MONEDA PRECIO</span>
-                        <strong class="precio-con-descuento">MONEDA PRECIO</strong>
-                        <p>Incluye impuesto y cargos (en letra pequeña)</p>
+                        <span class="precio text-bold"><span class="simbolo-moneda">MONEDA</span>  <span class="digito-precio">PRECIO</span></span>
+                        <!-- <strong class="precio-con-descuento">MONEDA PRECIO</strong>-->
+                        <p class="text-small">Incluye impuesto y cargos (en letra pequeña)</p>
                     </div>
 
                 </div>
                 
                 <section id="inf-sobre-precio">
                     <h4>Información sobre el precio</h4>
-                    <img src="" alt="image-billetes-dinero">
-                    <details>
-                        <summary>INFORMACIÓN SOBRE IMPUESTOS Y CARGOS</summary>
-                        <p>PORCENTAJE  DEL IVA/IVS   <span class="precio">MONEDA PRECIO</span></p>
+                    
+                    <details class="detalle-info">
+                        <summary>
+                        <span class="iconos">
+                            <svg class="bk-icon -streamline-accounting_bills" height="20" width="20" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"><path d="M4.125 8.25a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm12.75 5.25a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm2.625-3V15a.75.75 0 0 1-.75.75H2.25A.75.75 0 0 1 1.5 15V6a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 .75.75v4.5zm1.5 0V6a2.25 2.25 0 0 0-2.25-2.25H2.25A2.25 2.25 0 0 0 0 6v9a2.25 2.25 0 0 0 2.25 2.25h16.5A2.25 2.25 0 0 0 21 15v-4.5zm-8.25 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zM22.5 9v9a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 0 0 1.5h16.5A2.25 2.25 0 0 0 24 18V9a.75.75 0 0 0-1.5 0z"></path></svg>
+                        </span>
+                            Incluye <span class="precio"> <span class="simbolo-moneda">€</span><span class="digito-precio">100</span></span> de impuestos y cargos
+                        </summary>
+                        <p class="impuestos-porcentaje">10% <span class="precio"> <span class="simbolo-moneda">€</span><span class="digito-precio">100</span></span></p>
+                        
                     </details>
                     
                 </section>

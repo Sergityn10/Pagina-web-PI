@@ -1,10 +1,14 @@
+@import "colors.css";
+body{
+    margin:0;
+}
 .container-header{
-    background-color: #003b95;
+    background-color: var(--color-principal);
     color:white;
 
 }
 .container-header>*{
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0px auto;
     
 }
