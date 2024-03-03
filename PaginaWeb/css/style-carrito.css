@@ -1,12 +1,23 @@
 @import "header.css";
+@import "colors.css";
+
+/*REGLAS SOBRE CAMBIO DE ESTILOS EN EL TEXTO*/
+body{
+    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+.text-bold{
+    font-weight: bold;
+}
+
 .reservas-carrito{
     display: grid;
     grid-template-areas: 
     "pasos pasos"
     "side content";
     grid-template-columns: 1fr 2fr;
-    grid-gap: 10px;
-    width: 80%;
+    gap: 10px;
+    max-width: 1200px;
     margin:auto;
     
 }
@@ -15,12 +26,94 @@
     grid-area:pasos;
     text-align: center;
 }
+/*Reglas que se establecerán para el menu de la derecha, que representará un resumen de la reserva
+*/
 aside{
     grid-area:side;
     display:flex;
     flex-direction: column;
     
 }
+
+#apartamento-estrellas{
+    display: flex;
+    
+}
+#estrellas{
+    margin-left:10px;
+}
+#estrellas svg{
+    fill:rgb(255, 200, 0);
+    width: 15px;
+    height: 15px;
+
+}
+
+
+#estado-ubicacion{ /*Dependiendo de la valoración de la ubicación del alojamiento*/
+    color:green;
+}
+
+.contenido-valoracion-apartamento{
+    display: flex;
+    align-items: center;
+    font-size: small;
+
+}
+
+#valoracion-apartamento{
+    margin-right: 10px;
+    background-color: blue;
+    align-items: center;
+    color:white;
+    padding:5px 5px 2px 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px 10px 10px 0px;
+}
+
+
+.datos-apartamento-todo{
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 20px;
+    gap:10px;
+    font-size: 12px;
+    
+}
+
+.informacion-apartamento{
+    height: 20px;
+}
+.informacion-apartamento svg{
+    height: 100%;
+    width: auto;
+}
+
+#fechas-reserva{
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+
+}
+.container-fecha:first-child{
+    border-right: solid;
+    border-width: thin;
+    padding: 0px 16px 0px 0px;
+    border-color:rgba(0, 0, 0, 0.332);
+}
+
+.box-carrito a{
+    text-decoration: none;
+    
+}
+
+
+
+
+
+
+
 .contenido-carrito{
     grid-area: content;
     display:flex;
@@ -31,9 +124,9 @@ aside{
 
 .box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
     border:1px solid rgba(0, 0, 0, 0.208);
-    padding:5px;
-    border-radius: 10px;
-    margin-top: 4px;
+    padding:16px;
+    border-radius: 8px;
+    margin-top: 16px;
     align-items: center;
 }
 .box-carrito > div{
@@ -71,6 +164,46 @@ aside{
 .img-perfil{
     width: 40px;
     height: 40px;
+}
+
+
+/*Reglas para los botones de buscar y precio*/
+.botones-carrito-siguiente{
+    display:flex;
+    justify-content: flex-end;
+    margin:10px
+}
+
+.boton-bg-blanco{
+    margin-right: 10px;
+    padding: 5px;
+    
+
+}
+.boton-bg-blanco:hover{
+    margin-right: 10px;
+    background-color: rgba(7, 108, 251, 0.186);
+}
+
+a.boton-bg-blanco {
+    text-decoration: none;
+    color:#006ce4;
+    font-weight: bold;
+}
+
+.boton-bg-blanco svg{
+    fill:gray;
+    width: 20px;
+    height: 20px;
+}
+
+.boton-bg-azul{
+    background-color: var(--color-principal);
+    color:white;
+    border-radius:10px;
+    cursor: pointer;
+    width: 200px;
+
 }
 @media screen and (max-width:1240px){
     .reservas-carrito{

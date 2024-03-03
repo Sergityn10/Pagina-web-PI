@@ -55,8 +55,16 @@
                     <form method="get" action="">
                         <div class="item-busqueda">
                             <input type="text" 
-                             name="name"  placeholder="¿Adonde vas?" required>
+                             name="name"  placeholder="¿Adonde vas?" autocomplete="places" required>
                         </div>
+
+                        <datalist id="places" name="places">
+                            <option value="Madrid">Madrid</option>
+                            <option value="Barcelona"></option>
+                            <option value="Paris"></option>
+                            <option value="Londres"></option>
+
+                        </datalist>
                         <div class="item-busqueda">
                             <input type="date" name="check-in" id="" placeholder="check-in">
                             

@@ -18,7 +18,6 @@
 <body>
     <div class="container-header">
         <header>
-        
             <nav id="cabecera-nav">
                 <div class="title">
                     <a href="../index.html">
@@ -30,7 +29,7 @@
                 <div id="botones-header">
                     <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EU</button> <!-- Botón de selección de la moneda-->
                     <button class="seleccion" type="button" title="Selecciona tu idioma" aria-expanded="false">
-                        <img id="img-bandera" src="images/Banderas/Bandera_de_España.svg.png" alt="">
+                        <img id="img-bandera" src="../images/Banderas/Bandera_de_España.svg.png" alt="">
                     </button> <!-- botón de selección del idioma-->
                     <span class="seleccion">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
@@ -42,16 +41,9 @@
                 </div>
                 
             </nav>
-            <nav class="navegacion-flights">
-                    <a id="button-flights" href="flights/index.html">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.505 7.5l-15.266.022.672.415-1.1-2.2a.75.75 0 0 0-.638-.414l-2.293-.1C.82 5.228-.003 6.06.003 7.083c.002.243.051.484.146.709l2.072 4.68a2.947 2.947 0 0 0 2.701 1.778h4.043l-.676-1.075-2.484 5.168A1.831 1.831 0 0 0 7.449 21h2.099a1.85 1.85 0 0 0 1.419-.664l5.165-6.363-.582.277h4.956c1.82.09 3.399-1.341 3.49-3.198l.004-.134a3.426 3.426 0 0 0-3.44-3.419l-.074.001zm.02 1.5h.042a1.924 1.924 0 0 1 1.933 1.914l-.002.065a1.866 1.866 0 0 1-1.955 1.772l-4.993-.001a.75.75 0 0 0-.582.277l-5.16 6.355a.346.346 0 0 1-.26.118h-2.1a.336.336 0 0 1-.3-.49l2.493-5.185a.75.75 0 0 0-.676-1.075H4.924a1.45 1.45 0 0 1-1.328-.878l-2.07-4.676a.35.35 0 0 1 .326-.474l2.255.1-.638-.415 1.1 2.2a.75.75 0 0 0 .672.415L20.507 9zM16.323 7.76l-2.992-4.02A1.851 1.851 0 0 0 11.85 3H9.783a1.85 1.85 0 0 0-1.654 2.672l1.439 2.91a.75.75 0 0 0 1.344-.664L9.472 5.007a.351.351 0 0 1 .312-.507h2.066a.35.35 0 0 1 .279.14l2.99 4.017a.75.75 0 1 0 1.203-.896z"></path></svg></span>
-                        <span>Vuelos</span>
-                    </a>
-                
-                    
-            </nav>
+            
         </header>
-        </div>
+    </div>
 
     <main class="reservas-carrito">
         <div class="pasos-carrito">
@@ -59,46 +51,95 @@
         </div>
         <aside>
             <section class="box-carrito">
-                <p>Apartamento NUM ESTRELLAS</p>
+                <div id="apartamento-estrellas">
+                    <span>Apartamento </span>
+                    <div id="estrellas">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+
+                    </div>
+                </div>
+                
+                
                 <h4>NOMBRE APARTAMENTO</h4>
                 <p>DIRECCION APARTAMENTO/HOTEL JUNTO DIRECCIÓN POSTAL</p>
-                <small id="estado-ubicacion">Excelente ubicación- VALORACIÓN EN NUMERO HASTA 10 DE LA UBICACIÓN</small>
+                <small id="estado-ubicacion">Excelente ubicación-9.5</small>
 
 
                 <div class="contenido-valoracion-apartamento">
-                    <div id="valoracion-apartamento">
-                        <p>10</p>
-                    </div>
+                    
+                    <span id="valoracion-apartamento">10</span>
+                    
                     <p>ESTADO VALORACION - NUM COMENTARIOS</p>
                 </div>
 
-                <div class="informacion-apartamento-imagenes">
-                    <p>Wifi gratis</p>
-                    <p>Parking</p>
+                <div class="datos-apartamento-todo">
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    
                 </div>
             </section>
 
             <section class="box-carrito">
                 <h4>Los datos de tu reserva</h4>
                 <div id="fechas-reserva">
-                    <p>Fecha Entrada:</p><br>
-                    <p>DSEMANA, DIA MES AÑO</p>
-                    <P>RANGO HORA ENTRADA</P>
-                    <hr>
-                    <p>Fecha Salida:</p>
-                    <p>DSEMANA, DIA MES AÑO</p>
-                    <P>RANGO HORA SALIDA</P>
+                    
+                    <div class="container-fecha">
+                        <p>Entrada:</p>
+                        <p class="text-bold">DSEMANA, DIA MES AÑO</p>
+                        <P>RANGO HORA ENTRADA</P>
+                    </div>
+                    
+                    
+                    <div class="container-fecha">
+                        <p>Salida:</p>
+                        <p class="text-bold">DSEMANA, DIA MES AÑO</p>
+                        <P>RANGO HORA SALIDA</P>
+                    </div>
+                    
                 </div>
-                <p>Duracion de la estancia: X dias y X noches.</p>
-                <hr>
+                <p>Duracion de la estancia: <span class="text-bold">X dias y X noches.</span></p>
                 
-                <details>
-                    <summary>Has seleccionado <br> NUM HABITACIONES para NUMERO TIPO PERSONA</summary>
-                    <p>NUM HABITACIONES - TIPO APARTAMENTO</p>
-                    <p>NUMERO TIPO-PERSONAS</p>
-                </details>
+                <div>
+                    <details>
+                        <summary>Has seleccionado: <br><span class="text-bold">NUM HABITACIONES para NUMERO TIPO PERSONA</span> </summary>
+                        <p>NUM HABITACIONES - TIPO APARTAMENTO</p>
+                        <p>NUMERO TIPO-PERSONAS</p>
+                    </details>
+                </div>
                 
-                <a class="botno-seleccion" href="">Cambia tu selección</a>
+                
+                <a class="boton-bg-blanco box-carrito" id="boton-seleccion" href="">Cambia tu selección</a>
             </section>
 
             <section class="box-carrito">
@@ -211,24 +252,7 @@
                     </ul>
                 </div>
                 
-                <div class="box-carrito estudio-estandar">
-                    <div class="content-box-carrito">
-                        <div class="title-box-carrito">
-                            <h3>Estudio estandar</h3>
-                        </div>
-                        
-                        <div class="box-tipo-cancelacion">
-                            <p class="parrafo-cancelacion"><span class="sujeto-content tipo-cancelacion">Cancelación gratis</span> <span class="fecha-cancelacion">antes del 25 de febrero de 2024</span></p>
-                            <svg></svg><!-- Misma imagen que la de atención al cliente-->
-                        </div>
-
-                        <div class="content-num-personas">
-                            <p><span class="sujeto-content">Personas: </span> 2 adultos </p>
-                            <svg></svg><!-- Misma imagen que la de atención al cliente-->
-                        </div>
-                        
-                    </div>
-                </div>
+               
 
                     <section class="box-carrito box-seguro-viajes">
                         <h2>Añade el seguro de viaje</h2>
@@ -275,21 +299,9 @@
                         <small class="informacion-añadir-seguro">Al hacer click en "Añadir seguro", confirmas que INFORMACIÓN</small>
                     </section>
                     
-                    <section class="box-carrito">
-                        <h4>Peticiones especiales</h4>
-                        <p class="remark">Escribe tus peticiones en IDIOMAS <span>(opcional)</span></p>
-                        <textarea placeholder="Escribe aquí tus peticiones especiales"></textarea>
-                    </section>
+                   
 
-                    <section class="box-carrito">
-                        <h4>Tu hora de llegada</h4>
-                        <img src="" alt="imagen-checked-verde">
-                        <p>Puedes hacer el check-in entre las HORAINICIO y HORAFINAL</p>
-                        <p class="remark">Añade tu hora de llegada aproximada <span>(opcional)</span></p>
-                        <input type="time" name="hora-llegada" id="hora-llegada">
-                        <small>Hora de la zona horaria de CIUDAD/PAIS</small>
-
-                    </section>
+                    
                     
                     <section class="box-carrito">
                         <h2>Revisar normas de la casa</h2>
@@ -301,21 +313,26 @@
                         <p class="remark">Al continuar, estás aceptando las normas de la casa</p>
                     </section>
                 <div class="botones-carrito-siguiente">
-                    <img src="" alt="etiqueta-precio">
-                    <a href="">Igualamos el precio</a>
+                    
+                        
+                        <a class="box-carrito boton-bg-blanco" href="">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.311 2.56v6.257a3.75 3.75 0 0 0 1.098 2.651l11.56 11.562a2.25 2.25 0 0 0 3.182 0l6.88-6.88a2.25 2.25 0 0 0 0-3.181L11.468 1.408A3.75 3.75 0 0 0 8.818.31H2.56a2.25 2.25 0 0 0-2.25 2.25zm1.5 0a.75.75 0 0 1 .75-.75h6.257a2.25 2.25 0 0 1 1.59.659l11.562 11.56a.75.75 0 0 1 0 1.06l-6.88 6.88a.75.75 0 0 1-1.06 0L2.47 10.409a2.25 2.25 0 0 1-.659-1.59V2.56zm5.25 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0z"></path></svg></span>
+                            Igualamos el precio
+                        </a>
+                    
+                    
                 
-                    <button type="submit">Siguiente: últimos datos</button>
+                    <button class="boton-bg-azul" type="submit">Siguiente: últimos datos</button>
                 </div>
                 
-                <a href="">¿Cuáles son las condiciones de mi reserva?</a>
-
-                <small>
-                    INFORMACIÓN SOBRE EMRPESA DEL EDIFICIO QUE SE ESTÁ RESERVANDO Y CONDICIONES GENERALES.
-                </small>
+                
                 
             </form>
         </div>
 
     </main>
+    <footer>
+        
+    </footer>
 </body>
 </html>
