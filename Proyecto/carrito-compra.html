@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito Compra</title>
+    <link rel="icon" href="img/icono-booking.png" type="image/png">
+    <link rel="stylesheet" href="css/style-carrito.css">
+    
+</head>
+<body>
+    <div class="container-header">
+        <header>
+        
+            <nav id="cabecera-nav">
+                <div class="title">
+                    <a href="">
+                        <h1>Booking.com</h1>
+                    </a>
+                    
+                </div>
+                
+                <div id="botones-header">
+                    <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EUR</button> <!-- Botón de selección de la moneda-->
+                    <button class="seleccion" type="button" title="Selecciona tu idioma" aria-expanded="false">
+                        <img id="img-bandera" src="img/spain.png" alt="">
+                    </button> <!-- botón de selección del idioma-->
+                    <span class="seleccion">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
+                    </span> <!--Botón de atención al cliente-->
+                    <a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
+                    <a class="formulario" href="registro.html">Hazte tu cuenta</a>
+                    <a class="formulario" href="login.html">Inicia sesión</a>
+                    
+                </div>
+                
+            </nav>
+
+           
+            
+
+
+
+        </header>
+        
+        
+            
+
+            
+    </div>
+
+    <main class="reservas-carrito">
+        <div class="pasos-carrito">
+            
+        </div>
+        <aside>
+            <section class="box-carrito">
+                <div id="apartamento-estrellas">
+                    <span>Apartamento </span>
+                    <div id="estrellas">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+
+                    </div>
+                </div>
+                
+                
+                <h4>NOMBRE APARTAMENTO</h4>
+                <p>DIRECCION APARTAMENTO/HOTEL JUNTO DIRECCIÓN POSTAL</p>
+                <small id="estado-ubicacion">Excelente ubicación-9.5</small>
+
+
+                <div class="contenido-valoracion-apartamento">
+                    
+                    <span id="valoracion-apartamento">10</span>
+                    
+                    <p>ESTADO VALORACION - NUM COMENTARIOS</p>
+                </div>
+
+                <div class="datos-apartamento-todo">
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    <div class="informacion-apartamento">
+                        <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.25 18.75a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zm2.08-5.833a8.25 8.25 0 0 0-11.666 0 .75.75 0 0 0 1.06 1.06 6.75 6.75 0 0 1 9.546 0 .75.75 0 0 0 1.06-1.06zm3.185-3.182c-4.979-4.98-13.051-4.98-18.03 0a.75.75 0 1 0 1.06 1.06c4.394-4.393 11.516-4.393 15.91 0a.75.75 0 1 0 1.06-1.06zm2.746-3.603C17.136-.043 6.864-.043.24 6.132A.75.75 0 1 0 1.26 7.23c6.05-5.638 15.429-5.638 21.478 0a.75.75 0 0 0 1.022-1.098z"></path></svg>
+                            <span>Wifi gratis</span>
+                        </span>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <section class="box-carrito">
+                <h4>Los datos de tu reserva</h4>
+                <div id="fechas-reserva">
+                    
+                    <div class="container-fecha">
+                        <p>Entrada:</p>
+                        <p class="text-bold">DSEMANA, DIA MES AÑO</p>
+                        <P>RANGO HORA ENTRADA</P>
+                    </div>
+                    
+                    
+                    <div class="container-fecha">
+                        <p>Salida:</p>
+                        <p class="text-bold">DSEMANA, DIA MES AÑO</p>
+                        <P>RANGO HORA SALIDA</P>
+                    </div>
+                    
+                </div>
+                <p>Duracion de la estancia: <span class="text-bold">X dias y X noches.</span></p>
+                
+                <div>
+                    <details>
+                        <summary>Has seleccionado: <br><span class="text-bold">NUM HABITACIONES para NUMERO TIPO PERSONA</span> </summary>
+                        <p>NUM HABITACIONES - TIPO APARTAMENTO</p>
+                        <p>NUMERO TIPO-PERSONAS</p>
+                    </details>
+                </div>
+                
+                
+                <a class="boton-bg-blanco box-carrito" id="boton-seleccion" href="">Cambia tu selección</a>
+            </section>
+
+            <section class="box-carrito">
+                <h4>Desglose del precio</h4>
+                <!--
+                    <p>Precio original  <span class="precio">MONEDA PRECIO</span></p>
+                    <p>DESCUENTO  <span class="precio">-MONEDA DESCUENTO</span></p> -->
+
+                <div id="inf-precio-a-pagar">
+                    <h3>TOTAL</h3>
+                    <div id="totalAPagar">
+                        <span class="precio text-bold"><span class="simbolo-moneda">MONEDA</span>  <span class="digito-precio">PRECIO</span></span>
+                        <!-- <strong class="precio-con-descuento">MONEDA PRECIO</strong>-->
+                        <p class="text-small">Incluye impuesto y cargos (en letra pequeña)</p>
+                    </div>
+
+                </div>
+                
+                <section id="inf-sobre-precio">
+                    <h4>Información sobre el precio</h4>
+                    
+                    <details class="detalle-info">
+                        <summary>
+                        <span class="iconos">
+                            <svg class="bk-icon -streamline-accounting_bills" height="20" width="20" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false"><path d="M4.125 8.25a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm12.75 5.25a.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5 1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5zm2.625-3V15a.75.75 0 0 1-.75.75H2.25A.75.75 0 0 1 1.5 15V6a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 .75.75v4.5zm1.5 0V6a2.25 2.25 0 0 0-2.25-2.25H2.25A2.25 2.25 0 0 0 0 6v9a2.25 2.25 0 0 0 2.25 2.25h16.5A2.25 2.25 0 0 0 21 15v-4.5zm-8.25 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0zm1.5 0a3.75 3.75 0 1 0-7.5 0 3.75 3.75 0 0 0 7.5 0zM22.5 9v9a.75.75 0 0 1-.75.75H5.25a.75.75 0 0 0 0 1.5h16.5A2.25 2.25 0 0 0 24 18V9a.75.75 0 0 0-1.5 0z"></path></svg>
+                        </span>
+                            Incluye <span class="precio"> <span class="simbolo-moneda">€</span><span class="digito-precio">100</span></span> de impuestos y cargos
+                        </summary>
+                        <p class="impuestos-porcentaje">10% <span class="precio"> <span class="simbolo-moneda">€</span><span class="digito-precio">100</span></span></p>
+                        
+                    </details>
+                    
+                </section>
+
+            </section>
+            <section class="box-carrito">
+                    <h4>¿Cuánto cuesta la cancelación?</h4>
+                    <p class="parrafo-verde">CANCELACIÓN GRATIS antes del DIA MES</p>
+                    <p class="parrafo-gris">Después de esa fecha, se aplicará un cargo de:<span class="precio">MONEDA CARGO </span></p>
+            </section>
+            
+        </aside>
+
+        
+        <div class="contenido-carrito">
+            <div class="box-carrito box-usuario"> <!-- Div dedicado a mostrar el nombre del usuario y su correo y foto de perfil-->
+                <div class="foto-perfil-usuario">
+                    <img class="img-perfil" src="img/foto-perfil-usuario.svg" alt="foto-perfil"> <!--Foto usuario-->
+                </div>
+                <div>
+                    <h3>Has iniciado sesión</h3>
+                    <p class="nombre-usuario">pepito.gutierrez@gmail.com</p>
+                </div>
+                
+            </div>
+
+            <form action="" method="post">
+                <section class="box-carrito datos-usuario-formulario">
+                    <h3>Introduce tus datos</h3>
+                
+                    <div class="datos-personales">     
+                        <label for="Nombre">Nombre <span class="asterisco-obligatorio">*</span></label>
+                        <input class="input-datos-personales" type="text" id="Nombre" name="Nombre" required> 
+                    
+                    
+                        <label for="Apellidos">Apellidos <span class="asterisco-obligatorio">*</span></label>
+                        <input class="input-datos-personales" type="text" id="Apellidos" name="Apellidos">
+                                
+                                
+                        
+                        <label for="e-mail">E-mail <span class="asterisco-obligatorio">*</span></label>
+                        <input class="input-datos-personales" type="email" id="e-mail" name="Correo">
+
+                        <label for="pais">País <span class="asterisco-obligatorio">*</span></label> <!-- Se establecerá mediante la base de datos todos los paises disponibles-->
+                        <select class="input-datos-personales" name="pais" id="pais">
+                            <option value="España">España</option>
+                            <option value="Estados Unidos">Estados Unidos</option>
+                            <option value="Francia">Francia</option>
+                        </select>
+
+                        <label for="telefono">Teléfono móvil <span class="asterisco-obligatorio">*</span></label>
+                        <input class="input-datos-personales" type="tel" name="telefono" id="telefono">
+
+                        
+                        <p>
+                            <input type="checkbox" name="confirmacion-dig" id="confirmacion-dig">
+                            <label for="confirmacion-dig">Sí, quiero recibir la confirmación digital gratis (recomendado)</label> <br>
+                            <small>Te enviaremos un enlace por SMS para descargar la app</small>
+                        </p>
+                            
+                        
+                    </div>
+
+                    <section class="para-quien-reserva">
+                        <h4>Para quien es esta reserva?</h4>
+                        <input type="radio" name="tipoUsuario" value="Propietario"> Esta rerserva es para mí <br>
+                        <input type="radio" name="tipoUsuario" value="Arrendatario">La reserva es para otra persona
+                    </section>
+
+                    <section class="viajar-por-trabajo">
+                        <h4>¿Viajas por trabajo?</h4>
+                        <input type="radio" name="vpt" id="si" value="Si">
+                        <label for="si">Sí</label>
+                        <input type="radio" name="vpt" id="no" value="No">
+                        <label for="no">No</label><br>
+
+                    </section>
+                
+                </section>
+
+                <div class="box-carrito informacion-util">
+                    <h2>Información útil</h2>
+                    <ul class="lista-informacion-util"> <!--Se debe cambiar el tipo de estilo de la lista como viene en la página oficial-->
+                        <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta dolorem ullam porro voluptatum, voluptate amet eveniet aliquam corrupti illo unde eos sed, aut facilis modi ducimus. Praesentium repellat quis tenetur!</li>
+                        <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati odit laudantium corporis nam vitae aperiam necessitatibus consequuntur excepturi quos adipisci, culpa et hic repellendus esse quis tempora. Illum, facere consequatur?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eos, fugit porro harum, excepturi illo ratione impedit fuga accusamus id earum repudiandae modi animi cumque rerum iste consequuntur necessitatibus officia?</li>
+                    </ul>
+                </div>
+                
+               
+
+                    <section class="box-carrito box-seguro-viajes">
+                        <h2>Añade el seguro de viaje</h2>
+                        <p>Protege todo tu viaje, desde el primer día hasta el último.</p>
+                        <div class="box-carrito contenido-seguro-viajes">
+                            <input type="checkbox" name="añadir-seguro" id="añadir-seguro">
+                            <label for="añadir-seguro">
+                                <strong>Añadir seguro</strong> <!-- LO QUE ESTA EN MAYUSCULA SE REFIERE A QUE SE DEBE IMPRIMIR ESE TIPO DE ATRIBUTO-->
+                                <p>PRECIO-Precio del seguro (impuesto incluido sobre el seguro)</p>
+                                <img src="" alt=""> <!-- Imagen de un escudo -->
+                            </label>
+
+                            <hr>
+                            <img src="" alt="imagen-cobertura">
+                            <p>PRECIO de cobertura por caso de cancelación</p>
+                            <img src="" alt="imagen-cobertura-articulo">
+                            <p>PRECIO de cobertura por artículo robado, perdido o dañado (teléfonos, objetos valiosos, material deportivo, etc.)</p>
+                            <img src="" alt="cubrir-alojamiento">
+                            <p>Cubre el alojamiento, el transporte y las excursiones, tanto si los has reservado a través de Booking.com como si no</p>
+                            <img src="" alt="perfil-persona">
+                            <p>Cubre a NUMERO personas</p>
+                            <hr>
+                            <div class="problemas-medicos-información">
+                                <p>INFORMACIÓN SOBRE A QUE TIPO DE PERSONAS CUBRE EL SEGURO</p>
+                            </div>
+
+                            
+
+                        </div>
+                        <section class="box-carrito">
+                            <h4>Periodo del seguro</h4>
+                            <p>FECHAINICIO-FECHAFINAL</p>
+                        </section>
+
+                        <section class="box-carrito">
+                            <h4>País de residencia de todos los asegurados</h4>
+                            <p>PAIS RESIDENCIA</p>
+                        </section>
+
+                        <a href="condiciones-generales.html">Condiciones generales</a>
+                        <a href="producto-seguro.html">Documento de Información sobre el Producto de Seguro</a>
+
+                        <hr>
+                        <small class="informacion-añadir-seguro">Al hacer click en "Añadir seguro", confirmas que INFORMACIÓN</small>
+                    </section>
+                    
+                   
+
+                    
+                    
+                    <section class="box-carrito">
+                        <h2>Revisar normas de la casa</h2>
+                        <ul class="lista-normas">
+                            <li>No se puede fumar</li>
+                            <li>No se pueden hacer fiestas/eventos</li>
+                            <li>MÁS INFORMACIÓN</li>
+                        </ul>
+                        <p class="remark">Al continuar, estás aceptando las normas de la casa</p>
+                    </section>
+                <div class="botones-carrito-siguiente">
+                    
+                        
+                        <a class="box-carrito boton-bg-blanco" href="">
+                            <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M.311 2.56v6.257a3.75 3.75 0 0 0 1.098 2.651l11.56 11.562a2.25 2.25 0 0 0 3.182 0l6.88-6.88a2.25 2.25 0 0 0 0-3.181L11.468 1.408A3.75 3.75 0 0 0 8.818.31H2.56a2.25 2.25 0 0 0-2.25 2.25zm1.5 0a.75.75 0 0 1 .75-.75h6.257a2.25 2.25 0 0 1 1.59.659l11.562 11.56a.75.75 0 0 1 0 1.06l-6.88 6.88a.75.75 0 0 1-1.06 0L2.47 10.409a2.25 2.25 0 0 1-.659-1.59V2.56zm5.25 3.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm1.5 0a2.25 2.25 0 1 0-4.5 0 2.25 2.25 0 0 0 4.5 0z"></path></svg></span>
+                            Igualamos el precio
+                        </a>
+                    
+                    
+                
+                    <button class="boton-bg-azul" type="submit">Siguiente: últimos datos</button>
+                </div>
+                
+                
+                
+            </form>
+        </div>
+
+    </main>
+    <footer>
+        
+    </footer>
+</body>
+</html>
