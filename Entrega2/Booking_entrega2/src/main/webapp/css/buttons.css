@@ -1,0 +1,45 @@
+
+.boton-bg-transparente{
+    margin-right: 10px;
+    padding: 5px;
+    text-decoration: none;
+    color:var(--color-primary-button-bg-letter);
+    font-weight: bold;
+    
+
+}
+.boton-bg-transparente:hover{
+    background-color: #076cfb2f;
+}
+
+.boton-bg-transparente svg{
+    fill:gray;
+    width: 20px;
+    height: 20px;
+}
+
+.boton-bg-azul{
+    background-color: var(--color-primary-button-bg-letters);
+    color:white;
+    border-radius:10px;
+    cursor: pointer;
+    width: 200px;
+
+}
+.boton-bg-azul:hover{
+    filter: brightness(90%);
+}
+
+.button-valoracion{
+    display: flex;
+    background-color: var(--color-principal);
+    border-radius: calc(var(--bui_spacing_8x)/5.5) calc(var(--bui_spacing_8x)/5.5) calc(var(--bui_spacing_8x)/5.5) 0;
+    color:white;
+    height: var(--bui_spacing_8x);
+    width: var(--bui_spacing_8x);
+    min-width: var(--bui_spacing_8x);
+    font-weight: bold;
+    font-size:16px;
+    justify-content: center;
+    align-items: center;
+}
