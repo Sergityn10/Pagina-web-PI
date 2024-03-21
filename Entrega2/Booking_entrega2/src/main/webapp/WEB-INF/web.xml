@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
   <display-name>Booking_entrega2</display-name>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/index.jsp</welcome-file>
   </welcome-file-list>
   <security-constraint>
     <web-resource-collection>
@@ -13,11 +13,6 @@
       <transport-guarantee>CONFIDENTIAL</transport-guarantee>
     </user-data-constraint>
   </security-constraint>
-  <servlet>
-    <description></description>
-    <display-name>SearchServlet</display-name>
-    <servlet-name>SearchServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.SearchServlet</servlet-class>
-  </servlet>
+  
   
 </web-app>
