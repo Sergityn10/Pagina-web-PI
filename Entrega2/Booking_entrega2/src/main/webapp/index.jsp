@@ -35,7 +35,7 @@
                     </span> <!--BotÃ³n de atenciÃ³n al cliente-->
                     <a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
                     <a class="formulario" href="registro.html">Hazte tu cuenta</a>
-                    <a class="formulario" href="SignInServlet.do">Iniciar sesión</a>
+                    <a class="formulario" href="login.html">Iniciar sesión</a>
                     
                 </div>
                 
@@ -104,26 +104,25 @@
             <div class="container-estancias">
                 
             <div class="filtros">
-                <form method="get" action="">
+                <form method="get" action="/orders/SearchServlet.do">
                     <div class="item-busqueda">
                         <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M2.75 12h18.5c.69 0 1.25.56 1.25 1.25V18l.75-.75H.75l.75.75v-4.75c0-.69.56-1.25 1.25-1.25zm0-1.5A2.75 2.75 0 0 0 0 13.25V18c0 .414.336.75.75.75h22.5A.75.75 0 0 0 24 18v-4.75a2.75 2.75 0 0 0-2.75-2.75H2.75zM0 18v3a.75.75 0 0 0 1.5 0v-3A.75.75 0 0 0 0 18zm22.5 0v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0zm-.75-6.75V4.5a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 2.25 4.5v6.75a.75.75 0 0 0 1.5 0V4.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 0 1.5 0zm-13.25-3h7a.25.25 0 0 1 .25.25v2.75l.75-.75h-9l.75.75V8.5a.25.25 0 0 1 .25-.25zm0-1.5A1.75 1.75 0 0 0 6.75 8.5v2.75c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75V8.5a1.75 1.75 0 0 0-1.75-1.75h-7z"></path>
                             </svg></span>
-                        <input type="text" name="name"  placeholder="Â¿AdÃ³nde vas?" required>
+                        <input type="text" name="name"  placeholder="Adónde vas?" required>
                     </div>
                     <div class="item-busqueda">
                         <input type="date" name="check-in" id="" placeholder="check-in">
-                    </div>
-                    <div class="item-busqueda">
+                   
                         <input type="date" name="check-out" id="" placeholder="Check-out">
                     </div>
                     <div class="item-busqueda">
                         <span id="icono-persona"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M16.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0zM18 6A6 6 0 1 0 6 6a6 6 0 0 0 12 0zM3 23.25a9 9 0 1 1 18 0 .75.75 0 0 0 1.5 0c0-5.799-4.701-10.5-10.5-10.5S1.5 17.451 1.5 23.25a.75.75 0 0 0 1.5 0z"></path>
                             </svg></span>
-                        <input type="number" name="adultos" id="" placeholder="Adultos" min="1">
-                        <input type="number" name="menores" id="" placeholder="Menores" >
-                        <input type="number" name="habitaciones" id="" placeholder="Habitaciones">
+                        <input type="number" name="adultos" id="" placeholder="Adultos" min="0">
+                        <input type="number" name="menores" id="" placeholder="Menores" min="0">
+                        <input type="number" name="habitaciones" id="" placeholder="Habitaciones" min="1">
                     </div>
                     <div class="item-boton-buscar">
                         <button class="boton-buscar" type="submit">Buscar</button>
@@ -144,7 +143,7 @@
         <section class="search-alojamientos">
             <h1>BUSCAR POR TIPO DE ALOJAMIENTOS</h1>
             <div class="carrusel-alojamientos">
-                <button class="boton-carrusel" id="anterior" onclick="cambiarFoto(-1)">â®</button>
+                <button class="boton-carrusel" id="anterior" onclick="cambiarFoto(-1)">❮</button>
                 <div class="container-alojamientos">
                     <div class="card-alojamiento">
                         <a href="">
@@ -211,7 +210,7 @@
                     </div>
                           
                 </div>
-                <button class="boton-carrusel" id="siguiente" onclick="cambiarFoto(1)">â¯</button>
+                <button class="boton-carrusel" id="siguiente" onclick="cambiarFoto(1)">❯</button>
                 
 
             </div>

@@ -4,11 +4,20 @@
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>Booking</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <user-data-constraint>
+      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
   <servlet>
     <description></description>
-    <display-name>SignInServlet</display-name>
-    <servlet-name>SignInServlet</servlet-name>
-    <servlet-class>es.unex.giiis.pi.controller.SignInServlet</servlet-class>
+    <display-name>SearchServlet</display-name>
+    <servlet-name>SearchServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.SearchServlet</servlet-class>
   </servlet>
-
+  
 </web-app>
