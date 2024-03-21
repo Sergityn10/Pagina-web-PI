@@ -1,0 +1,48 @@
+@import "header.css";
+@import "buscador.css";
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+header{
+    padding-bottom: 10px;
+    margin:0;
+}
+.container-reservas{
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 20px;
+    
+}
+#reservas{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    
+    
+}
+h2{
+    width: 50%;
+}
+.box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
+    border:1px solid rgba(0, 0, 0, 0.208);
+    padding:5px;
+    border-radius: 10px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.menu{
+    height: 20px;
+    width: 20px;
+}
+.font-size-small{
+    font-size: small;
+}
+
