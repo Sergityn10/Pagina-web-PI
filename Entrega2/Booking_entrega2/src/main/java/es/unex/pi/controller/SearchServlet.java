@@ -38,7 +38,7 @@ public class SearchServlet extends HttpServlet {
 		PropertyDAO accomDao = new JDBCPropertyDAOImpl();
 		accomDao.setConnection(conn);
 		
-		List<Property> searchList = accomDao.getAllBySearchName(request.getParameter("lugar-alojamiento"));
+		List<Property> searchList = accomDao.getAllByCityName(request.getParameter("lugar-alojamiento"));
 		
 		if(searchList == null || searchList.isEmpty()) {
 			request.setAttribute("messages", "No existe ningún alojamiento con los requisitos mencionados");
