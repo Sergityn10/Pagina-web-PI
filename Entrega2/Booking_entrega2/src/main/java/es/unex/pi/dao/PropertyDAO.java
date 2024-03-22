@@ -86,4 +86,6 @@ public interface PropertyDAO {
 	 * @return True if the operation was made and False if the operation failed.
 	 */
 	public boolean delete(long id);
+	
+	public List<Property> getAllByCityName(String search);
 }
