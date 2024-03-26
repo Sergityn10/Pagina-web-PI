@@ -298,14 +298,15 @@
             <h2>VALORACIONES REALIZADAS POR LOS USUARIOS</h2>
             
             <div id="container-valoracion">
-	            <c:forEach var="review" items="${reviewList}" >
+	            <c:forEach var="review" items="${reviewUser}" >
 		            <article class="valoracion">
 		                    <div class="user-grado">
-		                        <h4>NOMBRE USUARIO</h4>
-		                        <p>${review.grade}</p>
+		                        <h4>${review.value.name}</h4>
+		                        
+		                        <p>${review.key.grade}</p>
 		                    </div>
 		                    
-		                    <q>${review.review}</q>
+		                    <q>${review.key.review}</q>
 		                </article>
 	            </c:forEach>
 	                
