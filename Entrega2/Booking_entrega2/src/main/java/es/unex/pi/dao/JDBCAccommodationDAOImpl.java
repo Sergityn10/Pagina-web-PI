@@ -79,6 +79,27 @@ public class JDBCAccommodationDAOImpl implements AccommodationDAO {
 		return accommodations;
 	}
 	
+	public List<Accommodation> getAllBySearchIdp(long idp){
+		ArrayList<Accommodation> accommodations = new ArrayList<Accommodation>();
+		if (conn == null) return null;
+		
+		Accommodation accommodation = null;		
+		
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM accommodations WHERE idp ="+idp);			 
+			while (rs.next()) { 
+			accommodation  = new Accommodation();	 
+			fromRsToAccommodationObject(rs,accommodation);
+			accommodations.add(accommodation);
+			logger.info("fetching Accommodation by idp: "+idp+" -> "+accommodation.getId()+" "+accommodation.getName()+" "+accommodation.getDescription());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return accommodations;
+	}
+	
 	public List<Accommodation> getAllBySearchName(String search) {
 		search = search.toUpperCase();
 		if (conn == null)

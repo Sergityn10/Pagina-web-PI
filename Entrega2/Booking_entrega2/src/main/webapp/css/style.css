@@ -61,7 +61,7 @@ main section:first-child {
   
 }
 
-.card-alojamiento{
+.container-alojamientos > .card-alojamiento{
      /*Se divide el ancho del contenedor entre las imagenes para que estén en una cuadrícula de 4 columnas */
   
    align-items: stretch;
@@ -70,6 +70,7 @@ main section:first-child {
     width: calc(100%/4);
     box-sizing: border-box;
     margin-bottom: 20px;
+    scroll-snap-align:start;
 
     
 }

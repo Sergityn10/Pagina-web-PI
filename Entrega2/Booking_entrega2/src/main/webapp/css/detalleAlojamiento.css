@@ -1,5 +1,5 @@
 @import "header.css";
-
+@import "buttons.css";
 body {
     margin: 0;
     margin-bottom: 50px;
@@ -346,4 +346,39 @@ h4 {
 
 .boton-hab :hover {
     cursor: pointer;
+}
+
+#container-valoracion{
+    display: flex;
+        overflow: auto;
+
+        scroll-snap-type: x mandatory;  /* Para que el contenedor se ajuste al tamaño del contenido */
+       
+        scroll-padding: 24px;
+}
+
+.valoracion{
+    box-sizing: border-box;
+    border:solid;
+
+    flex:0 0 calc(100%/3 - 10px);
+    height: 100px;
+    overflow: auto;
+	
+    padding: 5px;
+    margin-right: 10px;
+    scroll-snap-align: start;
+    
+}
+.valoracion:last-child{
+    margin-right: 0;
+}
+.review{
+    border-top: solid;
+}
+
+#container-create-review form> *{
+	display:block;
+	margin-top:10px;
+	align-self: center;
 }
