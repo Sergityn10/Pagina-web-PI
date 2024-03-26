@@ -102,7 +102,8 @@
         <div class="buscador">
                 
                     <div class="item-busqueda">
-                
+                			<span>
+                			<svg>
                             <path d="M2.75 12h18.5c.69 0 1.25.56 1.25 1.25V18l.75-.75H.75l.75.75v-4.75c0-.69.56-1.25 1.25-1.25zm0-1.5A2.75 2.75 0 0 0 0 13.25V18c0 .414.336.75.75.75h22.5A.75.75 0 0 0 24 18v-4.75a2.75 2.75 0 0 0-2.75-2.75H2.75zM0 18v3a.75.75 0 0 0 1.5 0v-3A.75.75 0 0 0 0 18zm22.5 0v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0zm-.75-6.75V4.5a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 2.25 4.5v6.75a.75.75 0 0 0 1.5 0V4.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 0 1.5 0zm-13.25-3h7a.25.25 0 0 1 .25.25v2.75l.75-.75h-9l.75.75V8.5a.25.25 0 0 1 .25-.25zm0-1.5A1.75 1.75 0 0 0 6.75 8.5v2.75c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75V8.5a1.75 1.75 0 0 0-1.75-1.75h-7z"></path>
                             </svg></span>
                         <input type="text" name="lugar-alojamiento"  placeholder="¿Adónde vas?" value="${ciudad}" required>
@@ -135,15 +136,15 @@
                 
             </div>
             <section class="filtros">
-           		<input type="radio" id="todos" value="todos" name="disponibilidad">
+           		<input type="radio" id="todos" value="todos" name="disponibilidad" <c:if test="${disp == 'todos'}">checked</c:if> required>
                 <label for="disp_todos">Todos</label>
            
             
-                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" >
+                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" <c:if test="${disp == 'con_disp'}">checked</c:if> required>
                 <label for="hoteles">Disponibles</label>
             
            
-                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" >
+                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" <c:if test="${disp == 'no_disp'}">checked</c:if> required>
                 <label for="no_disp">Sin disponibilidad</label>
              </section>
             
@@ -158,7 +159,7 @@
         
 
             
-        </div>
+       
     </header>
 
     <div id="main">
@@ -169,30 +170,13 @@
             </div>
 
             <div id="categorias-lateral">
-            <form action="?">
+            
                 <div id="categorias-lateral-encabezado">
                     <h2>Filtrar por:</h2>
                     <button type="submit" id="reiniciar" class="boton-reiniciar">Filtrar</button>
                 </div>
                 
-                <ul class="checkbox-list">
-                    <h3>Disponibiidad</h3>
-                   
-	                   <li class="checkbox-item">
-	                        <input type="radio" id="todos" value="todos" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
-	                        <label for="disp_todos">Todos</label>
-	                    </li>
-	                    <li class="checkbox-item">
-	                        <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
-	                        <label for="hoteles">Disponibles</label>
-	                    </li>
-	                    <li class="checkbox-item">
-	                        <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
-	                        <label for="no_disp">Sin disponibilidad</label>
-	                    </li>
-                   </form>
-                    
-                </ul>
+                
                 <ul class="checkbox-list">
                     <h3>Filtros populares</h3>
                     <li class="checkbox-item">
@@ -305,6 +289,9 @@
             <c:forEach var="alojamiento" items="${listaAlojamientos}">
             	<li class="elem-loc">
                         <img src="img/hotelCarlos.webp" alt="${alojamiento.key.name }">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M225.8 468.2l-2.5-2.3L48.1 303.2C17.4 274.7 0 234.7 0 192.8v-3.3c0-70.4 50-130.8 119.2-144C158.6 37.9 198.9 47 231 69.6c9 6.4 17.4 13.8 25 22.3c4.2-4.8 8.7-9.2 13.5-13.3c3.7-3.2 7.5-6.2 11.5-9c0 0 0 0 0 0C313.1 47 353.4 37.9 392.8 45.4C462 58.6 512 119.1 512 189.5v3.3c0 41.9-17.4 81.9-48.1 110.4L288.7 465.9l-2.5 2.3c-8.2 7.6-19 11.9-30.2 11.9s-22-4.2-30.2-11.9zM239.1 145c-.4-.3-.7-.7-1-1.1l-17.8-20c0 0-.1-.1-.1-.1c0 0 0 0 0 0c-23.1-25.9-58-37.7-92-31.2C81.6 101.5 48 142.1 48 189.5v3.3c0 28.5 11.9 55.8 32.8 75.2L256 430.7 431.2 268c20.9-19.4 32.8-46.7 32.8-75.2v-3.3c0-47.3-33.6-88-80.1-96.9c-34-6.5-69 5.4-92 31.2c0 0 0 0-.1 .1s0 0-.1 .1l-17.8 20c-.3 .4-.7 .7-1 1.1c-4.5 4.5-10.6 7-16.9 7s-12.4-2.5-16.9-7z"/></svg>
+                           </a>
                         <div id="info-loc">
                             <div id="titulo-localizacion">
                                 <a href="chooseAlojamientoServlet.do?id=${alojamiento.key.id }"><h2>${alojamiento.key.name}</h2></a>

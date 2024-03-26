@@ -50,7 +50,7 @@ public class SearchServlet extends HttpServlet {
 		
 		List<Property> searchList = propDao.getAllByCityName(request.getParameter("lugar-alojamiento"));
 		
-		String disponibilidad = request.getParameter("disp");
+		String disponibilidad = request.getParameter("disponibilidad");
 		
 		logger.info("Valor del parametro disponiblidad: "+ disponibilidad);
 		
@@ -68,16 +68,37 @@ public class SearchServlet extends HttpServlet {
 		
 			HashMap<Property,List<Accommodation>> propAccomList = new HashMap<Property, List<Accommodation>>();
 			
-			
-			for(Property itProperty : searchList) {
-				List<Accommodation> listAccom = accomDao.getAllBySearchIdp(itProperty.getId());
-				propAccomList.put(itProperty, listAccom);
+			if(disponibilidad.equals("todos")) {
+				logger.info("Entra dentro del if");
+				for(Property itProperty : searchList) {
+					
+					List<Accommodation> listAccom = accomDao.getAllBySearchIdp(itProperty.getId());
+					propAccomList.put(itProperty, listAccom);
+				}
 			}
-			
+			else {
+				if(disponibilidad.equals("con_disp")) {
+					for(Property itProperty : searchList) {
+						if(itProperty.getAvailable()==1) {
+							List<Accommodation> listAccom = accomDao.getAllBySearchIdp(itProperty.getId());
+							propAccomList.put(itProperty, listAccom);
+						}
+					}
+				}
+				else {
+					for(Property itProperty : searchList) {
+						if(itProperty.getAvailable()==0) {
+							List<Accommodation> listAccom = accomDao.getAllBySearchIdp(itProperty.getId());
+							propAccomList.put(itProperty, listAccom);
+						}
+					}
+				}
+			}
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/listaAlojamientos.jsp");
 			
 			request.setAttribute("listaAlojamientos", propAccomList);
 			request.setAttribute("ciudad", request.getParameter("lugar-alojamiento"));
+			request.setAttribute("disp", disponibilidad);
 			view.forward(request, response);
 		}
 	}
