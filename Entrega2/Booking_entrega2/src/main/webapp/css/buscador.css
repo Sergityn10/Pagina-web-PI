@@ -23,7 +23,7 @@ form{
     
 }
 
-.filtros{
+.buscador{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ form{
     background-color: #ffb700;
 }
 
-.filtros svg {
+.buscador svg {
     fill:grey;
     width: 24px;
     height: 24px;
@@ -50,7 +50,7 @@ form{
     margin-left: 10px;
 }
 
-.filtros ::placeholder{
+.buscador ::placeholder{
     color: #1a1a1a;
 }
 
@@ -79,6 +79,10 @@ form{
    flex:3;
 }
 
+form .item-busqueda:last-child{
+   display:block;
+}
+
 .item-boton-buscar{
     display: flex;
     flex:1;    
@@ -99,6 +103,24 @@ button.boton-buscar:hover {
     font-size: 20px;
     font-weight: 700;
 }
+section.filtros{
+	position:absolute;
+	top:80px;
+	margin-top:10px;
+	margin-bottom: 10px;
+	display:flex;
+	gap:10px;
+	
+}
+.filtros > *{
+	align-self:center;
+}
+
+
+
+
+
+
 
 
 

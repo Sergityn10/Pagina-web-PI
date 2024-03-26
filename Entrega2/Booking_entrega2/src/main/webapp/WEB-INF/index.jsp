@@ -104,7 +104,7 @@
         
             <div class="container-estancias">
                 
-	            <div class="filtros">
+	            <div class="buscador">
 	                <form method="get" action="SearchServlet.do">
 	                    <div class="item-busqueda">
 	                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

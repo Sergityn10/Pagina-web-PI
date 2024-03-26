@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 
+<%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,13 +97,12 @@
             </nav>
             
         
-        
+        <form method="get" action="SearchServlet.do">
         <div class="container-estancias">
-
-            <div class="filtros">
-                <form method="get" action="SearchServlet.do">
+        <div class="buscador">
+                
                     <div class="item-busqueda">
-                        <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                
                             <path d="M2.75 12h18.5c.69 0 1.25.56 1.25 1.25V18l.75-.75H.75l.75.75v-4.75c0-.69.56-1.25 1.25-1.25zm0-1.5A2.75 2.75 0 0 0 0 13.25V18c0 .414.336.75.75.75h22.5A.75.75 0 0 0 24 18v-4.75a2.75 2.75 0 0 0-2.75-2.75H2.75zM0 18v3a.75.75 0 0 0 1.5 0v-3A.75.75 0 0 0 0 18zm22.5 0v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0zm-.75-6.75V4.5a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 2.25 4.5v6.75a.75.75 0 0 0 1.5 0V4.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 0 1.5 0zm-13.25-3h7a.25.25 0 0 1 .25.25v2.75l.75-.75h-9l.75.75V8.5a.25.25 0 0 1 .25-.25zm0-1.5A1.75 1.75 0 0 0 6.75 8.5v2.75c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75V8.5a1.75 1.75 0 0 0-1.75-1.75h-7z"></path>
                             </svg></span>
                         <input type="text" name="lugar-alojamiento"  placeholder="¿Adónde vas?" value="${ciudad}" required>
@@ -124,11 +123,37 @@
                     <div class="item-boton-buscar">
                         <button class="boton-buscar" type="submit">Buscar</button>
                     </div>
-                </form>
+                    
+                    
+                    
+                    
+	                        
+	                    
+               
                 
     
                 
             </div>
+            <section class="filtros">
+           		<input type="radio" id="todos" value="todos" name="disponibilidad">
+                <label for="disp_todos">Todos</label>
+           
+            
+                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" >
+                <label for="hoteles">Disponibles</label>
+            
+           
+                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" >
+                <label for="no_disp">Sin disponibilidad</label>
+             </section>
+            
+        </div>
+
+            
+           	
+            
+             </form>
+             
         </div>
         
 
@@ -139,16 +164,35 @@
     <div id="main">
         <div id="main-izquierda">
             <div id="ubicacion">
-                <p>Cáceres, Extremadura, España <a href=""><strong>cambiar dirección</strong></a>
+                <p>${ciudad }<a href=""><strong>cambiar dirección</strong></a>
                 </p>
             </div>
 
             <div id="categorias-lateral">
+            <form action="?">
                 <div id="categorias-lateral-encabezado">
                     <h2>Filtrar por:</h2>
-                    <button id="reiniciar" class="boton-reiniciar">Reiniciar</button>
+                    <button type="submit" id="reiniciar" class="boton-reiniciar">Filtrar</button>
                 </div>
                 
+                <ul class="checkbox-list">
+                    <h3>Disponibiidad</h3>
+                   
+	                   <li class="checkbox-item">
+	                        <input type="radio" id="todos" value="todos" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
+	                        <label for="disp_todos">Todos</label>
+	                    </li>
+	                    <li class="checkbox-item">
+	                        <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
+	                        <label for="hoteles">Disponibles</label>
+	                    </li>
+	                    <li class="checkbox-item">
+	                        <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" onclick="chooseAlojamientoServlet.do?disp=disponibilidad.value">
+	                        <label for="no_disp">Sin disponibilidad</label>
+	                    </li>
+                   </form>
+                    
+                </ul>
                 <ul class="checkbox-list">
                     <h3>Filtros populares</h3>
                     <li class="checkbox-item">
@@ -257,14 +301,17 @@
         <div id="main-derecha">
         
             <ul id="lista-localizaciones">
-                <li class="elem-loc">
-                        <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
+            
+            <c:forEach var="alojamiento" items="${listaAlojamientos}">
+            	<li class="elem-loc">
+                        <img src="img/hotelCarlos.webp" alt="${alojamiento.key.name }">
                         <div id="info-loc">
                             <div id="titulo-localizacion">
-                                <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
+                                <a href="chooseAlojamientoServlet.do?id=${alojamiento.key.id }"><h2>${alojamiento.key.name}</h2></a>
                                 <span id="valoracion">8,6</span>
                             </div>
                             <div id="estrellas">
+                            	
                                 <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
                                 <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
                                 <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
@@ -273,18 +320,26 @@
                             <div id="segunda-linea-info">
                                 <div id="segunda-izq">
                                     <a href=""><span>Ver en el mapa</span></a>
-                                    <span>350m del centro</span>
+                                    
+                                    <span>${alojamiento.key.centerDistance} km del centro</span>
                                 </div>
                                 <div id="segunda-dcha">
+                                
                                     <span>Localización 9,5</span>
                                 </div>     
                             </div>
                             <div id="info-loc-inferior">
                                 <ul id="lista-alojamientos">
                                     <p>Tipos de alojamiento:</p>
-                                    <li>Habitación individual 1 cama</li>
-                                    <li>Habitación doble 2 camas individuales</li>
-                                    <li>Habitación doble 1 cama doble</li>
+                                    <c:forEach var="accom" items="${alojamiento.value}">
+                                    	
+                                    		<li><strong>${accom.name}</strong></li>
+                                    		<li>${accom.description }</li>
+                                    	
+                                    	
+                                    </c:forEach>
+                                    
+                                    
                                 </ul>
 
                                 <div id="inferior-dcha">
@@ -298,221 +353,10 @@
 
                         </div>
                 </li>
-
-                <li class="elem-loc">
-                    <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
-                    <div id="info-loc">
-                        <div id="titulo-localizacion">
-                            <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
-                            <span id="valoracion">8,6</span>
-                        </div>
-                        <div id="estrellas">
-                            <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                            <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                            <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                            <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        </div>
-                        <div id="segunda-linea-info">
-                            <div id="segunda-izq">
-                                <a href=""><span>Ver en el mapa</span></a>
-                                <span>350m del centro</span>
-                            </div>
-                            <div id="segunda-dcha">
-                                <span>Localización 9,5</span>
-                            </div>     
-                        </div>
-                        <div id="info-loc-inferior">
-                            <ul id="lista-alojamientos">
-                                <p>Tipos de alojamiento:</p>
-                                <li>Habitación individual 1 cama</li>
-                                <li>Habitación doble 2 camas individuales</li>
-                                <li>Habitación doble 1 cama doble</li>
-                            </ul>
-
-                            <div id="inferior-dcha">
-                                <span>€ 91</span>
-                                <p>Incluye tasas y cambios</p>
-                            </div>
-
-                        </div>
-
-                        
-
-                    </div>
-            </li>
-
-            <li class="elem-loc">
-                <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
-                <div id="info-loc">
-                    <div id="titulo-localizacion">
-                        <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
-                        <span id="valoracion">8,6</span>
-                    </div>
-                    <div id="estrellas">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                    </div>
-                    <div id="segunda-linea-info">
-                        <div id="segunda-izq">
-                            <a href=""><span>Ver en el mapa</span></a>
-                            <span>350m del centro</span>
-                        </div>
-                        <div id="segunda-dcha">
-                            <span>Localización 9,5</span>
-                        </div>     
-                    </div>
-                    <div id="info-loc-inferior">
-                        <ul id="lista-alojamientos">
-                            <p>Tipos de alojamiento:</p>
-                            <li>Habitación individual 1 cama</li>
-                            <li>Habitación doble 2 camas individuales</li>
-                            <li>Habitación doble 1 cama doble</li>
-                        </ul>
-
-                        <div id="inferior-dcha">
-                            <span>€ 91</span>
-                            <p>Incluye tasas y cambios</p>
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-            </li>
-
-            <li class="elem-loc">
-                <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
-                <div id="info-loc">
-                    <div id="titulo-localizacion">
-                        <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
-                        <span id="valoracion">8,6</span>
-                    </div>
-                    <div id="estrellas">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                    </div>
-                    <div id="segunda-linea-info">
-                        <div id="segunda-izq">
-                            <a href=""><span>Ver en el mapa</span></a>
-                            <span>350m del centro</span>
-                        </div>
-                        <div id="segunda-dcha">
-                            <span>Localización 9,5</span>
-                        </div>     
-                    </div>
-                    <div id="info-loc-inferior">
-                        <ul id="lista-alojamientos">
-                            <p>Tipos de alojamiento:</p>
-                            <li>Habitación individual 1 cama</li>
-                            <li>Habitación doble 2 camas individuales</li>
-                            <li>Habitación doble 1 cama doble</li>
-                        </ul>
-
-                        <div id="inferior-dcha">
-                            <span>€ 91</span>
-                            <p>Incluye tasas y cambios</p>
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-            </li>
-
-            <li class="elem-loc">
-                <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
-                <div id="info-loc">
-                    <div id="titulo-localizacion">
-                        <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
-                        <span id="valoracion">8,6</span>
-                    </div>
-                    <div id="estrellas">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                    </div>
-                    <div id="segunda-linea-info">
-                        <div id="segunda-izq">
-                            <a href=""><span>Ver en el mapa</span></a>
-                            <span>350m del centro</span>
-                        </div>
-                        <div id="segunda-dcha">
-                            <span>Localización 9,5</span>
-                        </div>     
-                    </div>
-                    <div id="info-loc-inferior">
-                        <ul id="lista-alojamientos">
-                            <p>Tipos de alojamiento:</p>
-                            <li>Habitación individual 1 cama</li>
-                            <li>Habitación doble 2 camas individuales</li>
-                            <li>Habitación doble 1 cama doble</li>
-                        </ul>
-
-                        <div id="inferior-dcha">
-                            <span>€ 91</span>
-                            <p>Incluye tasas y cambios</p>
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-            </li>
-
-            <li class="elem-loc">
-                <img src="img/hotelCarlos.webp" alt="Hotel Don Carlos">
-                <div id="info-loc">
-                    <div id="titulo-localizacion">
-                        <a href="detalleAlojamiento.html"><h2>Hotel Don Carlos Cáceres</h2></a>
-                        <span id="valoracion">8,6</span>
-                    </div>
-                    <div id="estrellas">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                        <img id="icono-estrella" src="img/estrella.svg" alt="estrella">
-                    </div>
-                    <div id="segunda-linea-info">
-                        <div id="segunda-izq">
-                            <a href=""><span>Ver en el mapa</span></a>
-                            <span>350m del centro</span>
-                        </div>
-                        <div id="segunda-dcha">
-                            <span>Localización 9,5</span>
-                        </div>     
-                    </div>
-                    <div id="info-loc-inferior">
-                        <ul id="lista-alojamientos">
-                            <p>Tipos de alojamiento:</p>
-                            <li>Habitación individual 1 cama</li>
-                            <li>Habitación doble 2 camas individuales</li>
-                            <li>Habitación doble 1 cama doble</li>
-                        </ul>
-
-                        <div id="inferior-dcha">
-                            <span>€ 91</span>
-                            <p>Incluye tasas y cambios</p>
-                        </div>
-
-                    </div>
-
-                    
-
-                </div>
-            </li>
-        
-
+            </c:forEach>
             </ul>
 
-
+			
         </div>
         
     

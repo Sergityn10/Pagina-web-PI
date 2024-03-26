@@ -101,9 +101,10 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 			while (rs.next()) {
 				Property property = new Property();
 				fromRsToPropertyObject(rs,property);
+				
 				properties.add(property);
 				
-				logger.info("fetching property: "+property.getId());
+				logger.info("fetching property: "+property.getName());
 				
 			}
 
@@ -130,6 +131,7 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 			while (rs.next()) {
 				Property property = new Property();
 				fromRsToPropertyObject(rs,property);
+				
 				properties.add(property);
 		
 				logger.info("fetching properties: "+property.getId());

@@ -45,6 +45,16 @@ public interface AccommodationDAO {
 	public List<Accommodation> getAll();
 	
 	/**
+	 * Gets all the accommodations from the database that belong to a property.
+	 * 
+	 * @param idp
+	 *            idp int
+	 * 
+	 * @return List of all the accommodations from the database that belong to a property.
+	 */	
+	public List<Accommodation> getAllBySearchIdp(long idp);
+
+	/**
 	 * Gets all the accommodations from the database that contain a text in the name.
 	 * 
 	 * @param search
