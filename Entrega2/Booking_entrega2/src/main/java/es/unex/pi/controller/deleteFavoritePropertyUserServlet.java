@@ -5,28 +5,24 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
-import java.util.logging.Logger;
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import es.unex.pi.dao.*;
 import es.unex.pi.model.*;
-import es.unex.pi.*;
-import es.unex.pi.dao.JDBCPropertyUserDAOImpl;
-import es.unex.pi.dao.PropertyUserDAO;
+
 /**
- * Servlet implementation class SavePropertyFavoriteServlet
+ * Servlet implementation class deleteFavoritePropertyUserServlet
  */
-@WebServlet( urlPatterns = {"/favorites/SavePropertyFavoriteServlet.do"})
-public class SavePropertyFavoriteServlet extends HttpServlet {
+@WebServlet( urlPatterns = {"/favorites/deleteFavoritePropertyUserServlet.do"})
+public class deleteFavoritePropertyUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());   
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SavePropertyFavoriteServlet() {
+    public deleteFavoritePropertyUserServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,7 +32,7 @@ public class SavePropertyFavoriteServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+		doPost(request,response);
 	}
 
 	/**
@@ -48,20 +44,19 @@ public class SavePropertyFavoriteServlet extends HttpServlet {
 		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
 		favoriteDao.setConnection(conn);
 		
-		propertyUser newFavorite = new propertyUser();
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
-		long idu = Long.parseLong(request.getParameter("idu"));
-		newFavorite.setIdp(idp);
-		newFavorite.setIdu(idu);
+		//TODO Cambiar la funcionalidad de conseguir el id del usuario mediante la sesión cuando mi Juampi la termine. Descomentar la linea siguiente
+		//long idu = user.getId();
+		long idu = 1;
 		
-		if(favoriteDao.get(idp, idu) == null) {
-			favoriteDao.add(newFavorite);
-			response.sendRedirect("SearchServlet.do");
-		}
-		else {
+		if(favoriteDao.get(idp, idu) != null) {
+			favoriteDao.delete(idp, idu);
 			
 		}
+		response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");
 		
 	}
 

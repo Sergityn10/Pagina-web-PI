@@ -69,7 +69,7 @@ public class SearchServlet extends HttpServlet {
 			HashMap<Property,List<Accommodation>> propAccomList = new HashMap<Property, List<Accommodation>>();
 			
 			if(disponibilidad.equals("todos")) {
-				logger.info("Entra dentro del if");
+				
 				for(Property itProperty : searchList) {
 					
 					List<Accommodation> listAccom = accomDao.getAllBySearchIdp(itProperty.getId());

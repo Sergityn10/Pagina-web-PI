@@ -1,42 +1,38 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
+    <title>Reservas y viajes</title>
     <link rel="icon" href="${pageContext.request.contextPath}/img/icono-booking.png" type="image/png">
-
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-    
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style-reservas.css">
 </head>
 <body>
-    <header>
-        <div class="container-header">
+	<header>
+   	 <div class="container-header">
         
         
             <nav id="cabecera-nav">
                 <div class="title">
-                    <a href="${pageContext.request.contextPath}/LoginServlet.do">
+                    <a href="">
                         <h1>Booking.com</h1>
-                    </a>  
+                    </a>
+                    
                 </div>
                 
                 <div id="botones-header">
-                    <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EUR</button> <!-- BotÃ³n de selecciÃ³n de la moneda-->
+                    <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EUR</button> <!-- Botón de selección de la moneda-->
                     <button class="seleccion" type="button" title="Selecciona tu idioma" aria-expanded="false">
-                        <img id="img-bandera" src="${pageContext.request.contextPath}/img/Banderas/spain.png" alt="Bandera de espaÃ±a">
-                    </button> <!-- botÃ³n de selecciÃ³n del idioma-->
+                        <img id="img-bandera" src="img/spain.png" alt="">
+                    </button> <!-- botón de selección del idioma-->
                     <span class="seleccion">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
-                    </span> <!--BotÃ³n de atenciÃ³n al cliente-->
+                    </span> <!--Botón de atención al cliente-->
                     <a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
-                    <a class="formulario" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">Hazte tu cuenta</a>  
-                    <a class="formulario" href="${pageContext.request.contextPath}/login.html">Iniciar sesión</a>
+                    <a class="formulario" href="registro.html">Hazte tu cuenta</a>
+                    <a class="formulario" href="registro.html">Inicia sesión</a>
                     
                 </div>
                 
@@ -84,7 +80,7 @@
                         <span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M13.5 3a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zM15 3a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM6 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM21 15a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm-9-3.75a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zM6 15a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm1.5 0a3 3 0 1 0-6 0 3 3 0 0 0 6 0zm10.066 1.277a7.5 7.5 0 0 1-3.077 2.05.75.75 0 0 0 .498 1.415 9 9 0 0 0 3.693-2.46.75.75 0 1 0-1.114-1.005zm1.798-6.466c.177.922.183 1.869.015 2.792a.75.75 0 1 0 1.476.268c.2-1.106.194-2.24-.019-3.344a.75.75 0 1 0-1.472.284zm-5.337-5.784a7.5 7.5 0 0 1 3.54 2.196.75.75 0 0 0 1.113-1.004 9.002 9.002 0 0 0-4.247-2.636.75.75 0 1 0-.406 1.444zM6.434 6.223a7.5 7.5 0 0 1 3.539-2.196.75.75 0 1 0-.406-1.444A9.001 9.001 0 0 0 5.32 5.219a.75.75 0 0 0 1.114 1.004zM4.636 12.69a7.602 7.602 0 0 1 0-2.878.75.75 0 1 0-1.472-.284 9.102 9.102 0 0 0 0 3.446.75.75 0 0 0 1.472-.284zm4.876 5.639a7.517 7.517 0 0 1-3.035-2.005.75.75 0 0 0-1.106 1.014 9.017 9.017 0 0 0 3.641 2.405.75.75 0 1 0 .5-1.414zM7.31 21.872A1.5 1.5 0 0 0 8.672 24h6.656a1.5 1.5 0 0 0 1.362-2.128l-3.314-8.217c-.361-.785-1.252-1.114-2.005-.767a1.5 1.5 0 0 0-.733.734l-3.343 8.283zm1.377.595l3.328-8.25-.015.033 3.313 8.217.015.033H8.672z"></path>
                             </svg></span>
-                        <span>Atracciones turÃ­sticas</span>
+                        <span>Atracciones turísticas</span>
                     </a>   
                 </div>
 
@@ -99,148 +95,51 @@
             </nav>
 
 
-
+		 </div>
+        </header>
         
         
-        <form method="get" action="SearchServlet.do">
-        <div class="container-estancias">
-        <div class="buscador">
-                
-                    <div class="item-busqueda">
-                
-                            <path d="M2.75 12h18.5c.69 0 1.25.56 1.25 1.25V18l.75-.75H.75l.75.75v-4.75c0-.69.56-1.25 1.25-1.25zm0-1.5A2.75 2.75 0 0 0 0 13.25V18c0 .414.336.75.75.75h22.5A.75.75 0 0 0 24 18v-4.75a2.75 2.75 0 0 0-2.75-2.75H2.75zM0 18v3a.75.75 0 0 0 1.5 0v-3A.75.75 0 0 0 0 18zm22.5 0v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0zm-.75-6.75V4.5a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 2.25 4.5v6.75a.75.75 0 0 0 1.5 0V4.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 0 1.5 0zm-13.25-3h7a.25.25 0 0 1 .25.25v2.75l.75-.75h-9l.75.75V8.5a.25.25 0 0 1 .25-.25zm0-1.5A1.75 1.75 0 0 0 6.75 8.5v2.75c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75V8.5a1.75 1.75 0 0 0-1.75-1.75h-7z"></path>
-                            </svg></span>
-                        <input type="text" name="lugar-alojamiento"  placeholder="¿Adónde vas?" value="${ciudad}" required>
-                    </div>
-                    <div class="item-busqueda">
-                        <input type="date" name="check-in" id="" placeholder="check-in">
-                    
-                        <input type="date" name="check-out" id="" placeholder="Check-out">
-                    </div>
-                    <div class="item-busqueda">
-                        <span id="icono-persona"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M16.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0zM18 6A6 6 0 1 0 6 6a6 6 0 0 0 12 0zM3 23.25a9 9 0 1 1 18 0 .75.75 0 0 0 1.5 0c0-5.799-4.701-10.5-10.5-10.5S1.5 17.451 1.5 23.25a.75.75 0 0 0 1.5 0z"></path>
-                            </svg></span>
-                        <input type="number" name="adultos" id="" placeholder="Adultos" min="1">
-                        <input type="number" name="menores" id="" placeholder="Menores" >
-                        <input type="number" name="habitaciones" id="" placeholder="Habitaciones">
-                    </div>
-                    <div class="item-boton-buscar">
-                        <button class="boton-buscar" type="submit">Buscar</button>
-                    </div>
+            
 
-            </div>
-            <section class="filtros">
-           		<input type="radio" id="todos" value="todos" name="disponibilidad" <c:if test="${disp == 'todos'}">checked</c:if>required>
-                <label for="disp_todos">Todos</label>
+            
+       
+
+        <main>
+            <div class="container-reservas">
+            	<section id="reservas">
+            		<h2>Tus alojamientos guardados</h2>
+            		
+            	</section>
+            	<c:forEach var="alojamiento" items="${listFavorites}">
+            		<section class="lugar-reserva">
+	            		<h3>${alojamiento.city}</h3>
+			                <div class="box-carrito">
+		                    <img src="img/caceres.jpg" alt="imagen-sobre-lugar">
+		                    <section class="info-lugar-reserva">
+		                      <h5 class="nom-lugar-strong">${alojamiento.name }</h5>
+		                        <p>${alojamiento.id }</p>
+		                    </section>
+		                    <div class="precio-con-menu">
+		                        
+		                       <form method="post" action="deleteFavoritePropertyUserServlet.do?idp=${alojamiento.id}">
+		                       		<input class="menu" type="image" src="${pageContext.request.contextPath}/img/Iconos/delete.png" alt="">
+		                       </form>
+		                       
+		                        
+		                    </div>
+		                    
+		                </div>
+	                
+	            	</section>
+            		
+            	</c:forEach>
+            		
+	                
            
-            
-                <input type="radio" id="con_disp" value="con_disp" name="disponibilidad" <c:if test="${disp == 'con_disp'}">checked</c:if>required>
-                <label for="hoteles">Disponibles</label>
-            
-           
-                <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" <c:if test="${disp == 'no_disp'}">checked</c:if>required>
-                <label for="no_disp">Sin disponibilidad</label>
-             </section>
-            
-        </div>
-
-            
-           	
-            
-             </form>
-            
-
-            
-        </div>
-    </header>
-    <main>
-        <div class="error">
-		 	<h2>${messages}</h2>
-		</div>
-        <section class="search-alojamientos">
-            <h1>BUSCAR POR TIPO DE ALOJAMIENTOS</h1>
-            <div class="carrusel-alojamientos">
-                <button class="boton-carrusel" id="anterior" onclick="cambiarFoto(-1)">❮</button>
-                <div class="container-alojamientos">
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/cama-hotel.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Hoteles</p>
-                        </a>
-                    </div>
-                    
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/villa.jpg" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Villas</p> 
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/camping.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Campings
-                                
-                            </p>
-                            
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/apartamento.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Apartamentos</p>
-                            
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/apartamento.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Apartamentos</p>
-                            
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/apartamento.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Apartamentos</p>
-                            
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/apartamento.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Apartamentos</p>
-                            
-                        </a>
-                    </div>
-
-                    <div class="card-alojamiento">
-                        <a href="">
-                            <img src="${pageContext.request.contextPath}/img/Alojamientos/apartamento.webp" alt="imgen-destino">
-                            <p class="tipo-alojamiento">Apartamentos</p>
-                            
-                        </a>
-                    </div>
-                          
-                </div>
-                <button class="boton-carrusel" id="siguiente" onclick="cambiarFoto(1)">❯</button>
-                
-
-            </div>
-        </section>
-
-        <!-- Empieza la secciÃ³n de trending destinations-->
-        <section class="trending-destinations">
-
-        </section>
-        
-    </main>
-   
+           </div> 
+          </main>
+         
+    
     
 </body>
 </html>

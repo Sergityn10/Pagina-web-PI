@@ -25,5 +25,33 @@
     <servlet-name>CreateReviewServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.CreateReviewServlet</servlet-class>
   </servlet>
-
+  <servlet>
+    <description></description>
+    <display-name>addFavoritePropertyUserServlet</display-name>
+    <servlet-name>addFavoritePropertyUserServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.addFavoritePropertyUserServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListConfigUser</display-name>
+    <servlet-name>ListConfigUser</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListConfigUser</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListFavoritesPropertiesByUsersServlet</display-name>
+    <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListFavoritesPropertiesByUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
+    <url-pattern>/users/favorites/ListFavoritesPropertiesByUsersServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deleteFavoritePropertyUserServlet</display-name>
+    <servlet-name>deleteFavoritePropertyUserServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.deleteFavoritePropertyUserServlet</servlet-class>
+  </servlet>
+ 
 </web-app>
