@@ -4,6 +4,9 @@ header{
     background-color: var(--color-principal);
     margin:0;
 }
+body{
+	margin:0;
+}
 .container-header{
     
     color:white;
@@ -13,7 +16,7 @@ p, h1, h2, h3, h4, span, label, li, a, button {
     font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-.container-header{
+main,.container-header{
     max-width: 1100px;
     margin: 0px auto;
     
