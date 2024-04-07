@@ -58,16 +58,17 @@
                 <h2>Your favorites properties</h2>
                 
                 <p>Show all the properties saved in your favorites list.</p>
-                <a href="${pageContext.request.contextPath}/favorites/ListFavoritesPropertiesByUsersServlet.do">Manage personal details</a>
+                <a href="${pageContext.request.contextPath}/favorites/ListFavoritesPropertiesByUsersServlet.do">Show your favorite properties</a>
             </section>
+            
              <section class="card-perfil">
-                <h2>Profile Information</h2>
+                <h2>My registered properties</h2>
                 <img src="/images/user.png" alt="Imagen usuario" />
-                <p>Update your information and find out how its used.</p>
-                <a href="">Manage personal details</a>
+                <p>Manage, update and show all the attributes about all your registered properties.</p>
+                <a href="${pageContext.request.contextPath}/properties/ListPropertiesServlet.do">Manage registered properties</a>
             </section>
              <section class="card-perfil">
-                <h2>Profile Information</h2>
+                <h2>My books</h2>
                 <img src="/images/user.png" alt="Imagen usuario" />
                 <p>Update your information and find out how its used.</p>
                 <a href="">Manage personal details</a>

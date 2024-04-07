@@ -35,10 +35,7 @@
     <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListFavoritesPropertiesByUsersServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
-    <url-pattern>/users/favorites/ListFavoritesPropertiesByUsersServlet</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>deleteFavoritePropertyUserServlet</display-name>
@@ -47,9 +44,17 @@
   </servlet>
   <servlet>
     <description></description>
+<<<<<<< HEAD
     <display-name>EditReviewServlet</display-name>
     <servlet-name>EditReviewServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.EditReviewServlet</servlet-class>
   </servlet>
  
+=======
+    <display-name>ListPropertiesServlet</display-name>
+    <servlet-name>ListPropertiesServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListPropertiesServlet</servlet-class>
+  </servlet>
+
+>>>>>>> Actividad2
 </web-app>
