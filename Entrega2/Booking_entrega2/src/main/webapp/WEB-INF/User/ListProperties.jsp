@@ -125,6 +125,7 @@
 		                    <div class="precio-con-menu">
 		                        
 		                       <form method="post" action="deleteFavoritePropertyUserServlet.do?idp=${alojamiento.id}">
+		                       
 		                       		<input class="menu" type="image" src="${pageContext.request.contextPath}/img/Iconos/delete.png" alt="">
 		                       </form>
 		                       

@@ -42,10 +42,16 @@ public class CreateReviewServlet extends HttpServlet {
 		reviewDao.setConnection(conn);
 		Review review = new Review ();
 		Property prop = (Property) request.getAttribute("prop");
+		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		//TODO Descomentar cuando este implementado la funcion de iniciar sesión
+		//long idu = user.getId();
+		long idu = 1;
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));
 		review.setGrade(grade);
 		review.setIdp(prop.getId());
-		review.setIdu(1); //CAMBIAR CUANDO CONFIRME QUE VA LA FUNCIÓN DE CREACIÓN DE REVIEWS
+		review.setIdu(idu); //CAMBIAR CUANDO CONFIRME QUE VA LA FUNCIÓN DE CREACIÓN DE REVIEWS
 		review.setReview(request.getParameter("descripcion"));
 		
 		if(reviewDao.get(prop.getId(), 1) == null) {
@@ -69,12 +75,15 @@ public class CreateReviewServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
+		//TODO Descomentar cuando este implementando la función de iniciar sesión
+		//long idu = user.getId();
+		long idu = 1;
 		Review review = new Review ();
 		
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));
 		review.setGrade(grade);
 		review.setIdp(idp);
-		review.setIdu(9); //CAMBIAR CUANDO CONFIRME QUE VA LA FUNCIÓN DE CREACIÓN DE REVIEWS
+		review.setIdu(idu); //CAMBIAR CUANDO CONFIRME QUE VA LA FUNCIÓN DE CREACIÓN DE REVIEWS
 		review.setReview(request.getParameter("descripcion"));
 		
 		
@@ -83,13 +92,13 @@ public class CreateReviewServlet extends HttpServlet {
 			reviewDao.add(review);
 			response.sendRedirect("../chooseAlojamientoServlet.do?id="+idp);
 		}
-		/*
-		 * else { request.setAttribute("message",
-		 * "Lo sentimos, no puedes realizar más valoraciones a este alojamiento. Si has cambiado de opinión sobre este alojamiento, edita la valoración ya realizada"
-		 * ); RequestDispatcher view =
-		 * request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");
-		 * view.forward(request, response); }
-		 */
+		
+		  else { 
+			  reviewDao.update(review);
+			  RequestDispatcher view =
+		  request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");
+		  view.forward(request, response); }
+		 
 	}
 
 }
