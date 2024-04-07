@@ -43,15 +43,18 @@
     <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListFavoritesPropertiesByUsersServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
-    <url-pattern>/users/favorites/ListFavoritesPropertiesByUsersServlet</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>deleteFavoritePropertyUserServlet</display-name>
     <servlet-name>deleteFavoritePropertyUserServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.deleteFavoritePropertyUserServlet</servlet-class>
   </servlet>
- 
+  <servlet>
+    <description></description>
+    <display-name>ListPropertiesServlet</display-name>
+    <servlet-name>ListPropertiesServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListPropertiesServlet</servlet-class>
+  </servlet>
+
 </web-app>
