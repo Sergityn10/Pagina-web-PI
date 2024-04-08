@@ -63,5 +63,11 @@
     <servlet-name>ListReviewsServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListReviewsServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>DeleteReviewServlet</display-name>
+    <servlet-name>DeleteReviewServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.DeleteReviewServlet</servlet-class>
+  </servlet>
 
 </web-app>

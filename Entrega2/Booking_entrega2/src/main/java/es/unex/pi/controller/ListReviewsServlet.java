@@ -61,7 +61,7 @@ public class ListReviewsServlet extends HttpServlet {
 		List<Review> reviewList=reviewDao.getAllByUser(1);
 		for(Review itReview : reviewList) {
 			Property itProp = new Property();
-			itProp = propDao.get(itReview.getIdu());
+			itProp = propDao.get(itReview.getIdp());
 			reviewProp.put(itReview, itProp);
 			
 			

@@ -126,7 +126,7 @@
 		                    <div class="precio-con-menu">
 		                        
 		                      <a href = "${pageContext.request.contextPath}/chooseAlojamientoServlet.do?id=${review.value.id }" class="boton-bg-azul">Editar review</a>
-		                       <a href="deleteReviewServlet.do?idp=${alojamiento.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"></a>
+		                       <a href="DeleteReviewServlet.do?idp=${review.value.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"></a>
 		                       
 		                        
 		                    </div>
