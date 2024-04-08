@@ -1,20 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="icon" href="${pageContext.request.contextPath}/img/icono-booking.png" type="image/png">
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
     
-
-</head>
-<body>
-    <header>
-        <div class="container-header">
+       <div class="container-header">
         
         
             <nav id="cabecera-nav">
@@ -39,8 +27,8 @@
                 </div>
                 
             </nav>
-        </div>    
+            
+         </div>   
         
-     </header>
-</body>
-</html>
+     
+
