@@ -297,7 +297,7 @@
 		<section>
             <h2>VALORACIONES REALIZADAS POR LOS USUARIOS</h2>
             
-            <div id="container-valoracion">
+            <div class="container-valoracion">
 	            <c:forEach var="review" items="${reviewUser}" >
 		            <article class="valoracion">
 		                    <div class="user-grado">

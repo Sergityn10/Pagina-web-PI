@@ -107,10 +107,10 @@
         <main>
             <div class="container-config">
             	<section id="reservas">
-            		<h2>Tus alojamientos guardados</h2>
+            		<h2>Your registered properties</h2>
             		
             	</section>
-            	<c:forEach var="alojamiento" items="${listFavorites}">
+            	<c:forEach var="alojamiento" items="${listProperties}">
             		<section class="lugar-reserva">
 	            		<h3>${alojamiento.city}</h3>
 			                <div class="box-carrito">
@@ -124,9 +124,8 @@
 		                    </section>
 		                    <div class="precio-con-menu">
 		                        
-		                       <form method="post" action="deleteFavoritePropertyUserServlet.do?idp=${alojamiento.id}">
-		                       		<input class="menu" type="image" src="${pageContext.request.contextPath}/img/Iconos/delete.png" alt="">
-		                       </form>
+		                      <a href = "${pageContext.request.contextPath}/properties/EditAvailablePropertyServlet.do?idp=${alojamiento.id }" class="boton-bg-azul">Cambiar estado del alojamiento</a>
+		                       <a href="deletePropertyServlet.do?idp=${alojamiento.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"></a>
 		                       
 		                        
 		                    </div>

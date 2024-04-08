@@ -116,7 +116,6 @@
                     </div>
                     <div class="item-busqueda">
                         <input type="date" name="check-in" id="" placeholder="check-in">
-                    
                         <input type="date" name="check-out" id="" placeholder="Check-out">
                     </div>
                     <div class="item-busqueda">

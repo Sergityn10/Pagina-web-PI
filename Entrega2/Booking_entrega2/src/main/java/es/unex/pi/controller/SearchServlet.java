@@ -67,6 +67,7 @@ public class SearchServlet extends HttpServlet {
 			
 		
 			HashMap<Property,List<Accommodation>> propAccomList = new HashMap<Property, List<Accommodation>>();
+			//Triplet <Property, List<Accommodation>, Boolean> p ;
 			
 			if(disponibilidad.equals("todos")) {
 				

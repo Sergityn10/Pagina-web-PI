@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
- 
   <display-name>Booking_entrega2</display-name>
   <welcome-file-list>
     <welcome-file>/WEB-INF/index.jsp</welcome-file>
@@ -35,7 +34,6 @@
     <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListFavoritesPropertiesByUsersServlet</servlet-class>
   </servlet>
-
   <servlet>
     <description></description>
     <display-name>deleteFavoritePropertyUserServlet</display-name>
@@ -44,17 +42,26 @@
   </servlet>
   <servlet>
     <description></description>
-<<<<<<< HEAD
     <display-name>EditReviewServlet</display-name>
     <servlet-name>EditReviewServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.EditReviewServlet</servlet-class>
   </servlet>
- 
-=======
+  <servlet>
     <display-name>ListPropertiesServlet</display-name>
     <servlet-name>ListPropertiesServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListPropertiesServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>EditAvailablePropertyServlet</display-name>
+    <servlet-name>EditAvailablePropertyServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.EditAvailablePropertyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListReviewsServlet</display-name>
+    <servlet-name>ListReviewsServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListReviewsServlet</servlet-class>
+  </servlet>
 
->>>>>>> Actividad2
 </web-app>
