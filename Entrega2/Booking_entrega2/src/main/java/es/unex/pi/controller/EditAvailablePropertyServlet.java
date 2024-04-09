@@ -7,26 +7,26 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-import java.sql.*;
-import es.unex.pi.*;
-import es.unex.pi.dao.JDBCPropertyUserDAOImpl;
-import es.unex.pi.dao.PropertyUserDAO;
-import es.unex.pi.model.User;
-import es.unex.pi.model.propertyUser;
-
 import java.io.IOException;
+import java.sql.Connection;
+
+import es.unex.pi.dao.JDBCPropertyDAOImpl;
+import es.unex.pi.dao.PropertyDAO;
+import es.unex.pi.model.Property;
+import es.unex.pi.model.User;
 
 /**
- * Servlet implementation class addFavoritePropertyUserServlet
+ * Servlet implementation class EditAvailablePropertyServlet
+ * 
  */
-@WebServlet( urlPatterns = {"/favorites/addFavoritePropertyUserServlet.do"})
-public class addFavoritePropertyUserServlet extends HttpServlet {
+@WebServlet( urlPatterns = {"/properties/EditAvailablePropertyServlet.do"})
+public class EditAvailablePropertyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public addFavoritePropertyUserServlet() {
+    public EditAvailablePropertyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,8 +36,8 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);	
-		}
+		doPost(request,response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -45,31 +45,26 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
-		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
-		favoriteDao.setConnection(conn);
+		PropertyDAO propertyDao = new JDBCPropertyDAOImpl();
+		propertyDao.setConnection(conn);
+		
 		HttpSession session = request.getSession();
+		
 		User user = (User) session.getAttribute("user");
 		
-		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
-		//long idu = user.getId();
-		long idu = 1;
 		long idp = Long.parseLong(request.getParameter("idp"));
-		
-		propertyUser newFavorite = new propertyUser();
-		
-		newFavorite.setIdp(idp);
-		newFavorite.setIdu(idu);
-		
-		if(favoriteDao.get(idp, idu) == null) {
-			favoriteDao.add(newFavorite);
-		}
-		else {
-			//TODO eliminar 
-			
-		}
-		response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");
+		//TODO Descomentar cuando este implementando la función de iniciar sesión
+		//long idu = user.getId();
+		//long idu = 1;
+		Property property = propertyDao.get(idp);
+		if(property.getAvailable() == 1)
+			property.setAvailable(0);
+		else
+			property.setAvailable(1);
 		
 		
+		propertyDao.update(property);
+		response.sendRedirect("ListPropertiesServlet.do");
 	}
 
 }

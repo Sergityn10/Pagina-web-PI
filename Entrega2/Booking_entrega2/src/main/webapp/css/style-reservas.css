@@ -1,5 +1,6 @@
 @import "header.css";
 @import "buscador.css";
+@import "buttons.css";
 *{
     box-sizing: border-box;
 }
@@ -10,7 +11,7 @@ header{
     padding-bottom: 10px;
     margin:0;
 }
-.container-reservas{
+.container-config{
     display: flex;
     flex-direction: column;
     max-width: 1100px;
@@ -18,7 +19,7 @@ header{
     padding-bottom: 20px;
     
 }
-#reservas{
+.reservas{
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -45,4 +46,12 @@ h2{
 .font-size-small{
     font-size: small;
 }
+.precio-con-menu{
+	display: flex;
+	gap:16px;
+	align-items:center;
+	
+}
+
+
 

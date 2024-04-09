@@ -348,7 +348,7 @@ h4 {
     cursor: pointer;
 }
 
-#container-valoracion{
+.container-valoracion{
     display: flex;
         overflow: auto;
 

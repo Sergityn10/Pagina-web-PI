@@ -11,32 +11,7 @@
 </head>
 <body>
     <header>
-        <div class="container-header">
-        
-        
-            <nav id="cabecera-nav">
-                <div class="title">
-                    <a href="index.html">
-                        <h1>Booking.com</h1>
-                    </a>
-                    
-                </div>
-                
-                <div id="botones-header">
-                    <button class="seleccion" type="button" title="Selecciona la moneda" oncl aria-expanded="false" onclick="seleccionMoneda()">EUR</button> <!-- Botón de selección de la moneda-->
-                    <button class="seleccion" type="button" title="Selecciona tu idioma" aria-expanded="false">
-                        <img id="img-bandera" src="img/Banderas/spain.png" alt="Español"> 
-                    </button> <!-- botón de selección del idioma-->
-                    <span class="seleccion">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" color: red;><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3h58.3c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24V250.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1H222.6c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg>
-                    </span> <!--Botón de atención al cliente-->
-                    <a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
-                    <a class="formulario" href="registro.html">Hazte tu cuenta</a>
-                    <a class="formulario" href="login.html">Inicia sesión</a>
-                    
-                </div>
-                
-            </nav>
+        <c:import url="/WEB-INF/Componentes/header.jsp"/>
 
             <nav id="enlaces-navegacion">
                 <div class="navegacion-flights">
@@ -97,7 +72,6 @@
 
 
                  
-        </div>
     </header>
     <div id="main">
         <div id="enlace-secciones">
@@ -297,13 +271,13 @@
 		<section>
             <h2>VALORACIONES REALIZADAS POR LOS USUARIOS</h2>
             
-            <div id="container-valoracion">
+            <div class="container-valoracion">
 	            <c:forEach var="review" items="${reviewUser}" >
 		            <article class="valoracion">
 		                    <div class="user-grado">
 		                        <h4>${review.value.name}</h4>
 		                        
-		                        <p>${review.key.grade}</p>
+		                        <p>Valoración: ${review.key.grade}</p>
 		                    </div>
 		                    
 		                    <q>${review.key.review}</q>
@@ -315,21 +289,42 @@
             </div>
             
         </section>
+        <c:if test="${user != null }"></c:if>
+	        <c:choose>
+		         <c:when test="${!conReview} ">
+		         	<section id=container-create-review>
+			            <h2>Agregar una review:</h2>
+			            <form action="<c:url value="reviews/CreateReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">
+							<div>
+								<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="3"/>
+				                <output for="num-valoracion" name="valor_rango"></output>
+							</div>
+			                
+			                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Añade tu valoracion que creas convenientes sobre el alojamiento" required></textarea>
+			                <button type="submit" class="boton-bg-azul">Enviar Review</button> 
+			            </form>
+			        </section>
+		        </c:when>
+		        
+		        <c:otherwise>
+		        	<section id=container-create-review>
+			            <h2>Editar una review:</h2>
+			            <form action="<c:url value="reviews/EditReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">
+							<div>
+								<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="${ownReview.grade }"/>
+				                <output for="num-valoracion" name="valor_rango"></output>
+							</div>
+			                
+			                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Añade tu valoracion que creas convenientes sobre el alojamiento" required>${ownReview.review}</textarea>
+			                <button type="submit" class="boton-bg-azul">Editar Review</button> 
+			            </form>
+			        </section>
+		        </c:otherwise>
+	        </c:choose>
         
-        <c:if test="${user} != null">
-        </c:if>
-        	<section id=container-create-review>
-            <h2>Agregar una review:</h2>
-            <form action="<c:url value="reviews/CreateReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">
-				<div>
-					<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="3"/>
-	                <output for="num-valoracion" name="valor_rango"></output>
-				</div>
-                
-                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Añade tu valoracion que creas convenientes sobre el alojamiento" required></textarea>
-                <button type="submit" class="boton-bg-azul">Enviar Review</button> 
-            </form>
-        </section>
+        
+       
+        
         
 		
     </div>

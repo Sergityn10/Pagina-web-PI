@@ -10,29 +10,25 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 import es.unex.pi.dao.JDBCPropertyDAOImpl;
-import es.unex.pi.dao.JDBCPropertyUserDAOImpl;
 import es.unex.pi.dao.PropertyDAO;
-import es.unex.pi.dao.PropertyUserDAO;
 import es.unex.pi.model.Property;
 import es.unex.pi.model.User;
-import es.unex.pi.model.propertyUser;
-import es.unex.pi.*;
 
 /**
- * Servlet implementation class ListFavoritesPropertiesByUsersServlet
+ * Servlet implementation class ListPropertiesServlet
+ * 
  */
-@WebServlet( urlPatterns = {"/favorites/ListFavoritesPropertiesByUsersServlet.do"})
-public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
+@WebServlet( urlPatterns = {"/properties/ListPropertiesServlet.do"})
+public class ListPropertiesServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListFavoritesPropertiesByUsersServlet() {
+    public ListPropertiesServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,26 +39,18 @@ public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-		
-		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
-		favoriteDao.setConnection(conn);
-		
 		PropertyDAO propDao = new JDBCPropertyDAOImpl();
 		propDao.setConnection(conn);
 		
-		List<Property> listProps = new ArrayList<Property>();
-		//for(propertyUser itPropUser: favoriteDao.getAllByUser(user.getId())) {
-		for(propertyUser itPropUser: favoriteDao.getAllByUser(1)) {
-			Property itProp = new Property();
-			itProp=propDao.get(itPropUser.getIdp());
-			listProps.add(itProp);
-		}
-		request.setAttribute("listFavorites", listProps);
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/User/ListFavoritesProperties.jsp");
-		view.forward(request, response);
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		//TODO Descomentar cuando este implementado la funcionalidad de iniciar sesión
+		//List<Property> listProperties = propDao.getAllByUser(user.getId());
+		List<Property> listProperties = propDao.getAllByUser(1);
 		
+		request.setAttribute("listProperties", listProperties);
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/User/ListOwnProperties.jsp");
+		view.forward(request, response);
 	}
 
 	/**

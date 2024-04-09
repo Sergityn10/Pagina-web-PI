@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.HashMap;
@@ -44,18 +46,32 @@ public class chooseAlojamientoServlet extends HttpServlet {
 		UserDAO userDao = new JDBCUserDAOImpl();
 		userDao.setConnection(conn);
 		
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
 		
+		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
+		//long idu = user.getId();
+		long idu = 1;
 		Long id = Long.parseLong(request.getParameter("id"));
 		Property prop = propDao.get(id);
 		request.setAttribute("prop", prop); //Guardamos en la request la propiedad a la que se está accediendo y la que se quiere mostrar 
 		
+		boolean conReview = false;
 		HashMap<Review, User> reviewUser = new HashMap<Review, User>();
 		List<Review> accomList=reviewDao.getAllByProperty(id);
 		for(Review itReview : accomList) {
 			User itUser = new User();
 			itUser = userDao.get(itReview.getIdu());
 			reviewUser.put(itReview, itUser);
+			//TODO DEscomentar cuando este implementado la funcion de iniciar sesión
+			//if(itReview.getIdu() == user.getId()) {
+			if(itReview.getIdu() == 1) {
+				conReview = true;
+				request.setAttribute("ownReview", itReview); 
+			}
 		}
+		
+		request.setAttribute("conReview", conReview);
 		request.setAttribute("reviewUser", reviewUser); //Guardamos en la request la lista de review que tiene el alojamiento buscado por el usuario
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");
 		view.forward(request, response);

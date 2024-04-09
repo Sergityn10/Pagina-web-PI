@@ -1,5 +1,16 @@
 
 
+.box-carrito{/*Estas reglas se establecerán para el estilo que tendrán todas los elementos de las cajas del carrito, que mantienen el mismo estilo*/
+    border:1px solid rgba(0, 0, 0, 0.208);
+    padding:5px;
+    border-radius: 10px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
 /*Para moviles*/
 @media only screen  and (max-width: 600px) {
 

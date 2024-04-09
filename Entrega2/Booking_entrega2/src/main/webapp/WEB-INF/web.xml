@@ -4,15 +4,6 @@
   <welcome-file-list>
     <welcome-file>/WEB-INF/index.jsp</welcome-file>
   </welcome-file-list>
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>Booking</web-resource-name>
-      <url-pattern>/*</url-pattern>
-    </web-resource-collection>
-    <user-data-constraint>
-      <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-    </user-data-constraint>
-  </security-constraint>
   <servlet>
     <description></description>
     <display-name>CheckReviewServlet</display-name>
@@ -43,15 +34,40 @@
     <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.ListFavoritesPropertiesByUsersServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>ListFavoritesPropertiesByUsersServlet</servlet-name>
-    <url-pattern>/users/favorites/ListFavoritesPropertiesByUsersServlet</url-pattern>
-  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>deleteFavoritePropertyUserServlet</display-name>
     <servlet-name>deleteFavoritePropertyUserServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.deleteFavoritePropertyUserServlet</servlet-class>
   </servlet>
- 
+  <servlet>
+    <description></description>
+    <display-name>EditReviewServlet</display-name>
+    <servlet-name>EditReviewServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.EditReviewServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <display-name>ListPropertiesServlet</display-name>
+    <servlet-name>ListPropertiesServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListPropertiesServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>EditAvailablePropertyServlet</display-name>
+    <servlet-name>EditAvailablePropertyServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.EditAvailablePropertyServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListReviewsServlet</display-name>
+    <servlet-name>ListReviewsServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListReviewsServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>DeleteReviewServlet</display-name>
+    <servlet-name>DeleteReviewServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.DeleteReviewServlet</servlet-class>
+  </servlet>
+
 </web-app>

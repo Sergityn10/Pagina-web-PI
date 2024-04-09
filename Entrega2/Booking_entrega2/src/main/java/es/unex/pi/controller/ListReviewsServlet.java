@@ -10,29 +10,31 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import es.unex.pi.dao.JDBCPropertyDAOImpl;
-import es.unex.pi.dao.JDBCPropertyUserDAOImpl;
+import es.unex.pi.dao.JDBCReviewDAOImpl;
+import es.unex.pi.dao.JDBCUserDAOImpl;
 import es.unex.pi.dao.PropertyDAO;
-import es.unex.pi.dao.PropertyUserDAO;
+import es.unex.pi.dao.ReviewDAO;
+import es.unex.pi.dao.UserDAO;
 import es.unex.pi.model.Property;
+import es.unex.pi.model.Review;
 import es.unex.pi.model.User;
-import es.unex.pi.model.propertyUser;
-import es.unex.pi.*;
 
 /**
- * Servlet implementation class ListFavoritesPropertiesByUsersServlet
+ * Servlet implementation class ListReviewsServlet
+ * 
  */
-@WebServlet( urlPatterns = {"/favorites/ListFavoritesPropertiesByUsersServlet.do"})
-public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
+@WebServlet( urlPatterns = {"/reviews/ListReviewsServlet.do"})
+public class ListReviewsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ListFavoritesPropertiesByUsersServlet() {
+    public ListReviewsServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,26 +45,31 @@ public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		PropertyDAO propDao = new JDBCPropertyDAOImpl();
+		propDao.setConnection(conn);
+		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
+		reviewDao.setConnection(conn);
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
+		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
-		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
-		favoriteDao.setConnection(conn);
-		
-		PropertyDAO propDao = new JDBCPropertyDAOImpl();
-		propDao.setConnection(conn);
-		
-		List<Property> listProps = new ArrayList<Property>();
-		//for(propertyUser itPropUser: favoriteDao.getAllByUser(user.getId())) {
-		for(propertyUser itPropUser: favoriteDao.getAllByUser(1)) {
+		HashMap<Review, Property> reviewProp = new HashMap<Review,Property >();
+		//TODO Descomentar cuando la funcionalidad de iniciar sesión este implementada
+		//List<Review> reviewList=reviewDao.getAllByUser(user.getId());
+		List<Review> reviewList=reviewDao.getAllByUser(1);
+		for(Review itReview : reviewList) {
 			Property itProp = new Property();
-			itProp=propDao.get(itPropUser.getIdp());
-			listProps.add(itProp);
+			itProp = propDao.get(itReview.getIdp());
+			reviewProp.put(itReview, itProp);
+			
+			
 		}
-		request.setAttribute("listFavorites", listProps);
-		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/User/ListFavoritesProperties.jsp");
-		view.forward(request, response);
 		
+		request.setAttribute("listReviews", reviewProp);
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/User/ListOwnReviews.jsp");
+		view.forward(request, response);
 	}
 
 	/**
