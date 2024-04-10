@@ -192,6 +192,30 @@ public class JDBCUserDAOImpl implements UserDAO {
 		// TODO Auto-generated method stub
 		this.conn = conn;
 	}
+	
+	// AÑADIDO -> OBTENER POR EMAIL Y CONTRASEÑA
+		public User getByEmailPassword(String email, String password) {
+			if (conn == null)
+				return null;
+
+			User user = null;
+
+			try {
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt
+						.executeQuery("SELECT * FROM users WHERE email ='" + email + "' AND password = '" + password + "'");
+				if (!rs.next())
+					return null;
+				user = new User();
+				fromRsToUserObject(rs, user);
+				logger.info("fetching User by email: " + email + " and password: " + password + " -> " + user.getId() + " "
+						+ user.getName() + " " + user.getEmail() + " " + user.getPassword());
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return user;
+		}
 
 	
 }

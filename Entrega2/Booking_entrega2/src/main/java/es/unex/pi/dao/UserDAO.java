@@ -72,4 +72,7 @@ public interface UserDAO {
 	 * @return True if the operation was made and False if the operation failed.
 	 */
 	public boolean delete(long idu);
+	
+	// AÑADIDO -> OBTENER POR EMAIL Y CONTRASEÑA
+	public User getByEmailPassword(String email, String password);
 }

@@ -20,34 +20,34 @@
 
     <main>
         <!-- Contenido principal -->
-        <h1>ACCOUNT SETTINGS</h1>
+        <h1>CONFIGURACIÓN DE LA CUENTA</h1>
         <div class="contenedor-perfil">
             <section class="card-perfil">
-                <h2>Profile Information</h2>
-                <p>Update your information and find out how its used.</p>
-                <a href="">Manage personal details</a>
+                <h2>Información del perfil</h2>
+                <p>Actualiza tus datos personales.</p>
+                <a href="EditUserServlet.do">Editar perfil</a>
             </section>
              <section class="card-perfil">
-                <h2>Your favorites properties</h2>
-                <p>Show all the properties saved in your favorites list.</p>
-                <a href="${pageContext.request.contextPath}/favorites/ListFavoritesPropertiesByUsersServlet.do">Show your favorite properties</a>
+                <h2>Tus alojamientos favoritos</h2>
+                <p>Revisa todos tus alojamientos favoritos</p>
+                <a href="${pageContext.request.contextPath}/favorites/ListFavoritesPropertiesByUsersServlet.do">Ver mis alojamientos favoritos</a>
             </section>
             
              <section class="card-perfil">
-                <h2>My registered properties</h2>
-                <p>Manage, update and show all the attributes about all your registered properties.</p>
-                <a href="${pageContext.request.contextPath}/properties/ListPropertiesServlet.do">Manage registered properties</a>
+                <h2>Mis propiedades registradas</h2>
+                <p>Gestiona, actualiza y revisa toda la información acerca de tus apartamentos favoritos</p>
+                <a href="${pageContext.request.contextPath}/properties/ListPropertiesServlet.do">Gestionar mis alojamientos</a>
             </section>
              <section class="card-perfil">
-                <h2>My books</h2>
+                <h2>Mis reservas</h2>
                 <img src="/images/user.png" alt="Imagen usuario" />
-                <p>Update your information and find out how its used.</p>
-                <a href="">Manage personal details</a>
+                <p>Recuerda y revisa tus reservas realizadas</p>
+                <a href="">Ver mis reservas</a>
             </section>
              <section class="card-perfil">
-                <h2>My reviews</h2>
-                <p>Show all your reviews provided to properties.</p>
-                <a href="${pageContext.request.contextPath}/reviews/ListReviewsServlet.do">Show my reviews</a>
+                <h2>Mis reseñas</h2>
+                <p>Mira todas tus reseñas en alojamientos</p>
+                <a href="${pageContext.request.contextPath}/reviews/ListReviewsServlet.do">Ver mis reseñas</a>
             </section>
         </div>
         

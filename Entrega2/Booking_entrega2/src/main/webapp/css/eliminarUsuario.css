@@ -1,0 +1,22 @@
+@import "login.css";
+
+h1 {
+    text-align: center;
+}
+
+.p-aux {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.datos {
+    margin-bottom: 20px;
+}
+
+.resaltado {
+    font-weight: bold;
+}
+
+form {
+    text-align: center;
+}

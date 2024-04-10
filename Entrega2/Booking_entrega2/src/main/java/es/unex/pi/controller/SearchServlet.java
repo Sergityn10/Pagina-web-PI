@@ -54,7 +54,7 @@ public class SearchServlet extends HttpServlet {
 		
 	
 		
-		for(Property alojamiento : searchListName) {
+		for(Property alojamiento : searchListName) { //función para 
 			if(!searchList.contains(alojamiento)){
 				searchList.add(alojamiento);
 			}

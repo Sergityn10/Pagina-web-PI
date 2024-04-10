@@ -22,12 +22,13 @@
                     </span> <!--BotÃ³n de atenciÃ³n al cliente-->
                     <c:choose>
                     	<c:when test="${user == null }">
-                    		<a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
-                    <a class="formulario" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">Hazte tu cuenta</a>  
-                    <a class="formulario" href="${pageContext.request.contextPath}/login.html">Iniciar sesión</a>
+                    		
+                    <a class="formulario" href="${pageContext.request.contextPath}/RegisterServlet.do">Hazte tu cuenta</a>  
+                    <a class="formulario" href="${pageContext.request.contextPath}/LogInServlet.do">Iniciar sesión</a>
                     	</c:when>
                     	<c:otherwise>
-                    		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">Configuración</a>
+                    		<a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
+                    		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">¡Hola, ${user.name}!</a>
                     	</c:otherwise>
                     </c:choose>
                     

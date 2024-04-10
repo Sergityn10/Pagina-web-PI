@@ -1,4 +1,3 @@
-@import "header.css";
 body {
     background-color: white;
     margin: 0px;
@@ -141,4 +140,9 @@ input[type="submit"]:hover {
 
 #derechos {
     margin-top: 20px; 
+}
+
+#enlaces-inferiores {
+    display: flex;
+    justify-content: space-between;
 }
