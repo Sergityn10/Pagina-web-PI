@@ -51,7 +51,7 @@ public class chooseAlojamientoServlet extends HttpServlet {
 		
 		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
 		//long idu = user.getId();
-		long idu = 1;
+		long idu = 4;
 		Long id = Long.parseLong(request.getParameter("id"));
 		Property prop = propDao.get(id);
 		request.setAttribute("prop", prop); //Guardamos en la request la propiedad a la que se está accediendo y la que se quiere mostrar 
@@ -65,7 +65,7 @@ public class chooseAlojamientoServlet extends HttpServlet {
 			reviewUser.put(itReview, itUser);
 			//TODO DEscomentar cuando este implementado la funcion de iniciar sesión
 			//if(itReview.getIdu() == user.getId()) {
-			if(itReview.getIdu() == 1) {
+			if(itReview.getIdu() == idu) {
 				conReview = true;
 				request.setAttribute("ownReview", itReview); 
 			}

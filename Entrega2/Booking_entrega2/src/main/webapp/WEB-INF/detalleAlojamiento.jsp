@@ -291,7 +291,7 @@
         </section>
         <c:if test="${user != null }"></c:if>
 	        <c:choose>
-		         <c:when test="${!conReview} ">
+		         <c:when test="${conReview == false} ">
 		         	<section id=container-create-review>
 			            <h2>Agregar una review:</h2>
 			            <form action="<c:url value="reviews/CreateReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">

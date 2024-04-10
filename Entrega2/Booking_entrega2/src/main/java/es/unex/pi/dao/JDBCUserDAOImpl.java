@@ -1,6 +1,7 @@
 package es.unex.pi.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,6 +23,7 @@ public class JDBCUserDAOImpl implements UserDAO {
 		User user = null;		
 		
 		try {
+			//PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE id ="+id);
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE id ="+id);			 
 			if (!rs.next()) 

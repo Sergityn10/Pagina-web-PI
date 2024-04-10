@@ -47,7 +47,7 @@ public class CreateReviewServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		//TODO Descomentar cuando este implementado la funcion de iniciar sesión
 		//long idu = user.getId();
-		long idu = 1;
+		long idu = 4;
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));
 		review.setGrade(grade);
 		review.setIdp(prop.getId());
@@ -77,7 +77,7 @@ public class CreateReviewServlet extends HttpServlet {
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Descomentar cuando este implementando la función de iniciar sesión
 		//long idu = user.getId();
-		long idu = 1;
+		long idu = 4;
 		Review review = new Review ();
 		
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));
@@ -93,11 +93,11 @@ public class CreateReviewServlet extends HttpServlet {
 			response.sendRedirect("../chooseAlojamientoServlet.do?id="+idp);
 		}
 		
-		  else { 
-			  reviewDao.update(review);
-			  RequestDispatcher view =
-		  request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");
-		  view.forward(request, response); }
+		/*
+		 * else { reviewDao.update(review); RequestDispatcher view =
+		 * request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");
+		 * view.forward(request, response); }
+		 */
 		 
 	}
 

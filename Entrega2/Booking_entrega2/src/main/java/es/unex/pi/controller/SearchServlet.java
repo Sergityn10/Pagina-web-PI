@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 import java.util.logging.Logger;
 
 import org.apache.tomcat.jakartaee.commons.compress.archivers.zip.PKWareExtraHeader.HashAlgorithm;
@@ -49,7 +50,9 @@ public class SearchServlet extends HttpServlet {
 		
 		
 		List<Property> searchList = propDao.getAllByCityName(request.getParameter("lugar-alojamiento"));
+		List<Property> searchListName = propDao.getAllBySearchName(request.getParameter("lugar-alojamiento"));
 		
+		searchList.addAll(searchListName);
 		String disponibilidad = request.getParameter("disponibilidad");
 		
 		logger.info("Valor del parametro disponiblidad: "+ disponibilidad);

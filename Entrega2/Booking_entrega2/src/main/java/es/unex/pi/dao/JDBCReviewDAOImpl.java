@@ -72,7 +72,7 @@ public class JDBCReviewDAOImpl implements ReviewDAO {
 		ArrayList<Review> reviewList = new ArrayList<Review>();
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Reviews WHERE Idp="+idp);
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Reviews WHERE idp="+idp);
 
 			while ( rs.next() ) {
 				Review review = new Review();
@@ -97,7 +97,7 @@ public class JDBCReviewDAOImpl implements ReviewDAO {
 		
 		try {
 			Statement stmt = conn.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM Reviews WHERE Idp="+idp+" AND idu="+idu);			 
+			ResultSet rs = stmt.executeQuery("SELECT * FROM Reviews WHERE idp="+idp+" AND idu="+idu);			 
 			if (!rs.next()) return null;
 			review= new Review();
 			fromRsToeviewObject(rs,review);
