@@ -52,7 +52,19 @@ public class SearchServlet extends HttpServlet {
 		List<Property> searchList = propDao.getAllByCityName(request.getParameter("lugar-alojamiento"));
 		List<Property> searchListName = propDao.getAllBySearchName(request.getParameter("lugar-alojamiento"));
 		
-		searchList.addAll(searchListName);
+	
+		
+		for(Property alojamiento : searchListName) {
+			if(!searchList.contains(alojamiento)){
+				searchList.add(alojamiento);
+			}
+			
+				
+		}
+		
+		
+		
+		
 		String disponibilidad = request.getParameter("disponibilidad");
 		
 		logger.info("Valor del parametro disponiblidad: "+ disponibilidad);
