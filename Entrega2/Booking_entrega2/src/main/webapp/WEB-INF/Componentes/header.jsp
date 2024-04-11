@@ -29,6 +29,8 @@
                     	<c:otherwise>
                     		<a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
                     		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">¡Hola, ${user.name}!</a>
+                    		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/LogoutServlet.do">Cerrar sesión</a>
+                    		
                     	</c:otherwise>
                     </c:choose>
                     
