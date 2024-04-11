@@ -30,14 +30,12 @@ public class chooseAlojamientoServlet extends HttpServlet {
      */
     public chooseAlojamientoServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyDAO propDao = new JDBCPropertyDAOImpl();
 		propDao.setConnection(conn);
@@ -50,8 +48,7 @@ public class chooseAlojamientoServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		
 		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
-		//long idu = user.getId();
-		long idu = 4;
+		long idu = user.getId();
 		Long id = Long.parseLong(request.getParameter("id"));
 		Property prop = propDao.get(id);
 		request.setAttribute("prop", prop); //Guardamos en la request la propiedad a la que se está accediendo y la que se quiere mostrar 
@@ -81,7 +78,6 @@ public class chooseAlojamientoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

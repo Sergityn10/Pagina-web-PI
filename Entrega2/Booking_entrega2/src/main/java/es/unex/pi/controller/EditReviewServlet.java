@@ -55,8 +55,7 @@ public class EditReviewServlet extends HttpServlet {
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Descomentar cuando este implementando la función de iniciar sesión
-		//long idu = user.getId();
-		long idu = 1;
+		long idu = user.getId();
 		Review review = new Review ();
 		
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));

@@ -26,27 +26,23 @@ public class ListConfigUser extends HttpServlet {
      */
     public ListConfigUser() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		HttpSession session = request.getSession();
 		
 		RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/perfil-usuario.jsp");
 		view.forward(request, response);
-		//response.sendRedirect("../WEB-INF/perfil-usuario.jsp");
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -28,14 +28,12 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
      */
     public addFavoritePropertyUserServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request,response);	
 		}
 
@@ -43,7 +41,6 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
 		favoriteDao.setConnection(conn);
@@ -51,8 +48,7 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		
 		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
-		//long idu = user.getId();
-		long idu = 1;
+		long idu = user.getId();
 		long idp = Long.parseLong(request.getParameter("idp"));
 		
 		propertyUser newFavorite = new propertyUser();

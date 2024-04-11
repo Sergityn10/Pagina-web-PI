@@ -54,10 +54,10 @@ public class EditAvailablePropertyServlet extends HttpServlet {
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Descomentar cuando este implementando la función de iniciar sesión
-		//long idu = user.getId();
-		//long idu = 1;
+		long idu = user.getId();
+		
 		Property property = propertyDao.get(idp);
-		if(property.getAvailable() == 1)
+		if(property.getAvailable() == idu)
 			property.setAvailable(0);
 		else
 			property.setAvailable(1);

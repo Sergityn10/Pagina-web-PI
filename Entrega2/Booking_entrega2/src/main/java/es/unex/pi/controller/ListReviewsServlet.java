@@ -36,14 +36,12 @@ public class ListReviewsServlet extends HttpServlet {
      */
     public ListReviewsServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyDAO propDao = new JDBCPropertyDAOImpl();
 		propDao.setConnection(conn);
@@ -57,8 +55,7 @@ public class ListReviewsServlet extends HttpServlet {
 		
 		HashMap<Review, Property> reviewProp = new HashMap<Review,Property >();
 		//TODO Descomentar cuando la funcionalidad de iniciar sesión este implementada
-		//List<Review> reviewList=reviewDao.getAllByUser(user.getId());
-		List<Review> reviewList=reviewDao.getAllByUser(1);
+		List<Review> reviewList=reviewDao.getAllByUser(user.getId());
 		for(Review itReview : reviewList) {
 			Property itProp = new Property();
 			itProp = propDao.get(itReview.getIdp());
@@ -76,7 +73,6 @@ public class ListReviewsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

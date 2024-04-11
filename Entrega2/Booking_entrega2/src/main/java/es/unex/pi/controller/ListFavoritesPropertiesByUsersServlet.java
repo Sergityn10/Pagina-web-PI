@@ -34,14 +34,12 @@ public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
      */
     public ListFavoritesPropertiesByUsersServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
@@ -53,8 +51,7 @@ public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
 		propDao.setConnection(conn);
 		
 		List<Property> listProps = new ArrayList<Property>();
-		//for(propertyUser itPropUser: favoriteDao.getAllByUser(user.getId())) {
-		for(propertyUser itPropUser: favoriteDao.getAllByUser(1)) {
+		for(propertyUser itPropUser: favoriteDao.getAllByUser(user.getId())) {
 			Property itProp = new Property();
 			itProp=propDao.get(itPropUser.getIdp());
 			listProps.add(itProp);
@@ -69,7 +66,6 @@ public class ListFavoritesPropertiesByUsersServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

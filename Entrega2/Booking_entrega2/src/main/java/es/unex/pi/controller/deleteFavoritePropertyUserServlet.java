@@ -31,7 +31,6 @@ public class deleteFavoritePropertyUserServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doPost(request,response);
 	}
 
@@ -39,7 +38,6 @@ public class deleteFavoritePropertyUserServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyUserDAO favoriteDao = new JDBCPropertyUserDAOImpl();
 		favoriteDao.setConnection(conn);
@@ -49,8 +47,7 @@ public class deleteFavoritePropertyUserServlet extends HttpServlet {
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Cambiar la funcionalidad de conseguir el id del usuario mediante la sesión cuando mi Juampi la termine. Descomentar la linea siguiente
-		//long idu = user.getId();
-		long idu = 1;
+		long idu = user.getId();
 		
 		if(favoriteDao.get(idp, idu) != null) {
 			favoriteDao.delete(idp, idu);
