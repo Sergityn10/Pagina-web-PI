@@ -99,4 +99,17 @@
     <servlet-name>DeleteUserServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.DeleteUserServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>CreateBookServlet</display-name>
+    <servlet-name>CreateBookServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.CreateBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListBookingsServlet</display-name>
+    <servlet-name>ListBookingsServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListBookingsServlet</servlet-class>
+  </servlet>
+
 </web-app>
