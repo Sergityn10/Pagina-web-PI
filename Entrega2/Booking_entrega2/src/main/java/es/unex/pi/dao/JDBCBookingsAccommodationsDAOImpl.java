@@ -80,6 +80,7 @@ public class JDBCBookingsAccommodationsDAOImpl implements BookingsAccommodations
 				BookingsAccommodations bookingsAccommodations = new BookingsAccommodations();
 				fromRsToBookingsAccommodationsObject(rs,bookingsAccommodations);		
 				BookingsAccommodationsList.add(bookingsAccommodations);
+				
 				logger.info("fetching all BookingsAccommodations by idacc: "+bookingsAccommodations.getIdacc()+"-> "+bookingsAccommodations.getIdb());
 			}
 

@@ -237,7 +237,7 @@
 		                            </svg></span></td>
 		                        <td>${accom.description}</td>
 		                        <td>${accom.price} €</td>
-		                        <td><input name="accomN${accom.id }" id="accomN${accom.id }" type="number" min="0" max="${accom.numAccommodations }" ></td>
+		                        <td><input name="accomN${accom.id }" id="accomN${accom.id }" type="number" min="0" max="${accom.numAccommodations }"  value="0"></td>
 		                        <td><button class="boton-hab">Reservar</button></td>
 		                  </tr>
 		                  

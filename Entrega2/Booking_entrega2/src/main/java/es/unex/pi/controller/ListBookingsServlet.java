@@ -67,15 +67,18 @@ public class ListBookingsServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		//TODO Descomentar cuando este implementado la funcionalidad de iniciar sesión
-		List<Booking> listBookings = bookDao.getAllByIdu(user.getId());
-		
+		//List<Booking> listBookings = bookDao.getAllByIdu(user.getId());
+		List<Booking> listBookings = bookDao.getAll();
 		//HashMap<Property,HashMap<Booking,List<BookingsAccommodations>>> propBookingList = new HashMap<Property, HashMap<Booking,List<BookingsAccommodations>>>();
 		
 		HashMap<Property, Booking> propBookingList = new HashMap <Property, Booking>();
 		for(Booking book:listBookings) {
-			List<BookingsAccommodations> listAccom = bookAccomDao.getAllByBooking(book.getId());
-			Property prop = propDao.get(accomDao.get(listAccom.get(0).getIdacc()).getIdp());
-			propBookingList.put(prop, book);
+			if(user.getId()== book.getIdu()) {
+				List<BookingsAccommodations> listAccom = bookAccomDao.getAllByBooking(book.getId());
+				//Property prop = propDao.getByBooking(book, user.getId());
+				Property prop = propDao.get(accomDao.get(listAccom.get(0).getIdacc()).getIdp());
+				propBookingList.put(prop, book);
+			}
 		}
 		
 		request.setAttribute("listPropBooking", propBookingList);

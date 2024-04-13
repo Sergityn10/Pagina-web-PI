@@ -82,7 +82,11 @@ public class CreateBookServlet extends HttpServlet {
 		
 		int price_total=0;
 		for(Accommodation accom : accomList) {
-			int num_accom = Integer.parseInt(request.getParameter("accomN"+accom.getId()));
+			
+			int num_accom=0;
+			
+				num_accom = Integer.parseInt(request.getParameter("accomN"+accom.getId()));
+			
 			int price_accom = num_accom*accom.getPrice();
 			price_total=price_total+price_accom;
 		}
@@ -92,8 +96,8 @@ public class CreateBookServlet extends HttpServlet {
 		book.setTotalPrice(price_total);
 		
 		bookingDao.add(book);
-		
-		book = bookingDao.get(user.getId(), price_total);
+		List<Booking> booksUser = bookingDao.getAllByIdu(user.getId());
+		book = bookingDao.get(booksUser.get(booksUser.size()-1).getId());
 		
 		for(Accommodation accom : accomList) {
 			int num_accom = Integer.parseInt(request.getParameter("accomN"+accom.getId()));

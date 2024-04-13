@@ -12,7 +12,6 @@
 <body>
 	<header>
    	 <c:import url="/WEB-INF/Componentes/header.jsp"/>
-
             <nav id="enlaces-navegacion">
                 <div class="navegacion-flights">
                     <a id="button-flights" href="">
@@ -81,27 +80,26 @@
         <main>
             <div class="container-config">
             	<section id="reservas">
-            		<h2>Tus reservas</h2>
+            		<h2>Mis reservas</h2>
             		
             	</section>
-            	<c:forEach var="booking" items="${listBookings}">
+            	<c:forEach var="propBooking" items="${listPropBooking}">
             		<section class="lugar-reserva">
-	            		<h3>${alojamiento.city}</h3>
+	            		<h3>${propBooking.key.city} </h3>
 			                <div class="box-carrito">
-		                    <img src="img/caceres.jpg" alt="imagen-sobre-lugar">
+		                    
 		                    <section class="info-lugar-reserva">
-		                      <h5 class="nom-lugar-strong">${alojamiento.name }</h5>
-		                        <c:choose>
-		                        	<c:when test="${alojamiento.available==1 }"><p>DISPONIBLE</p></c:when>
-		                        	<c:otherwise><p>NO DISPONIBLE</p></c:otherwise>
-		                        </c:choose>
+		                      <h5 class="nom-lugar-strong"> ${propBooking.key.name}</h5>
+		                       
 		                    </section>
+		                    <section class="card">
+		                       		<h4>Alojamientos:</h4>
+		                       		
+		                       </section>
 		                    <div class="precio-con-menu">
 		                        
-		                       <form method="post" action="deleteFavoritePropertyUserServlet.do?idp=${alojamiento.id}">
-		                       		<input class="menu" type="image" src="${pageContext.request.contextPath}/img/Iconos/delete.png" alt="">
-		                       </form>
-		                       
+		                       <h4>Precio total:</h4>
+		                       	<p>${propBooking.value.totalPrice}</p>
 		                        
 		                    </div>
 		                    

@@ -171,9 +171,8 @@ public class JDBCBookingDAOImpl implements BookingDAO {
 		
 		ArrayList<Booking> bookings = new ArrayList<Booking>();
 		try {
-			Statement stmt;
+			Statement stmt =conn.createStatement();
 			ResultSet rs;
-			stmt = conn.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM bookings WHERE idu = "+idu);
 			while ( rs.next() ) {
 				Booking booking = new Booking();
