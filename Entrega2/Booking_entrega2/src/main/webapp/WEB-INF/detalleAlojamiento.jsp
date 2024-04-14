@@ -239,7 +239,7 @@
 		                        <td>${accom.price} €</td>
 		                        <td><input name="accomN${accom.id }" id="accomN${accom.id }" type="number" min="0" max="${accom.numAccommodations }"  value="0"></td>
 		                        <td><button class="boton-hab">Reservar</button></td>
-		                  </tr>
+		                 </tr>
 		                  
 	                </c:forEach>
                 </form>

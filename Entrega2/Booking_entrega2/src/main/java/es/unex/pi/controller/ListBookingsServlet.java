@@ -10,8 +10,10 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Logger;
 
 import es.unex.pi.dao.JDBCPropertyDAOImpl;
 import es.unex.pi.dao.JDBCBookingsAccommodationsDAOImpl;
@@ -37,6 +39,7 @@ import es.unex.pi.model.Accommodation;
 @WebServlet( urlPatterns = {"/books/ListBookingsServlet.do"})
 public class ListBookingsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(JDBCBookingsAccommodationsDAOImpl.class.getName());
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -75,8 +78,11 @@ public class ListBookingsServlet extends HttpServlet {
 		for(Booking book:listBookings) {
 			if(user.getId()== book.getIdu()) {
 				List<BookingsAccommodations> listAccom = bookAccomDao.getAllByBooking(book.getId());
+				
 				//Property prop = propDao.getByBooking(book, user.getId());
 				Property prop = propDao.get(accomDao.get(listAccom.get(0).getIdacc()).getIdp());
+				logger.info("TAMAÑÓ DE LA LISTA DE ACCOMMODATIONS DE LA RESERVA CON ID = "+ book.getId()+"->"+ listAccom.size());
+				
 				propBookingList.put(prop, book);
 			}
 		}
