@@ -12,23 +12,24 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.logging.Logger;
 
+import es.unex.pi.dao.JDBCPropertyDAOImpl;
 import es.unex.pi.dao.JDBCUserDAOImpl;
+import es.unex.pi.dao.PropertyDAO;
 import es.unex.pi.dao.UserDAO;
+import es.unex.pi.model.Property;
 import es.unex.pi.model.User;
 
 /**
- * Servlet implementation class DeleteUserServlet
+ * Servlet implementation class DeletePropertyServlet
  */
-
-@WebServlet( urlPatterns = {"/users/DeleteUserServlet.do"})
-public class DeleteUserServlet extends HttpServlet {
+public class DeletePropertyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeleteUserServlet() {
+	public DeletePropertyServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -39,10 +40,23 @@ public class DeleteUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		logger.info("DeleteUser GET");
+		logger.info("DeleteProperty GET");
+		
+		// Se obtiene el id del alojamiento pasado en la request
+		Long idA = Long.parseLong(request.getParameter("idp"));
+		
+		//Se recupera el objeto
+		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
+		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
+		alojamientoDao.setConnection(conn);
+		
+		Property alojamiento = alojamientoDao.get(idA);
+		
+		//Se pasa a través de la request
+		request.setAttribute("alojamiento", alojamiento);
 
 		// Se envía a la página de confirmar eliminación
-		RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/confirmEliminarUsuario.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/confirmEliminarAlojamiento.jsp");
 		view.forward(request, response);
 	}
 
@@ -52,26 +66,21 @@ public class DeleteUserServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// Si se ha llegado aquí es que se confirma la eliminación
-		logger.info("DeleteUser POST");
+		logger.info("DeleteProperty POST");
+
+		// Se obtiene el id del alojamiento pasado en la request
+		Long idA = Long.parseLong(request.getParameter("idA"));
 
 		// Se elimina el atributo de la BD
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 
-		UserDAO userDAO = new JDBCUserDAOImpl();
-		userDAO.setConnection(conn);
-
-		long id = user.getId();
-		userDAO.delete(id);
-
-		// Se elimina también de la sesión
-		session.removeAttribute("user");
-
-		RequestDispatcher view = request.getRequestDispatcher("../ListPropertiesServlet.do");
-	    view.forward(request, response);
+		PropertyDAO alojamientoDAO = new JDBCPropertyDAOImpl();
+		alojamientoDAO.setConnection(conn);
+		
+		alojamientoDAO.delete(idA);
+		
+		RequestDispatcher view = request.getRequestDispatcher("InicioBookingServlet.do");
+		view.forward(request, response);
 	}
 
 }
