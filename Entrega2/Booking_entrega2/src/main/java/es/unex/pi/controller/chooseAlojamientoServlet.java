@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
@@ -55,8 +56,8 @@ public class chooseAlojamientoServlet extends HttpServlet {
 		
 		boolean conReview = false;
 		HashMap<Review, User> reviewUser = new HashMap<Review, User>();
-		List<Review> accomList=reviewDao.getAllByProperty(id);
-		for(Review itReview : accomList) {
+		List<Review> reviewsList=reviewDao.getAllByProperty(id);
+		for(Review itReview : reviewsList) {
 			User itUser = new User();
 			itUser = userDao.get(itReview.getIdu());
 			reviewUser.put(itReview, itUser);
@@ -68,6 +69,16 @@ public class chooseAlojamientoServlet extends HttpServlet {
 			}
 		}
 		
+		AccommodationDAO accomDao = new JDBCAccommodationDAOImpl();
+		accomDao.setConnection(conn);
+		
+		
+	
+		List<Accommodation> AccomList = new ArrayList<Accommodation>();
+		AccomList = accomDao.getAllBySearchIdp(prop.getId());
+		
+		
+		request.setAttribute("accomList", AccomList);
 		request.setAttribute("conReview", conReview);
 		request.setAttribute("reviewUser", reviewUser); //Guardamos en la request la lista de review que tiene el alojamiento buscado por el usuario
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/detalleAlojamiento.jsp");

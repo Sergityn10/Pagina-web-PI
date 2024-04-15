@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
   <display-name>Booking_entrega2</display-name>
+  
   <welcome-file-list>
     <welcome-file>InicioBookingServlet.do</welcome-file>
   </welcome-file-list>
@@ -99,4 +100,17 @@
     <servlet-name>DeleteUserServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.DeleteUserServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>CreateBookServlet</display-name>
+    <servlet-name>CreateBookServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.CreateBookServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description></description>
+    <display-name>ListBookingsServlet</display-name>
+    <servlet-name>ListBookingsServlet</servlet-name>
+    <servlet-class>es.unex.pi.controller.ListBookingsServlet</servlet-class>
+  </servlet>
+
 </web-app>

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import es.unex.pi.model.Booking;
+import es.unex.pi.model.BookingsAccommodations;
 import es.unex.pi.model.Property;
 
 public class JDBCPropertyDAOImpl implements PropertyDAO {
@@ -258,6 +260,32 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 	public void setConnection(Connection conn) {
 		// TODO Auto-generated method stub
 		this.conn = conn;
+	}
+
+	@Override
+	public Property getByBooking(Booking book, long idu) {
+		
+		BookingsAccommodationsDAO bookAccomDao = new JDBCBookingsAccommodationsDAOImpl();
+		bookAccomDao.setConnection(conn);
+		
+		AccommodationDAO accomDao = new JDBCAccommodationDAOImpl();
+		accomDao.setConnection(conn);
+		
+		List<BookingsAccommodations> listAccom = bookAccomDao.getAllByBooking(book.getId());
+		Property property = null;
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM properties WHERE id ="+accomDao.get(listAccom.get(0).getIdacc()).getIdp());			 
+			if (!rs.next()) return null; 
+			property  = new Property();	 
+			fromRsToPropertyObject(rs,property);
+			logger.info("fetching property: "+property.getId());
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return property;
 	}
 
 	
