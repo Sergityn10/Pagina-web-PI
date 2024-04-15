@@ -56,7 +56,7 @@ public class MyServletListener implements ServletContextListener {
     	Connection conn = null;
     	try {
     		Class.forName("org.sqlite.JDBC");
-    		String dbURL = "jdbc:sqlite:file:" + System.getProperty("user.home")+"/sqlite_dbs/Booking.db";
+    		String dbURL = "jdbc:sqlite:file:" + System.getProperty("user.home")+"/sqlite_dbs/MGML.db";
     		conn = DriverManager.getConnection(dbURL);
     		if (conn != null) {
     			logger.info ("Connected to database");

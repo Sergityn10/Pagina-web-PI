@@ -98,25 +98,25 @@ public class SearchServlet extends HttpServlet {
 			// Se han encontrado resultados
 			AccommodationDAO accomDao = new JDBCAccommodationDAOImpl();
 			accomDao.setConnection(conn);
-
+			List<Property> searchAux = new ArrayList<Property>();
 			// Se aplica el filtro de disponibilidad
 			if (!disponibilidad.equals("todos")) {
 				logger.info("DISPONIBILIDAD DISTINTO DE TODOS");
 				if (disponibilidad.equals("con_disp")) {
 					for (Property itProperty : searchList) {
-						if (itProperty.getAvailable() == 0) {
-							searchList.remove(itProperty);
+						if (itProperty.getAvailable() == 1) {
+							searchAux.add(itProperty);
 						}
 					}
 				} else {
 					for (Property itProperty : searchList) {
-						if (itProperty.getAvailable() == 1) {
-							searchList.remove(itProperty);
+						if (itProperty.getAvailable() == 0) {
+							searchAux.add(itProperty);
 						}
 					}
 				}
 			}
-				request.setAttribute("listaAlojamientos", searchList);	
+				request.setAttribute("listaAlojamientos", searchAux);	
 				request.setAttribute("ciudad", request.getParameter("lugar-alojamiento"));
 				request.setAttribute("disp", disponibilidad);
 				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/listaAlojamientos.jsp");

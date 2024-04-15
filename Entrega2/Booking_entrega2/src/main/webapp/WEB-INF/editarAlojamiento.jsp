@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,13 +12,13 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
-   <header>
+ <header>
 		<c:import url="/WEB-INF/Componentes/header.jsp"/>
 	</header>
     <div id="main">
         <div id="contenedor-central">
             <form id="formulario-registro" action="EditPropertyServlet.do?idp=${alojamiento.id}" method="post">
-                <h1>EdiciÛn Alojamiento</h1>
+                <h1>Edici√≥n Alojamiento</h1>
                 
                 <label for="nombre"><span>Nombre del Alojamiento</span></label><br>
                 <input type="text" id="nombre" name="nombre" value="${alojamiento.name}"><br>
@@ -24,19 +26,19 @@
                 <label for="ciudad"><span>Ciudad</span></label><br>
                 <input type="text" id="ciudad" name="ciudad" value="${alojamiento.city}"><br>
     
-                <label for="direccion"><span>DirecciÛn</span></label><br>
+                <label for="direccion"><span>Direcci√≥n</span></label><br>
                 <input type="text" id="direccion" name="direccion" value="${alojamiento.address}"><br>
     
-                <label for="telefono"><span>TelÈfono</span></label><br>
+                <label for="telefono"><span>Tel√©fono</span></label><br>
                 <input type="tel" id="telefono" name="telefono" value="${alojamiento.telephone}"><br>
     
                 <label for="distancia"><span>Distancia al centro (metros)</span></label><br>
                 <input type="number" id="distancia" name="distancia" value="${alojamiento.centerDistance}"><br>
     
-                <label for="valoracion"><span>ValoraciÛn media</span></label><br>
+                <label for="valoracion"><span>Valoraci√≥n media</span></label><br>
                 <input type="number" id="valoracion" name="valoracion" step="0.1" value="${alojamiento.gradesAverage}"><br>
     
-                <label for="descripcion"><span>DescripciÛn</span></label><br>
+                <label for="descripcion"><span>Descripci√≥n</span></label><br>
                 <textarea id="descripcion" name="descripcion">${alojamiento.description}</textarea><br>
 
                 <div id="servicios">
@@ -57,9 +59,9 @@
                 </div>
 
                 <div id="mascotas">
-                    <span>øPermite mascotas?</span>
+                    <span>¬øPermite mascotas?</span>
                     <input type="radio" id="si" name="mascotas" value="si">
-                    <label for="si"><span>SÕ</span></label>
+                    <label for="si"><span>S√ç</span></label>
                     <input type="radio" id="no" name="mascotas" value="no">
                     <label for="no"><span>NO</span></label>
                 </div>
@@ -71,23 +73,23 @@
         </div>
 
         <div id="contenedor-aux">
-            <h2>AÒadir nueva habitaciÛn</h2>
+            <h2>A√±adir nueva habitaci√≥n</h2>
             <a href="ListAccommodationsServlet.do?idp=${alojamiento.id}">Ver las habitaciones de ${alojamiento.name}</a>
 
-            <form id="aÒadir-habitacion" action="CreateAccommodationServlet.do?idp=${alojamiento.id}" method="post">
+            <form id="a√±adir-habitacion" action="CreateAccommodationServlet.do?idp=${alojamiento.id}" method="post">
                 <label for="nombre"><span>Nombre</span></label><br>
                 <input type="text" id="nombre" name="nombre" required><br>
 
-                <label for="descripcion-hab"><span>DescripciÛn</span></label><br>
+                <label for="descripcion-hab"><span>Descripci√≥n</span></label><br>
                 <textarea id="descripcion-hab" name="descripcion-hab"></textarea><br>
     
                 <label for="precio-hab"><span>Precio</span></label><br>
                 <input type="number" id="precio-hab" name="precio-hab" step="1" required><br>
                 
-                <label for="disponibles"><span>N∫ habitaciones disponibles</span></label><br>
+                <label for="disponibles"><span>N¬∫ habitaciones disponibles</span></label><br>
                 <input type="number" id="disponibles" name="disponibles" step="1" required><br>
                 
-                <input type="submit" value="AÒadir habitaciÛn">
+                <input type="submit" value="A√±adir habitaci√≥n">
             </form>
 
         </div>

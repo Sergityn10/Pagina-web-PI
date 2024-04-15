@@ -1,11 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmaci髇 Eliminar Alojamiento</title>
+    <title>Confirmaci贸n Eliminar Alojamiento</title>
     <link rel="icon" href="img/icono-booking.png" type="image/png">
     <link rel="stylesheet" href="css/eliminarUsuario.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
@@ -19,16 +21,16 @@
             
             <h1>Eliminar alojamiento: ${alojamiento.name}</h1>
 
-            <p class="p-aux">Informaci髇 que se va a eliminar:</p>
+            <p class="p-aux">Informaci贸n que se va a eliminar:</p>
 
             <p class="datos">Nombre: <span class="resaltado">${alojamiento.name}</span></p>
             <p class="datos">Ciudad: <span class="resaltado">${alojamiento.city}</span></p></p>
-            <p class="datos">Direcci髇: <span class="resaltado">${alojamiento.address}</span></p></p>
-            <p class="datos">Tel閒ono: <span class="resaltado">${alojamiento.telephone}</span></p></p>
+            <p class="datos">Direcci贸n: <span class="resaltado">${alojamiento.address}</span></p></p>
+            <p class="datos">Tel茅fono: <span class="resaltado">${alojamiento.telephone}</span></p></p>
             <p class="datos">Distancia al centro: <span class="resaltado">${alojamiento.centerDistance}</span></p></p>
-            <p class="datos">Descripci髇: <span class="resaltado">${alojamiento.description}</span></p></p>
+            <p class="datos">Descripci贸n: <span class="resaltado">${alojamiento.description}</span></p></p>
 
-            <p class="p-aux">縀st醩 seguro de que quieres eliminar el alojamiento? Esta acci髇 es irreversible</p>
+            <p class="p-aux">驴Est谩s seguro de que quieres eliminar el alojamiento? Esta acci贸n es irreversible</p>
 
             <form action="DeletePropertyServlet.do" method="post">
             	<input type="hidden" name="idA" value="${alojamiento.id}">
