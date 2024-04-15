@@ -3,7 +3,6 @@ package es.unex.pi.dao;
 import java.sql.Connection;
 import java.util.List;
 
-import es.unex.pi.model.Booking;
 import es.unex.pi.model.Property;
 
 
@@ -89,6 +88,4 @@ public interface PropertyDAO {
 	public boolean delete(long id);
 	
 	public List<Property> getAllByCityName(String search);
-	
-	public Property getByBooking(Booking book, long idu);
 }

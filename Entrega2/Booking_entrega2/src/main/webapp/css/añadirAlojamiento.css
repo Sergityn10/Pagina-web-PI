@@ -10,7 +10,7 @@ p, h1, h2, span, label {
 }
 
 h1 {
-    font-size: 20px;
+    font-size: 24px;
 }
 
 a {
@@ -41,47 +41,70 @@ a {
 }
 
 #main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin-top: 48px;
-    padding: 16px 16px 0;
+    padding-left: 30%;
+    padding-right: 30%;
 }
 
-#main h1{
+#contenedor-central {
+    flex-basis: 50%;
+    padding-right: 40px;
+}
+
+#contenedor-central h1{
     margin-bottom: 20px;
+    margin-top: 0;
 }
 
 label {
     padding: 0px 0px 4px;
 }
 
-#formulario-registro span {
+span {
     font-size: 14px;
 }
 
-input[type="text"], input[type="email"], input[type="password"], input[type="submit"], input[type="number"] {
-    width: 360px;
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"], input[type="number"], input[type="submit"], textarea  {
+    width: 100%;
     height: 36px;
     padding: 4px 8px;
     margin-bottom: 10px;
     border: 1px solid #868686;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
-input[type="email"] {
-    width: 360px;
-    height: 36px;
+#contenedor-central textarea {
+    height: 72px;
+}
+
+#servicios >span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.contenedor-checkbox {
+    display: block;
+    margin-top: 5px;
+}
+
+#mascotas {
+    margin-top: 10px;
+}
+
+#mascotas >span {
+    font-weight: bold;
 }
 
 input[type="submit"] {
-    width: 360px;
+    width: 100%;
     height: 48px;
     background-color: #006ce4;
     color: #fff;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 20px;
 }
 
 input[type="submit"]:hover {
@@ -142,7 +165,16 @@ input[type="submit"]:hover {
     margin-top: 20px; 
 }
 
-#enlaces-inferiores {
-    display: flex;
-    justify-content: space-between;
+#contenedor-aux {
+    flex-basis: 50%;
+    padding-left: 40px;
+    padding-top: 27px;
+    text-align: right;
 }
+
+#contenedor-aux h2{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 18px;
+}
+

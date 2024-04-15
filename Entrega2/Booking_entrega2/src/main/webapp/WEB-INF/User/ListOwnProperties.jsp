@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,21 +68,12 @@
                     </a>   
                 </div>
             </nav>
-
-
         </header>
-        
-        
-            
-
-            
-       
-
         <main>
             <div class="container-config">
             	<section id="reservas">
-            		<h2>Your registered properties</h2>
-            		
+            		<h2>Tus alojamientos registrados</h2>
+            		<a href="${pageContext.request.contextPath}/CreatePropertyServlet.do">Añadir nueva propiedad</a>
             	</section>
             	<c:forEach var="alojamiento" items="${listProperties}">
             		<section class="lugar-reserva">
@@ -98,8 +89,9 @@
 		                    </section>
 		                    <div class="precio-con-menu">
 		                        
-		                      <a href = "${pageContext.request.contextPath}/properties/EditAvailablePropertyServlet.do?idp=${alojamiento.id }" class="boton-bg-azul">Cambiar estado del alojamiento</a>
-		                       <a href="deletePropertyServlet.do?idp=${alojamiento.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"></a>
+		                      <a href = "${pageContext.request.contextPath}/properties/EditAvailablePropertyServlet.do?idp=${alojamiento.id}" class="boton-bg-azul">Cambiar estado del alojamiento</a>
+		                      <a href = "${pageContext.request.contextPath}/EditPropertyServlet.do?idp=${alojamiento.id}" class="boton-bg-azul">Editar</a>
+		                      <a href="${pageContext.request.contextPath}/DeletePropertyServlet.do?idp=${alojamiento.id}"><img alt="Eliminar propiedad registrada" src="${pageContext.request.contextPath}/img/Iconos/delete.png"></a>
 		                       
 		                        
 		                    </div>
@@ -108,11 +100,8 @@
 	                
 	            	</section>
             		
-            	</c:forEach>
-            		
-	                
-           
-           </div> 
+            	</c:forEach> 
+          </div> 
           </main>
          
     

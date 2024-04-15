@@ -30,20 +30,21 @@ public class ListPropertiesServlet extends HttpServlet {
      */
     public ListPropertiesServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyDAO propDao = new JDBCPropertyDAOImpl();
 		propDao.setConnection(conn);
 		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		//TODO Descomentar cuando este implementado la funcionalidad de iniciar sesión
+		
+		//Se obtienen las propiedades del usuario
 		List<Property> listProperties = propDao.getAllByUser(user.getId());
 		
 		request.setAttribute("listProperties", listProperties);
@@ -55,6 +56,7 @@ public class ListPropertiesServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 
