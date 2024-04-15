@@ -59,10 +59,7 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 		if(favoriteDao.get(idp, idu) == null) {
 			favoriteDao.add(newFavorite);
 		}
-		else {
-			//TODO eliminar 
-			
-		}
+		
 		response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");
 		
 		
