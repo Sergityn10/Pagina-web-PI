@@ -1,0 +1,91 @@
+@import "header.css";
+@import "buscador.css";
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+}
+
+h2{
+    width: 50%;
+    margin: 0;
+}
+
+.container-reservas{
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    padding-bottom: 20px;   
+}
+
+#titulo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#nueva-hab {
+    text-decoration: none;
+    color: #003580;
+    font-weight: bold;
+}
+
+#nueva-hab:hover {
+    text-decoration: underline;
+}
+
+.box-habitacion{
+    border:1px solid rgba(0, 0, 0, 0.208);
+    border-radius: 10px;
+    padding:5px;
+    margin-top: 4px;
+    display: flex;
+    width: 1100px; /* Tamaño fijo del contenedor */
+    height: 200px;
+    margin-bottom: 25px;
+}
+
+.imagen-habitacion {
+    flex-basis: 25%;
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px;
+}
+
+.atributos {
+    flex-basis: auto;
+    margin-left: 10px;
+}
+
+.atributos p {
+    margin-top: 5px;
+}
+
+.nombre-hab {
+    font-weight: bold;
+}
+
+.box-enlaces {
+    display: flex;
+    justify-content: space-between;
+}
+
+.enlace-editar {
+    color: #006ce4; 
+    text-decoration: none;
+}
+
+.enlace-eliminar {
+    color: #FF0000; 
+    text-decoration: none;
+}
+
+.enlace-eliminar:hover, .enlace-editar:hover {
+    text-decoration: underline;
+}

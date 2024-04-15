@@ -57,7 +57,7 @@ public class EditAvailablePropertyServlet extends HttpServlet {
 		long idu = user.getId();
 		
 		Property property = propertyDao.get(idp);
-		if(property.getAvailable() == idu)
+		if(property.getAvailable() == 1)
 			property.setAvailable(0);
 		else
 			property.setAvailable(1);
