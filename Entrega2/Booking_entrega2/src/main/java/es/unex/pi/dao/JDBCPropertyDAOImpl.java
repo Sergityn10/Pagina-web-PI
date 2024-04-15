@@ -90,6 +90,34 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 		return properties;
 	}
 	
+	public List<Property> getAllBySearchNameValDesc(String search) {
+	    search = search.toUpperCase();
+	    if (conn == null)
+	        return null;
+
+	    ArrayList<Property> properties = new ArrayList<Property>();
+	    try {
+	        Statement stmt = conn.createStatement();
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM properties WHERE UPPER(name) LIKE '%" + search + "%' ORDER BY gradesAverage DESC");
+
+	        while (rs.next()) {
+	            Property property = new Property();
+	            fromRsToPropertyObject(rs, property);
+	            properties.add(property);
+
+	            logger.info("fetching property: " + property.getId());
+
+	        }
+
+	    } catch (SQLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    }
+
+	    return properties;
+	}
+
+	
 	public List<Property> getAllByCityName(String search) {
 		search = search.toUpperCase();
 		if (conn == null)
@@ -117,6 +145,35 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 
 		return properties;
 	}
+	
+	public List<Property> getAllByCityNameValDesc(String search) {
+	    search = search.toUpperCase();
+	    if (conn == null)
+	        return null;
+
+	    ArrayList<Property> properties = new ArrayList<Property>();
+	    try {
+	        Statement stmt = conn.createStatement();
+	        ResultSet rs = stmt.executeQuery("SELECT * FROM properties WHERE UPPER(city) LIKE '%" + search + "%' ORDER BY gradesAverage DESC");
+
+	        while (rs.next()) {
+	            Property property = new Property();
+	            fromRsToPropertyObject(rs, property);
+
+	            properties.add(property);
+
+	            logger.info("fetching property: " + property.getName());
+
+	        }
+
+	    } catch (SQLException e) {
+	        // TODO Auto-generated catch block
+	        e.printStackTrace();
+	    }
+
+	    return properties;
+	}
+
 	
 
 	

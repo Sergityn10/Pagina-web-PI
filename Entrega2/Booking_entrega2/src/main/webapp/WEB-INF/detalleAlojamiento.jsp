@@ -139,8 +139,8 @@
                     <button id="reservar-boton"><span>Reservar ahora</span></button>
                 </div>
                 <div id="info-superior">
-                        <span id="direccion">Donoso Cortés 13-15, 10003 Cáceres, España - <a href="">Ubicación Excelente - Ver Mapa</a></span>
-                        <span id="valoracion">8,6</span>
+                        <span id="direccion">${prop.address} - <a href="">Ubicación Excelente - Ver Mapa</a></span>
+                        <span id="valoracion">${prop.gradesAverage}</span>
 
                 </div>
                 <div id="grid-fotos">
@@ -164,7 +164,8 @@
 
         <div id="main-inferior">
             <div id="parrafos-info">
-                <p>¡Puedes conseguir un descuento Genius en Hotel Don Carlos Cáceres! Para ahorrar en este alojamiento, solo tienes que <a href="login.html">iniciar sesión.</a></p>
+            	<p>Contáctanos: <a href="tel:${prop.telephone}" >${prop.telephone}</a></p>
+                <p>DESCRIPCIÓN DINÁMICA: ${prop.description}</p>
                 <p> El Hotel Don Carlos ocupa un edificio de 1803 y está situado en el centro de Cáceres. El establecimiento ofrece habitaciones cómodas con muebles de estilo antiguo y WiFi gratuita. La catedral de Cáceres está a solo 400 metros.</p>
                 <p>Las habitaciones del Hotel Don Carlos Cáceres disponen de aire acondicionado, baño privado moderno y suelo de baldosa. Algunas tienen paredes de piedra, y todas están equipadas con TV y calefacción.</p>
                 <p>El Hotel Don Carlos Cáceres cuenta con consigna de equipaje, sala de desayunos y salón en recepción.</p>

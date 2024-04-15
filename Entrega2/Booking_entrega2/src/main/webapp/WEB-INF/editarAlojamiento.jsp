@@ -66,6 +66,8 @@
                     <input type="radio" id="no" name="mascotas" value="no">
                     <label for="no"><span>NO</span></label>
                 </div>
+                
+                <input type="hidden" id="disponibilidad" name="disponibilidad" value="${alojamiento.available}">
 
                 <input type="submit" value="Confirmar cambios">
             </form>
@@ -75,18 +77,18 @@
             <h2>Añadir nueva habitación</h2>
             <a href="ListAccommodationsServlet.do?idp=${alojamiento.id}">Ver las habitaciones de ${alojamiento.name}</a>
 
-            <form id="añadir-habitacion" action="CreateAccommodationServlet.do" method="post">
+            <form id="añadir-habitacion" action="CreateAccommodationServlet.do?idp=${alojamiento.id}" method="post">
                 <label for="nombre"><span>Nombre</span></label><br>
-                <input type="text" id="nombre" name="nombre"><br>
+                <input type="text" id="nombre" name="nombre" required><br>
 
                 <label for="descripcion-hab"><span>Descripción</span></label><br>
                 <textarea id="descripcion-hab" name="descripcion-hab"></textarea><br>
     
                 <label for="precio-hab"><span>Precio</span></label><br>
-                <input type="number" id="precio-hab" name="precio-hab" step="1"><br>
+                <input type="number" id="precio-hab" name="precio-hab" step="1" required><br>
                 
                 <label for="disponibles"><span>Nº habitaciones disponibles</span></label><br>
-                <input type="number" id="disponibles" name="disponibles" step="1"><br>
+                <input type="number" id="disponibles" name="disponibles" step="1" required><br>
                 
                 <input type="submit" value="Añadir habitación">
             </form>

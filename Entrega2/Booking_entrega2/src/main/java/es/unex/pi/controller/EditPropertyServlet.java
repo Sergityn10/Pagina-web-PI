@@ -79,6 +79,7 @@ public class EditPropertyServlet extends HttpServlet {
 		alojamiento.setCenterDistance(Float.parseFloat(request.getParameter("distancia")));
 		alojamiento.setGradesAverage(Float.parseFloat(request.getParameter("valoracion")));
 		alojamiento.setDescription(request.getParameter("descripcion"));
+		alojamiento.setAvailable(Integer.parseInt(request.getParameter("disponibilidad")));
 		// Faltaría las mascotas
 		
 		//Se obtiene el usuario de la sesión y se coge su id
@@ -98,7 +99,7 @@ public class EditPropertyServlet extends HttpServlet {
 		else
 			logger.info("EditProperty POST: Fallo al actualizar el usuario");
 		
-		RequestDispatcher view = request.getRequestDispatcher("InicioBookingServlet.do");
+		RequestDispatcher view = request.getRequestDispatcher("/properties/ListPropertiesServlet.do");
 		view.forward(request, response);
 	}
 

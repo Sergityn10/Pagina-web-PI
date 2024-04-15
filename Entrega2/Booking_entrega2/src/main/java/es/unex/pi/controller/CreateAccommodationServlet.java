@@ -62,7 +62,7 @@ public class CreateAccommodationServlet extends HttpServlet {
 		habitacionDao.add(habitacion);
 		
 		//Redirección de nuevo a la lista de propiedades del usuario
-		RequestDispatcher view = request.getRequestDispatcher("InicioBookingServlet.do");
+		RequestDispatcher view = request.getRequestDispatcher("ListAccommodationsServlet.do?idp="+Long.parseLong(request.getParameter("idp")));
 	    view.forward(request, response);	
 	}
 

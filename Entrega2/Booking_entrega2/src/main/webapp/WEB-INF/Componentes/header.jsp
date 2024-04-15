@@ -27,7 +27,6 @@
                     <a class="formulario" href="${pageContext.request.contextPath}/LogInServlet.do">Iniciar sesión</a>
                     	</c:when>
                     	<c:otherwise>
-                    		<a class="alojamiento seleccion" href="">Registra tu alojamiento</a>
                     		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/users/ListConfigUserServlet.do">¡Hola, ${user.name}!</a>
                     		<a class="alojamiento seleccion" href="${pageContext.request.contextPath}/LogoutServlet.do">Cerrar sesión</a>
                     		

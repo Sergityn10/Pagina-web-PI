@@ -14,8 +14,8 @@ p, h1, h2, h3, h4, span, label, li, a, button {
 
 main {
     max-width: 1100px;
-    
-   margin:0 auto;
+   	margin:0 auto;
+    margin-top: 75px;
 }
 
 
