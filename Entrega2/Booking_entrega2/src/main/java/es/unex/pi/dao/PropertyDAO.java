@@ -3,6 +3,7 @@ package es.unex.pi.dao;
 import java.sql.Connection;
 import java.util.List;
 
+import es.unex.pi.model.Booking;
 import es.unex.pi.model.Property;
 
 

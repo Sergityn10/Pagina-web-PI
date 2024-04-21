@@ -116,10 +116,7 @@
     <servlet-name>CreatePropertyServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.CreatePropertyServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>CreatePropertyServlet</servlet-name>
-    <url-pattern>/CreatePropertyServlet.do</url-pattern>
-  </servlet-mapping>
+
   <servlet>
     <description></description>
     <display-name>DeletePropertyServlet</display-name>

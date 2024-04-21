@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import es.unex.pi.model.Booking;
 import es.unex.pi.model.Property;
 
 public class JDBCPropertyDAOImpl implements PropertyDAO {
@@ -315,6 +316,12 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 	public void setConnection(Connection conn) {
 		// TODO Auto-generated method stub
 		this.conn = conn;
+	}
+
+	@Override
+	public Property getByBooking(Booking book, long idu) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
