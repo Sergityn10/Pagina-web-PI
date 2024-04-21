@@ -21,6 +21,9 @@ import es.unex.pi.model.Property;
 /**
  * Servlet implementation class ListAccommodationsServlet
  */
+
+@WebServlet( urlPatterns = {"/ListAccommodationsServlet.do"})
+
 public class ListAccommodationsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());

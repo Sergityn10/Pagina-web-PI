@@ -17,6 +17,10 @@ import es.unex.pi.model.Accommodation;
 /**
  * Servlet implementation class CreateAccommodationServlet
  */
+
+
+@WebServlet( urlPatterns = {"/CreateAccommodationServlet.do"})
+
 public class CreateAccommodationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
@@ -60,7 +64,9 @@ public class CreateAccommodationServlet extends HttpServlet {
 		habitacionDao.add(habitacion);
 		
 		//Redirección de nuevo a la lista de propiedades del usuario
-		RequestDispatcher view = request.getRequestDispatcher("InicioBookingServlet.do");
+
+		RequestDispatcher view = request.getRequestDispatcher("ListAccommodationsServlet.do?idp="+Long.parseLong(request.getParameter("idp")));
+
 	    view.forward(request, response);	
 	}
 

@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,7 @@
 <title>Registro</title>
 <link rel="icon" href="img/icono-booking.png" type="image/png">
 <link rel="stylesheet" href="css/registro.css">
+<link rel="stylesheet" href="css/header.css">
 </head>
 <body>
 	<header>
@@ -27,7 +30,8 @@
 
 				<label for="password"><span>Contraseña</span></label><br> <input
 					type="password" name="password"
-					placeholder="Introduce tu contraseña" required><br>
+					placeholder="Introduce tu contraseña" 
+					pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número y un carácter especial (@, $, !, %, *, ?, &), y debe tener una longitud mínima de 8 caracteres." required><br>
 
 				<p>
 					<input type="submit" value="Crear cuenta">

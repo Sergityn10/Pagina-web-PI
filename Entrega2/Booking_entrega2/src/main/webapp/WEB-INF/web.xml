@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+
   <display-name>Booking_entrega2</display-name>
   <welcome-file-list>
     <welcome-file>InicioBookingServlet.do</welcome-file>
   </welcome-file-list>
+  <security-constraint>
+	
+	<web-resource-collection>
+		<web-resource-name>Entire Application</web-resource-name>
+		<url-pattern>/*</url-pattern>
+	</web-resource-collection>
+	<user-data-constraint>
+		<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint>
+  </security-constraint>
   <servlet>
     <description></description>
     <display-name>CheckReviewServlet</display-name>
@@ -115,58 +126,12 @@
     <servlet-name>DeletePropertyServlet</servlet-name>
     <servlet-class>es.unex.pi.controller.DeletePropertyServlet</servlet-class>
   </servlet>
-  <servlet-mapping>
-    <servlet-name>DeletePropertyServlet</servlet-name>
-    <url-pattern>/DeletePropertyServlet.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>EditPropertyServlet</display-name>
-    <servlet-name>EditPropertyServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.EditPropertyServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditPropertyServlet</servlet-name>
-    <url-pattern>/EditPropertyServlet.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CreateAccommodationServlet</display-name>
-    <servlet-name>CreateAccommodationServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.CreateAccommodationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CreateAccommodationServlet</servlet-name>
-    <url-pattern>/CreateAccommodationServlet.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ListAccommodationsServlet</display-name>
-    <servlet-name>ListAccommodationsServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.ListAccommodationsServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ListAccommodationsServlet</servlet-name>
-    <url-pattern>/ListAccommodationsServlet.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>DeleteAccommodationServlet</display-name>
-    <servlet-name>DeleteAccommodationServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.DeleteAccommodationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteAccommodationServlet</servlet-name>
-    <url-pattern>/DeleteAccommodationServlet.do</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>EditAccommodationServlet</display-name>
-    <servlet-name>EditAccommodationServlet</servlet-name>
-    <servlet-class>es.unex.pi.controller.EditAccommodationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>EditAccommodationServlet</servlet-name>
-    <url-pattern>/EditAccommodationServlet.do</url-pattern>
-  </servlet-mapping>
+
+  <filter>
+    <display-name>LoginFilter</display-name>
+    <filter-name>LoginFilter</filter-name>
+    <filter-class>es.unex.pi.filter.LoginFilter</filter-class>
+  </filter>
+
+
 </web-app>

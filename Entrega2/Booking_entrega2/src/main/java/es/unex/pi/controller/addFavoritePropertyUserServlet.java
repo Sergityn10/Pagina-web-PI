@@ -51,23 +51,29 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 		User user = (User) session.getAttribute("user");
 		
 		//TODO Descomentar cuando este implementado la funcionalidad de inicio de sesión
-		//long idu = user.getId();
-		long idu = 1;
+
+		long idu;
+
 		long idp = Long.parseLong(request.getParameter("idp"));
 		
 		propertyUser newFavorite = new propertyUser();
 		
-		newFavorite.setIdp(idp);
-		newFavorite.setIdu(idu);
 		
-		if(favoriteDao.get(idp, idu) == null) {
-			favoriteDao.add(newFavorite);
+		if(user != null) {
+			idu = user.getId();
+			newFavorite.setIdp(idp);
+			newFavorite.setIdu(idu);
+			if(favoriteDao.get(idp, idu) == null) {
+				favoriteDao.add(newFavorite);
+				
+			}
+			response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");
 		}
 		else {
-			//TODO eliminar 
-			
+			response.sendRedirect("../InicioBookingServlet.do");
 		}
-		response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");
+		
+		
 		
 		
 	}

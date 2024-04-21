@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 		
 		//Se manda al registro
-		RequestDispatcher view = request.getRequestDispatcher("registro.html");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/registro.jsp");
 		view.forward(request, response);
 
 	}

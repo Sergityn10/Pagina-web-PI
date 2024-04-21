@@ -118,7 +118,12 @@
            
                 <input type="radio" id="no_disp" value="no_disp" name="disponibilidad" <c:if test="${disp == 'no_disp'}">checked</c:if>required>
                 <label for="no_disp">Sin disponibilidad</label>
+                
+                <input type="checkbox" id="asc_valoracion" value="asc_valoracion" name="valoracion" <c:if test="${valoracion == 'asc_valoracion'}">checked</c:if>>
+                <label for="no_disp">Ordenar por valoración</label>
              </section>
+             
+             
             
         </div>
 
