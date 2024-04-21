@@ -14,6 +14,7 @@
     <header>
 		<c:import url="/WEB-INF/Componentes/header.jsp"/>
 	</header>
+
     <div id="main">
         <div id="contenedor-central">
             <form id="formulario-registro" action="EditAccommodationServlet.do?idH=${habitacion.id}" method="post">

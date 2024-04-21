@@ -41,6 +41,7 @@ public class SearchServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("SearchServlet GET");
+
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		PropertyDAO propDao = new JDBCPropertyDAOImpl();
 		propDao.setConnection(conn);
@@ -131,9 +132,11 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		logger.info("SearchServlet GET");
+
 		doGet(request, response);
 	}
 

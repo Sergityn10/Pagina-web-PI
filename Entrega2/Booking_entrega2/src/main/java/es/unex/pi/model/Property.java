@@ -46,7 +46,6 @@ public class Property {
 		this.id = id;
 	}
 	
-	
 	public String getTelephone() {
 		return telephone;
 	}
