@@ -90,7 +90,7 @@
 			                <div class="box-carrito">
 		                    <img src="img/caceres.jpg" alt="imagen-sobre-lugar">
 		                    <section class="info-lugar-reserva">
-		                      <h5 class="nom-lugar-strong">${alojamiento.name }</h5>
+		                      <a href="${pageContext.request.contextPath}/chooseAlojamientoServlet.do?id=${alojamiento.id}"><h5 class="nom-lugar-strong">${alojamiento.name }</h5></a>
 		                        <c:choose>
 		                        	<c:when test="${alojamiento.available==1 }"><p>DISPONIBLE</p></c:when>
 		                        	<c:otherwise><p>NO DISPONIBLE</p></c:otherwise>

@@ -122,7 +122,7 @@ public class SearchServlet extends HttpServlet {
 				request.setAttribute("listaAlojamientos", searchAux);	
 				request.setAttribute("ciudad", request.getParameter("lugar-alojamiento"));
 				request.setAttribute("disp", disponibilidad);
-				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/listaAlojamientos.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/listaAlojamientos.jsp"); 
 
 				
 				view.forward(request, response);

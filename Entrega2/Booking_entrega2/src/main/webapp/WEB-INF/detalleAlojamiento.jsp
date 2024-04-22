@@ -260,7 +260,7 @@
 		            <article class="valoracion">
 		                    <div class="user-grado">
 		                        <h4>${review.value.name}</h4>
-		                        
+		                         
 		                        <p>Valoración: ${review.key.grade}</p>
 		                    </div>
 		                    
