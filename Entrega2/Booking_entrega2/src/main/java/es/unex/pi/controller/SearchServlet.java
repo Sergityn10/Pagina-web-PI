@@ -116,6 +116,9 @@ public class SearchServlet extends HttpServlet {
 					}
 				}
 			}
+			else {
+				searchAux=searchList;
+			}
 				request.setAttribute("listaAlojamientos", searchAux);	
 				request.setAttribute("ciudad", request.getParameter("lugar-alojamiento"));
 				request.setAttribute("disp", disponibilidad);
