@@ -358,11 +358,9 @@ h4 {
 
 .container-valoracion{
     display: flex;
-        overflow: auto;
-
-        scroll-snap-type: x mandatory;  /* Para que el contenedor se ajuste al tamaño del contenido */
-       
-        scroll-padding: 24px;
+      flex-wrap:wrap;  
+       gap:10px;
+        
 }
 
 .valoracion{
@@ -371,11 +369,9 @@ h4 {
 
     flex:0 0 calc(100%/3 - 10px);
     height: 100px;
-    overflow: auto;
 	
     padding: 5px;
-    margin-right: 10px;
-    scroll-snap-align: start;
+   border-radius: 5px;
     
 }
 .valoracion:last-child{
