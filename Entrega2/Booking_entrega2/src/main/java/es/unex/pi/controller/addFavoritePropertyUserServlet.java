@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.sql.*;
+import java.util.List;
+
 import es.unex.pi.*;
 import es.unex.pi.dao.JDBCPropertyUserDAOImpl;
 import es.unex.pi.dao.PropertyUserDAO;
@@ -60,6 +62,12 @@ public class addFavoritePropertyUserServlet extends HttpServlet {
 			newFavorite.setIdu(idu);
 			if(favoriteDao.get(idp, idu) == null) {
 				favoriteDao.add(newFavorite);
+				
+			}
+			List<propertyUser> listFavorites = (List<propertyUser>) session.getAttribute("listFavorites");
+			session.setAttribute("listFavorites", favoriteDao.getAllByUser(user.getId()));
+			propertyUser aux = new propertyUser(idp,user.getId());
+			if(listFavorites.contains(new propertyUser(idp,user.getId()))) {
 				
 			}
 			response.sendRedirect("ListFavoritesPropertiesByUsersServlet.do");

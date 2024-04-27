@@ -15,6 +15,7 @@ public class Property {
 	private int idu;
 
 	
+	
 	public String getName() {
 		return name;
 	}

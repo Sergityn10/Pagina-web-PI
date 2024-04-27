@@ -4,6 +4,16 @@ public class propertyUser {
 	private long idp;
 	private long idu;
 	
+	public propertyUser(long idp, long idu) {
+		this.idp = idp;
+		this.idu=idu;
+	}
+	
+	public propertyUser() {
+		this.idp=0;
+		this.idu=0;
+	}
+
 	public long getIdp() {
 		return idp;
 	}
