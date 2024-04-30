@@ -1,5 +1,7 @@
 package es.unex.pi.model;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class propertyUser {
 	private long idp;
 	private long idu;

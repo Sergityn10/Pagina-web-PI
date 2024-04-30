@@ -45,18 +45,18 @@ public interface ReviewDAO {
 	public List<Review> getAllByProperty(long idr);
 
 	/**
-	 * Gets a Review from the DB using idr and idu.
+	 * Gets a Review from the DB using idp and idu.
 	 * 
-	 * @param idr 
+	 * @param idp 
 	 *            property identifier.
 	 *            
 	 * @param idu
 	 *            User Identifier
 	 * 
-	 * @return Review with that idr and idu.
+	 * @return Review with that idp and idu.
 	 */
 	
-	public Review get(long idr,long idu);
+	public Review get(long idp,long idu);
 
 	/**
 	 * Adds an Review to the database.

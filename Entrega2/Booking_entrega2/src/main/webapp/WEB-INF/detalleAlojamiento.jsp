@@ -279,13 +279,14 @@
 		        	<c:when test="${conReview }">
 			        	<section id=container-create-review>
 					            <h2>Editar una review:</h2>
-					            <form action="<c:url value="reviews/EditReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">
+					            <form action="<c:url value="rest/reviews/${prop.id }"/>" method="POST" id="reviewForm">
 									<div>
 										<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="${ownReview.grade }"/>
 						                <output for="num-valoracion" name="valor_rango"></output>
 									</div>
 					                
 					                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Añade tu valoracion que creas convenientes sobre el alojamiento" required>${ownReview.review}</textarea>
+					                <input name="idp" id="idp" type="number" value="${prop.id }" readonly="readonly">
 					                <button type="submit" class="boton-bg-azul">Editar Review</button> 
 					            </form>
 					        </section>
@@ -294,12 +295,14 @@
 		        	<c:otherwise>
 			        	<section id=container-create-review>
 				            <h2>Agregar una review:</h2>
-				            <form action="<c:url value="reviews/CreateReviewServlet.do?idp=${prop.id}"/>" method="post" id="reviewForm">
+				            <form action="<c:url value="rest/reviews/${prop.id }"/>" method="post" id="reviewForm">
 								<div>
 									<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="3"/>
 					                <output for="num-valoracion" name="valor_rango"></output>
 								</div>
 				                
+				                
+				                <input name="idp" id="idp" type="number" value="${prop.id }" readonly="readonly">
 				                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Añade tu valoracion que creas convenientes sobre el alojamiento" required></textarea>
 				                <button type="submit" class="boton-bg-azul">Enviar Review</button> 
 				            </form>
