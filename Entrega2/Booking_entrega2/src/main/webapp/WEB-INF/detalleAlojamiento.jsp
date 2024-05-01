@@ -279,7 +279,7 @@
 		        	<c:when test="${conReview }">
 			        	<section id=container-create-review>
 					            <h2>Editar una review:</h2>
-					            <form action="<c:url value="rest/reviews/${prop.id }"/>" method="POST" id="reviewForm">
+					            <form action="<c:url value="rest/reviews/${prop.id }"/>" method="post" id="reviewForm">
 									<div>
 										<input name="num_valoracion" type="range" min="1" max="5" oninput="valor_rango.value=parseInt(num_valoracion.value)" value="${ownReview.grade }"/>
 						                <output for="num-valoracion" name="valor_rango"></output>
