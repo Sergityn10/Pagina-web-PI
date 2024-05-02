@@ -7,7 +7,7 @@
         
             <nav id="cabecera-nav">
                 <div class="title">
-                    <a href="${pageContext.request.contextPath}/InicioBookingServlet.do">
+                    <a href="${pageContext.request.contextPath}/LoginServlet.do">
                         <h1>Booking.com</h1>
                     </a>  
                 </div>

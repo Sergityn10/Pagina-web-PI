@@ -42,17 +42,11 @@ public interface BookingDAO {
 
 	
 	/**
-	 * Gets all the bookings from the database.
+	 * Gets all the bookinges from the database.
 	 * 
 	 * @return List of all the bookinges from the database.
 	 */
 	public List<Booking> getAll();
-	/**
-	 * Gets all the bookings from the database by a user using the idu.
-	 * 
-	 * @return List of all the bookinges from the database owned by idu.
-	 */
-	public List<Booking> getAllByIdu(long idu);
 	
 
 	/**

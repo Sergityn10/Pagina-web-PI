@@ -223,29 +223,46 @@
                         <th>Número de personas</th>
                         <th>Descripción</th>
                         <th>Precio</th>
-                        <th>Cantidad de reservas </th>
                         <th>Reservar</th>
-                        <th>Precio total</th>
                     </tr>
                 </thead>
                 <tbody>
-                <form action="books/CreateBookServlet.do?idp=${prop.id }" method="post">
-	                <c:forEach var="accom" items="${accomList }">
-		                <tr>
-		                        <td class="nombre-hab">${accom.name}</td>
-		                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
-		                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
-		                            </svg></span></td>
-		                        <td>${accom.description}</td>
-		                        <td>${accom.price} €</td>
-		                        <td><input name="accomN${accom.id }" id="accomN${accom.id }" type="number" min="0" max="${accom.numAccommodations }"  value="0"></td>
-		                        <td><button class="boton-hab">Reservar</button></td>
-		                 </tr>
-		                  
-	                </c:forEach>
-                </form>
-                
-                   
+                    <tr>
+                        <td class="nombre-hab">Individual</td>
+                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                            </svg></span></td>
+                        <td>Habitación con 1 única cama individual</td>
+                        <td>150 €</td>
+                        <td><button class="boton-hab">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nombre-hab">Doble</td>
+                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                            </svg></span>
+                            <span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                                </svg></span></td>
+                        <td>Habitación con 1 cama doble o 2 camas individuales</td>
+                        <td>250 €</td>
+                        <td><button class="boton-hab">Reservar</button></td>
+                    </tr>
+                    <tr>
+                        <td class="nombre-hab">Familiar</td>
+                        <td><span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                            <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                            </svg></span>
+                            <span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                                </svg></span>
+                            + <span><svg viewBox="0 0 128 128" width="1em" height="1em">
+                                <path d="M104 120H24a8 8 0 0 1-8-8V93.5a4 4 0 0 1 1-2.7C21.3 86.4 36.9 72 64 72s42.8 14.4 47 18.8a4 4 0 0 1 1 2.7V112a8 8 0 0 1-8 8zM64 8a28 28 0 1 0 28 28A28 28 0 0 0 64 8z"></path>
+                                </svg></span></td>
+                        <td>Habitación con 1 cama doble + 1 cama individual</td>
+                        <td>400 €</td>
+                        <td><button class="boton-hab">Reservar</button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

@@ -51,7 +51,8 @@ public class DeleteReviewServlet extends HttpServlet {
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Cambiar la funcionalidad de conseguir el id del usuario mediante la sesión cuando mi Juampi la termine. Descomentar la linea siguiente
-		long idu = user.getId();
+		//long idu = user.getId();
+		long idu = 1;
 		
 		if(reviewDao.get(idp, idu) != null) {
 			reviewDao.delete(idp, idu);

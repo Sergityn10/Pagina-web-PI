@@ -91,8 +91,10 @@ public interface PropertyDAO {
 	public boolean delete(long id);
 	
 	public List<Property> getAllByCityName(String search);
+
 	
 	public List<Property> getAllByCityNameValDesc(String search);
 	
 	public Property getByBooking(Booking book, long idu);
+
 }

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,12 +11,14 @@
     <title>Confirmación Eliminar Habitación</title>
     <link rel="icon" href="img/icono-booking.png" type="image/png">
     <link rel="stylesheet" href="css/eliminarUsuario.css">
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
 </head>
 <body>
     <header>
 		<c:import url="/WEB-INF/Componentes/header.jsp"/>
 	</header>
+
     <div id="main">
         <div id="contenedor-central">
             
