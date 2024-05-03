@@ -188,5 +188,29 @@ if (conn == null) return null;
 		
 	}
 
+	@Override
+	public List<Booking> getAllByIdProperty(long idp) {
+if (conn == null) return null;
+		
+		ArrayList<Booking> bookings = new ArrayList<Booking>();
+		try {
+			Statement stmt;
+			ResultSet rs;
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery("SELECT * FROM bookings WHERE idp =" +idp);
+			while ( rs.next() ) {
+				Booking booking = new Booking();
+				fromRsToBookingObject(rs,booking);
+				bookings.add(booking);
+				logger.info("fetching Bookings: "+booking.getId());
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bookings;
+		
+	}
+	
+
 	
 }

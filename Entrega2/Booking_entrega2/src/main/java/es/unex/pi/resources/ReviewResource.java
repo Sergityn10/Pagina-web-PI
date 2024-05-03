@@ -133,7 +133,7 @@ public class ReviewResource {
 			  res = Response //return 201 and Location: /orders/newid
 				   .created(
 					uriInfo.getAbsolutePathBuilder()
-						   .path(Long.toString(idp))
+						   .path(Long.toString(user.getId()))
 						   .build())
 				   .contentLocation(
 					uriInfo.getAbsolutePathBuilder()
