@@ -29,12 +29,14 @@ public class CreateReviewServlet extends HttpServlet {
      */
     public CreateReviewServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		Connection conn = (Connection) getServletContext().getAttribute("dbConn");
 		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
 		reviewDao.setConnection(conn);
@@ -44,7 +46,8 @@ public class CreateReviewServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		//TODO Descomentar cuando este implementado la funcion de iniciar sesión
-		long idu = user.getId();
+		//long idu = user.getId();
+		long idu = 4;
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));
 		review.setGrade(grade);
 		review.setIdp(prop.getId());
@@ -73,7 +76,8 @@ public class CreateReviewServlet extends HttpServlet {
 		
 		long idp = Long.parseLong(request.getParameter("idp"));
 		//TODO Descomentar cuando este implementando la función de iniciar sesión
-		long idu = user.getId();
+		//long idu = user.getId();
+		long idu = 4;
 		Review review = new Review ();
 		
 		int grade = Integer.parseInt(request.getParameter("num_valoracion"));

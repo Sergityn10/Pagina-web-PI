@@ -42,7 +42,7 @@
                 <h2>Mis reservas</h2>
                 <img src="/images/user.png" alt="Imagen usuario" />
                 <p>Recuerda y revisa tus reservas realizadas</p>
-                <a href="${pageContext.request.contextPath}/books/ListBookingsServlet.do">Ver mis reservas</a>
+                <a href="">Ver mis reservas</a>
             </section>
              <section class="card-perfil">
                 <h2>Mis reseñas</h2>

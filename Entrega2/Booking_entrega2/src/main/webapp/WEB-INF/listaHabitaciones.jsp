@@ -13,15 +13,19 @@
 <body>
     <div class="container-header">
         <header>
+
 		<c:import url="/WEB-INF/Componentes/header.jsp"/>
 	</header>
+
                  
     </div>
 
     <div class="container-reservas">
         <section id="titulo">
             <h2>Alojamiento: ${alojamiento.name} - Habitaciones</h2>
+
             <a id="nueva-hab" href="EditPropertyServlet.do?idp=${alojamiento.id }">Añadir nueva habitación</a>
+
         </section>
         <main>
             

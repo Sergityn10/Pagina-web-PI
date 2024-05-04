@@ -30,6 +30,7 @@ public class DeleteUserServlet extends HttpServlet {
 	 */
 	public DeleteUserServlet() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -69,8 +70,8 @@ public class DeleteUserServlet extends HttpServlet {
 		// Se elimina también de la sesión
 		session.removeAttribute("user");
 
-		RequestDispatcher view = request.getRequestDispatcher("../InicioBookingServlet.do");
-		view.forward(request, response);
+		RequestDispatcher view = request.getRequestDispatcher("../ListPropertiesServlet.do");
+	    view.forward(request, response);
 	}
 
 }
