@@ -192,7 +192,7 @@ public class BookingResources {
 			
 	}
 	@DELETE
-	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response deleteBook(Booking book,@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		BookingDAO bookDao = new JDBCBookingDAOImpl();
