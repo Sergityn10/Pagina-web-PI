@@ -89,7 +89,7 @@ public class PropertyUserResources {
 				  res = Response //return 201 and Location: /orders/newid
 						  .created(
 								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(idp))
+								  .path(Long.toString(user.getId()))
 								  .build())
 						  .contentLocation(
 								  uriInfo.getAbsolutePathBuilder()
@@ -98,7 +98,7 @@ public class PropertyUserResources {
 						  .build();
 				  return res;
 			  }
-			  else throw new CustomBadRequestException("Ya existe una review por este usuario");
+			  else throw new CustomBadRequestException("Ya habias añadido este alojamiento a favoritos");
 		  }
 		  else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 			
@@ -125,13 +125,13 @@ public class PropertyUserResources {
 
 			  Response res = null;
 
-			  if(propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) == null) {
-				  propUserDao.add(itPropUser);
+			  if(propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) != null) {
+				  propUserDao.delete(idp, user.getId());
 				  logger.info("POST de la review: idp->" + itPropUser.getIdp()+ ", idu->" + itPropUser.getIdu());
 				  res = Response //return 201 and Location: /orders/newid
 						  .created(
 								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(idp))
+								  .path(Long.toString(user.getId()))
 								  .build())
 						  .contentLocation(
 								  uriInfo.getAbsolutePathBuilder()

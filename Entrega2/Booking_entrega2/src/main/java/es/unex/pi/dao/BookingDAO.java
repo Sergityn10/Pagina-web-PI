@@ -48,7 +48,22 @@ public interface BookingDAO {
 	 */
 	public List<Booking> getAll();
 	
-
+	/**
+	 * Gets all the bookings by a user from the database.
+	 * 	@param idu
+	 * 		User Identifier
+	 * @return List of all the bookinges by a use from the database.
+	 */
+	public List<Booking> getAllByIdUser(long idu);
+	
+	/**
+	 * Gets all the bookings by a id property from the database.
+	 * 	@param idp
+	 * 		Property Identifier
+	 * @return List of all the bookinges by a id property from the database.
+	 */
+	public List<Booking> getAllByIdProperty(long idp);
+	
 	/**
 	 * Adds a booking to the database.
 	 * 
