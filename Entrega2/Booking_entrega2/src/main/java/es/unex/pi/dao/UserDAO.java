@@ -75,4 +75,7 @@ public interface UserDAO {
 	
 	// AÑADIDO -> OBTENER POR EMAIL Y CONTRASEÑA
 	public User getByEmailPassword(String email, String password);
+	
+	//AÑADIDO -> OBTENER POR EMAIL
+	public User getByEmail(String email);
 }
