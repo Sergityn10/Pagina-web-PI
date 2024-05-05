@@ -32,18 +32,18 @@ import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
+
 @Path("/favorites")
 public class PropertyUserResources {
 	@Context
-	  ServletContext sc;
-	  @Context
-	  UriInfo uriInfo;
-	  private static final Logger logger = Logger.getLogger(HttpServlet.class.getName()); 
-	  
-	  
-	  @GET
-	  @Produces(MediaType.APPLICATION_JSON)
-	  public List<propertyUser> getPropsUsersJSON(@Context HttpServletRequest request) {
+	ServletContext sc;
+	@Context
+	UriInfo uriInfo;
+	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<propertyUser> getPropsUsersJSON(@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
 		propUserDao.setConnection(conn);
@@ -51,100 +51,78 @@ public class PropertyUserResources {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		List<propertyUser> propUsers;
-		if(user != null)
+		if (user != null)
 			propUsers = propUserDao.getAllByUser(user.getId());
-		else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
+		else
+			throw new CustomBadRequestException(
+					"Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 
-		return propUsers; 
-	  }
+		return propUsers;
+	}
 
+	// FUNCIONA LA OPERACION POST CON JSON
 
+	@POST
+	@Path("/{propid: [0-9]+}")
+	public Response postPropertyUsers(@PathParam("propid") long idp, @Context HttpServletRequest request) {
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+		PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
+		propUserDao.setConnection(conn);
 
-	  //FUNCIONA LA OPERACION POST CON JSON
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			propertyUser itPropUser = new propertyUser();
+			itPropUser.setIdp(idp);
+			itPropUser.setIdu(user.getId());
 
+			Response res = null;
 
+			if (propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) == null) {
+				propUserDao.add(itPropUser);
+				logger.info("POST de la review: idp->" + itPropUser.getIdp() + ", idu->" + itPropUser.getIdu());
+				res = Response // return 201 and Location: /orders/newid
+						.created(uriInfo.getAbsolutePathBuilder().path(Long.toString(user.getId())).build())
+						.contentLocation(uriInfo.getAbsolutePathBuilder().path(Long.toString(idp)).build()).build();
+				return res;
+			} else
+				throw new CustomBadRequestException("Ya habias añadido este alojamiento a favoritos");
+		} else
+			throw new CustomBadRequestException(
+					"Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 
+	}
 
+	@DELETE
+	@Path("/{propid: [0-9]+}")
+	public Response deletePropUser(@PathParam("propid") long idp, @Context HttpServletRequest request) {
 
-	  @POST
-	  @Path("/{propid: [0-9]+}")
-	  public Response postPropertyUsers(@PathParam("propid")long idp,
-			  @Context HttpServletRequest request) {
-		  Connection conn = (Connection) sc.getAttribute("dbConn");
-		  PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
-		  propUserDao.setConnection(conn);
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+		PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
+		propUserDao.setConnection(conn);
 
-		  HttpSession session = request.getSession();
-		  User user = (User) session.getAttribute("user");
-		  if(user != null) {
-			  propertyUser itPropUser = new propertyUser();
-			  itPropUser.setIdp(idp);
-			  itPropUser.setIdu(user.getId());
+		HttpSession session = request.getSession();
+		User user = (User) session.getAttribute("user");
+		if (user != null) {
+			propertyUser itPropUser = new propertyUser();
+			itPropUser.setIdp(idp);
+			itPropUser.setIdu(user.getId());
 
-			  Response res = null;
+			Response res = null;
 
-			  if(propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) == null) {
-				  propUserDao.add(itPropUser);
-				  logger.info("POST de la review: idp->" + itPropUser.getIdp()+ ", idu->" + itPropUser.getIdu());
-				  res = Response //return 201 and Location: /orders/newid
-						  .created(
-								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(user.getId()))
-								  .build())
-						  .contentLocation(
-								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(idp))
-								  .build())
-						  .build();
-				  return res;
-			  }
-			  else throw new CustomBadRequestException("Ya habias añadido este alojamiento a favoritos");
-		  }
-		  else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
-			
-		  
-	  }
-	  
+			if (propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) != null) {
+				propUserDao.delete(idp, user.getId());
+				logger.info("POST de la review: idp->" + itPropUser.getIdp() + ", idu->" + itPropUser.getIdu());
+				res = Response // return 201 and Location: /orders/newid
+						.created(uriInfo.getAbsolutePathBuilder().path(Long.toString(user.getId())).build())
+						.contentLocation(uriInfo.getAbsolutePathBuilder().path(Long.toString(idp)).build()).build();
+				return res;
+			} else
+				throw new CustomBadRequestException("Ya existe una review por este usuario");
+		} else
+			throw new CustomBadRequestException(
+					"Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 
-	 
-	  @DELETE
-	  @Path("/{propid: [0-9]+}")	  
-	  public Response deletePropUser(@PathParam("propid") long idp,
-			  					  @Context HttpServletRequest request) {
-		  
-		  Connection conn = (Connection) sc.getAttribute("dbConn");
-		  PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
-		  propUserDao.setConnection(conn);
+	}
 
-		  HttpSession session = request.getSession();
-		  User user = (User) session.getAttribute("user");
-		  if(user != null) {
-			  propertyUser itPropUser = new propertyUser();
-			  itPropUser.setIdp(idp);
-			  itPropUser.setIdu(user.getId());
-
-			  Response res = null;
-
-			  if(propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) != null) {
-				  propUserDao.delete(idp, user.getId());
-				  logger.info("POST de la review: idp->" + itPropUser.getIdp()+ ", idu->" + itPropUser.getIdu());
-				  res = Response //return 201 and Location: /orders/newid
-						  .created(
-								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(user.getId()))
-								  .build())
-						  .contentLocation(
-								  uriInfo.getAbsolutePathBuilder()
-								  .path(Long.toString(idp))
-								  .build())
-						  .build();
-				  return res;
-			  }
-			  else throw new CustomBadRequestException("Ya existe una review por este usuario");
-		  }
-		  else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
-					
-	  }
-	  
-	
 }

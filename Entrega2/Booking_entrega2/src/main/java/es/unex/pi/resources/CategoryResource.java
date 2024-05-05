@@ -150,5 +150,7 @@ public class CategoryResource {
 		} else throw new CustomBadRequestException("No se ha podido realizar la operacion");
 		
 	}
+	
+	
 
 }
