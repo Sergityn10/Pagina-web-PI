@@ -95,7 +95,7 @@ public class CreateBookServlet extends HttpServlet {
 		book.setTotalPrice(price_total);
 		
 		bookingDao.add(book);
-		List<Booking> booksUser = bookingDao.getAllByIdu(user.getId());
+		List<Booking> booksUser = bookingDao.getAllByIdUser(user.getId());
 		book = bookingDao.get(booksUser.get(booksUser.size()-1).getId());
 		
 		for(Accommodation accom : accomList) {
