@@ -36,7 +36,7 @@ public class CategoryResource {
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
 	@GET
-	@Path("/category/{categoryid:[0-9]+}")
+	@Path("/{categoryid:[0-9]+}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Category getCategoryJSON(@PathParam("categoryid") long categoryid, @Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
@@ -134,7 +134,7 @@ public class CategoryResource {
 	}
 	
 	@DELETE
-	@Path("/category/{categoryid: [0-9]+}")
+	@Path("/{categoryid: [0-9]+}")
 	public Response deleteCategory(@PathParam("categoryid") long categoryid, @Context HttpServletRequest request) {
 		Response res;
 		

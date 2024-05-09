@@ -35,7 +35,7 @@ public class PropertyResource {
 	private static final Logger logger = Logger.getLogger(HttpServlet.class.getName());
 
 	@GET
-	@Path("/property/{propertyid:[0-9]+}")
+	@Path("/{propertyid:[0-9]+}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Property getPropertyJSON(@PathParam("propertyid") long propertyid, @Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");

@@ -204,7 +204,7 @@ public class BookingAccommodationsResources {
 			}
 			else throw new CustomBadRequestException("No existe una reserva con estas especificaciones");
 		}
-		else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
+		else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: DELETE BookingAccommodation");
 
 	}
 

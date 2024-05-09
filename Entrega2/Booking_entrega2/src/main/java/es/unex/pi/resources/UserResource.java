@@ -38,7 +38,7 @@ public class UserResource {
 
 	// Hace falta????
 	@GET
-	@Path("/user/actual")
+	@Path("/actual")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User getSessionUserJSON(@Context HttpServletRequest request) {
 
@@ -50,7 +50,7 @@ public class UserResource {
 	}
 
 	@GET
-	@Path("/user/delete")
+	@Path("/logout")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User logoutUserJSON(@Context HttpServletRequest request) {
 
@@ -69,7 +69,7 @@ public class UserResource {
 	}
 
 	@GET
-	@Path("/user/{userid:[0-9]+}")
+	@Path("/{userid:[0-9]+}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User getUserJSON(@PathParam("userid") long userid, @Context HttpServletRequest request) {
 
@@ -101,36 +101,8 @@ public class UserResource {
 		return listaUsuarios;
 	}
 
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createUserJSON(User user, @Context HttpServletRequest request) {
-		Response res = null;
-
-		Connection conn = (Connection) sc.getAttribute("dbConn");
-
-		UserDAO userDao = new JDBCUserDAOImpl();
-		userDao.setConnection(conn);
-
-		// Se comprueba si ya hay un usuario con ese email
-		String email = user.getEmail();
-
-		User userAux = userDao.getByEmail(email);
-		if (userAux == null) {
-			logger.info("createUser -> No hay coincidencia de email, se añade a la BD");
-
-			userDao.add(user);
-
-			res = Response.noContent().build();
-			return res;
-
-		} else
-			throw new CustomBadRequestException("El correo electrónico ya se encuentra en uso");
-
-	}
-
-
 	@GET
-	@Path("/user/login")
+	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response loginUserJSON(User user, @Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
@@ -166,6 +138,35 @@ public class UserResource {
 		}else throw new CustomBadRequestException("El usuario o contraseña con incorrectos");
 	
 	}
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response createUserJSON(User user, @Context HttpServletRequest request) {
+		Response res = null;
+
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
+
+		// Se comprueba si ya hay un usuario con ese email
+		String email = user.getEmail();
+
+		User userAux = userDao.getByEmail(email);
+		if (userAux == null) {
+			logger.info("createUser -> No hay coincidencia de email, se añade a la BD");
+
+			userDao.add(user);
+
+			res = Response.noContent().build();
+			return res;
+
+		} else
+			throw new CustomBadRequestException("El correo electrónico ya se encuentra en uso");
+
+	}
+
+
+	
 
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)

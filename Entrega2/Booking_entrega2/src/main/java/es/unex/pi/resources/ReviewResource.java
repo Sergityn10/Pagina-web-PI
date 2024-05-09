@@ -49,8 +49,7 @@ public class ReviewResource {
 		User user = (User) session.getAttribute("user");
 		List<Review> reviews;
 		
-		//reviews = reviewDao.getAllByUser(user.getId());
-		reviews = reviewDao.getAll();
+		reviews = reviewDao.getAllByUser(user.getId());
 		
 	    return reviews; 
 	  }
