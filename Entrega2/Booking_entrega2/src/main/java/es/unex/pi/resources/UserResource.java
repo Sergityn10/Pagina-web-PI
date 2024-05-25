@@ -9,6 +9,7 @@ import es.unex.pi.dao.*;
 import es.unex.pi.model.*;
 import es.unex.pi.resources.exceptions.*;
 import jakarta.servlet.ServletContext;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -23,8 +24,10 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.NewCookie;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
+import es.unex.pi.resources.jwtUtil;
 
 @Path("/users")
 public class UserResource {
@@ -41,12 +44,39 @@ public class UserResource {
 	@Path("/actual")
 	@Produces(MediaType.APPLICATION_JSON)
 	public User getSessionUserJSON(@Context HttpServletRequest request) {
-
+		logger.info("CONSIGUIENDO USUARIO ACTUAL");
 		// Se obtiene el usuario de la sesión
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
+		
+		if (user != null) {
+			logger.info("Devolviendo usuario actual: "+ user.getEmail()+" -" + user.getName());
+			return user;
+		} else {
+			throw new CustomBadRequestException("No existe ningún usuario iniciado sesión");
+		}
+		
+	}
+	
+	@GET
+	@Path("/email/{email}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUserByemailJSON(@PathParam("email")String email, @Context HttpServletRequest request) {
+		logger.info("CONSIGUIENDO USUARIO ACTUAL");
+		// Se obtiene el usuario de la sesión
+		Connection conn = (Connection) sc.getAttribute("dbConn");
 
-		return user;
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
+		User user = userDao.getByEmail(email);
+		
+		if (user != null) {
+			logger.info("Devolviendo usuario actual: "+ user.getEmail()+" -" + user.getName());
+			return user;
+		} else {
+			throw new CustomBadRequestException("No existe ningún usuario iniciado sesión");
+		}
+		
 	}
 
 	@GET
@@ -62,6 +92,7 @@ public class UserResource {
 			session.removeAttribute("user");
 			logger.info("Se ha eliminado el usuario de la sesión");
 		}
+		else throw new CustomBadRequestException("No existe un usuario iniciado sesión");
 
 		// Si se retorna null quiere decir que no se ha borrado ningún usuario de la
 		// sesión
@@ -101,41 +132,49 @@ public class UserResource {
 		return listaUsuarios;
 	}
 
-	@GET
+	
+	@POST
 	@Path("/login")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response loginUserJSON(User user, @Context HttpServletRequest request) {
+		logger.info("LOGIN API");
 		Connection conn = (Connection) sc.getAttribute("dbConn");
-
+		HttpSession session = request.getSession();
+		User userSession = (User) session.getAttribute("user");
 		UserDAO userDao = new JDBCUserDAOImpl();
 		userDao.setConnection(conn);
-
+		
 		// Se comprueba si existe un usuario con ese email y contraseña
 		String email = user.getEmail();
 		String contraseña = user.getPassword();
 
 		User userAux = userDao.getByEmailPassword(email, contraseña);
-		if (userAux != null) {
-			// Existe el usuario, se añade a la sesión
-			HttpSession session = request.getSession();
-			session.setAttribute("user", userAux);
-			
-			long idU = userAux.getId();
-			
-			Response res = Response 		
-			.created(
-				uriInfo.getAbsolutePathBuilder()
-				   .path("/user/"+idU)
-				   .build())
-					.contentLocation(					
-				uriInfo.getAbsolutePathBuilder()
-			       .path("/user/"+idU)
-			       .build())
-			.build();
-			
+		
+			if (userAux != null) {
+				// Existe el usuario, se añade a la sesión
+				session.removeAttribute("user");
+				
+				
+				
+				logger.info("Añadiendo a la sesión el usuario " + userAux.getEmail());
+				session.setAttribute("user", userAux);
+				
+				long idU = userAux.getId();
+				
+				Response res = Response 		
+				.created(
+					uriInfo.getAbsolutePathBuilder()
+					   .path("/user/"+idU)
+					   .build())
+				.build()
+						;
+				
+				//return userAux;
+				
 			return res;
-
-		}else throw new CustomBadRequestException("El usuario o contraseña con incorrectos");
+			}
+			else throw new CustomBadRequestException("El usuario o contraseña con incorrectos");
+		
 	
 	}
 	@POST

@@ -57,6 +57,7 @@ public class PropertyResource {
 	// Por el nombre, ya sea de Ciudad o del Alojamiento
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/search")
 	public List<Property> getPropertyBusquedaJSON(@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 

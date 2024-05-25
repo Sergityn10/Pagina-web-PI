@@ -13,5 +13,11 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/celia/OneDrive - Universidad de Extremadura/Escritorio/Sergio/Uni/Pi/Pagina-web-PI/jjwt-0.12.5.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/celia/OneDrive - Universidad de Extremadura/Escritorio/Sergio/Uni/Pi/Pagina-web-PI/jjwt-0.9.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
