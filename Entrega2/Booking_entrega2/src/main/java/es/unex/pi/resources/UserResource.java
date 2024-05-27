@@ -218,20 +218,22 @@ public class UserResource {
 		HttpSession session = request.getSession();
 		User userActual = (User) session.getAttribute("user");
 		
-		if (userActual.getId() == editUser.getId()) {
+		
 			if (userDao.update(editUser)) {
 				Response res = Response.noContent().build();
 				return res;
 				
 			} else throw new CustomBadRequestException("Error en la actualización de usuario");
 			
-		} else throw new CustomBadRequestException("Error: Se está intentando modificar un usuario distinto al de la sesión");
+		
 		
 	}	
 	
 	
 	@DELETE
-	public Response deleteUserJSON(@Context HttpServletRequest request) {
+	@Path("/{idu: [0-9]+}")
+	
+	public Response deleteUserJSON(@PathParam("idu")long idu,@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 
 		UserDAO userDAO = new JDBCUserDAOImpl();
@@ -240,7 +242,7 @@ public class UserResource {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		
-		Long userId = user.getId();
+		Long userId = idu;
 		
 		//Se elimina el usuario de la BD
 		if (userDAO.delete(userId)) {
