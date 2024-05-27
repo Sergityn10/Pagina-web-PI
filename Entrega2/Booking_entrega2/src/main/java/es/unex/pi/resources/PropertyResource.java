@@ -115,7 +115,7 @@ public class PropertyResource {
 			} else {
 				searchAux = searchList;
 			}
-		} 
+		}
 
 		if (searchAux != null) {
 			return searchAux;
@@ -140,23 +140,23 @@ public class PropertyResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	@Path("/user")
-	public List<Property> getAllPropertiesByUSerJSON(@Context HttpServletRequest request) {
+	@Path("/user/{userid:[0-9]+}")
+	public List<Property> getAllPropertiesByUSerJSON(@PathParam("userid") long userid,
+			@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 
 		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
 		alojamientoDao.setConnection(conn);
 
-		// Se recupera el usuario de la sesión
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
-
-		Long idU = user.getId();
-
 		List<Property> listaAlojamientos;
-		listaAlojamientos = alojamientoDao.getAllByUser(idU);
+		listaAlojamientos = alojamientoDao.getAllByUser(userid);
 
-		return listaAlojamientos;
+		if (listaAlojamientos != null) {
+			return listaAlojamientos;
+		}
+
+		else
+			throw new CustomBadRequestException("No se han encontrado alojamientos del usuario "+ userid);
 	}
 
 	@POST
