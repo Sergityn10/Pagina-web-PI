@@ -324,5 +324,34 @@ public class JDBCPropertyDAOImpl implements PropertyDAO {
 		return null;
 	}
 
+	@Override
+	public List<Property> getAllByDisp(int avalaible) {
+
+		if (conn == null)
+			return null;
+
+		ArrayList<Property> properties = new ArrayList<Property>();
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM properties WHERE available = "+ avalaible);
+
+			while (rs.next()) {
+				Property property = new Property();
+				fromRsToPropertyObject(rs,property);
+				
+				properties.add(property);
+		
+				logger.info("fetching properties: "+property.getId());
+			}
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return properties;
+		
+	}
+
 	
 }

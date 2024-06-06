@@ -67,7 +67,7 @@ public class PropertyUserResources {
 	// FUNCIONA LA OPERACION POST CON JSON
 
 	@POST
-	@Path("user/{idu: [0-9]+}/prop/{propid: [0-9]+}")
+	@Path("/user/{idu: [0-9]+}/prop/{propid: [0-9]+}")
 	public Response postPropertyUsers(@PathParam("idu") long idu,@PathParam("propid") long idp, @Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
@@ -101,15 +101,16 @@ public class PropertyUserResources {
 	}
 
 	@DELETE
-	@Path("/{propid: [0-9]+}")
-	public Response deletePropUser(@PathParam("propid") long idp, @Context HttpServletRequest request) {
+	@Path("/user/{idu: [0-9]+}/prop/{propid: [0-9]+}")
+	public Response deletePropUser(@PathParam("idu") long idu,@PathParam("propid") long idp, @Context HttpServletRequest request) {
 
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		PropertyUserDAO propUserDao = new JDBCPropertyUserDAOImpl();
 		propUserDao.setConnection(conn);
-
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		User user = userDao.get(idu);
 		if (user != null) {
 			propertyUser itPropUser = new propertyUser();
 			itPropUser.setIdp(idp);
@@ -117,15 +118,15 @@ public class PropertyUserResources {
 
 			Response res = null;
 
-			if (propUserDao.get(itPropUser.getIdp(), itPropUser.getIdu()) != null) {
+			if (propUserDao.get(idp, idu) != null) {
 				propUserDao.delete(idp, user.getId());
-				logger.info("POST de la review: idp->" + itPropUser.getIdp() + ", idu->" + itPropUser.getIdu());
+				logger.info("DELETE de la review: idp->" + itPropUser.getIdp() + ", idu->" + itPropUser.getIdu());
 				res = Response // return 201 and Location: /orders/newid
 						.created(uriInfo.getAbsolutePathBuilder().path(Long.toString(user.getId())).build())
 						.contentLocation(uriInfo.getAbsolutePathBuilder().path(Long.toString(idp)).build()).build();
 				return res;
 			} else
-				throw new CustomBadRequestException("Ya existe una review por este usuario");
+				throw new CustomBadRequestException("No existe una review por este usuario");
 		} else
 			throw new CustomBadRequestException(
 					"Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");

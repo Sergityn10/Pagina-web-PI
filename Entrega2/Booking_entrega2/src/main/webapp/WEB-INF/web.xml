@@ -7,7 +7,7 @@
   </welcome-file-list>
   
  <!--Comenta desde aquí si tu TOMCAT no está configurado para SSL -->
- <!-- 
+  <!-- 
   <security-constraint>
 	<web-resource-collection>
 		<web-resource-name>Entire Application</web-resource-name>
@@ -148,12 +148,13 @@
   </filter>
   
   <!-- COMENTAR ESTO SI NO FUNCIONA EL FILTRO PARA ACCEDER ATRAVES DE REACT-->
-  <filter>
-        <filter-name>CorsFilter</filter-name>
+   
+<filter>
+        <filter-name>CORS</filter-name>
         <filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
         <init-param>
             <param-name>cors.allowed.origins</param-name>
-            <param-value>*</param-value>
+            <param-value>http://localhost:5173</param-value> 
         </init-param>
         <init-param>
             <param-name>cors.allowed.methods</param-name>
@@ -161,14 +162,26 @@
         </init-param>
         <init-param>
             <param-name>cors.allowed.headers</param-name>
-            <param-value>Content-Type,X-Requested-With,Accept,Origin,Authorization</param-value>
+            <param-value>Content-Type,Accept,X-Requested-With,Authorization</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.exposed.headers</param-name>
+            <param-value>Authorization</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.support.credentials</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        <init-param>
+            <param-name>cors.preflight.maxage</param-name>
+            <param-value>1800</param-value>
         </init-param>
     </filter>
-
     <filter-mapping>
-        <filter-name>CorsFilter</filter-name>
+        <filter-name>CORS</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
 <!-- DEPENDENCIAS PARA APLICAR Y AÑADIR LOS PAQUETES DE JWT-->
 
 </web-app>

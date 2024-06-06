@@ -44,6 +44,8 @@ public interface PropertyDAO {
 	 */	
 	public List<Property> getAllBySearchName(String search);
 	
+	public List<Property> getAllByDisp(int avalaible);
+	
 	public List<Property> getAllBySearchNameValDesc(String search);
 
 

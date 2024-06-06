@@ -12,6 +12,7 @@ import es.unex.pi.dao.PropertyDAO;
 import es.unex.pi.dao.AccommodationDAO;
 import es.unex.pi.dao.ReviewDAO;
 import es.unex.pi.model.Accommodation;
+import es.unex.pi.model.Property;
 import es.unex.pi.model.Review;
 import es.unex.pi.model.User;
 import es.unex.pi.resources.exceptions.CustomBadRequestException;
@@ -118,7 +119,39 @@ public class AccomodationsResources {
 				throw new CustomBadRequestException("Error al insertar una nueva habitación. Comprueba que lo estes añadiendo a un alojamiento tuyo o que al alojamiento que lo quieras referenciar exista.");
 			}
 		}
-		 
+		
+		  @GET
+		  	@Path("/user/{idu: [0-9]+}")
+		  	public int getNumAccommodationsByIdu(@PathParam("idu") long idu, @Context HttpServletRequest request) {
+		  		int contador = 0;
+		  		
+		  		Connection conn = (Connection) sc.getAttribute("dbConn");
+		  		
+		  		//Primero hay que obtener los alojamientos del usuario
+		  		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
+		  		alojamientoDao.setConnection(conn);
+		  		
+		  		List<Property> listaAlojamientos = alojamientoDao.getAllByUser(idu);
+		  		
+		  		List<Accommodation> listaHabitaciones;
+		  		
+		  		for (Property alojamiento : listaAlojamientos) {
+					
+		  			//Se obtiene el id del alojamiento
+		  			long idp = alojamiento.getId();
+		  			
+		  			//Se obtiene las habitaciones de ese alojamiento
+		  			AccommodationDAO habitacionDao = new JDBCAccommodationDAOImpl();
+		  			habitacionDao.setConnection(conn);
+		  			
+		  			listaHabitaciones = habitacionDao.getAllBySearchIdp(idp);
+		  			
+		  			contador = contador + listaHabitaciones.size();
+		  			
+				}
+		  		
+		  		return contador;
+		  	}
 	  
 	  @POST
 	  @Path("/{idp: [0-9]+}")

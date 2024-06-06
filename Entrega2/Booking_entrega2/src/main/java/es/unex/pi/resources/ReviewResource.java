@@ -40,13 +40,15 @@ public class ReviewResource {
 	  //FUNCIONA
 	  @GET
 	  @Produces(MediaType.APPLICATION_JSON)
-	  public List<Review> getReviewsJSON(@Context HttpServletRequest request) {
+	  @Path("/user/{idu: [0-9]+}") 
+	  public List<Review> getReviewsJSON(@PathParam("idu") long idu,@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
 		reviewDao.setConnection(conn);
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		User user = userDao.get(idu);
 		List<Review> reviews;
 		
 		reviews = reviewDao.getAllByUser(user.getId());
@@ -54,17 +56,54 @@ public class ReviewResource {
 	    return reviews; 
 	  }
 	  
-	  //FUNCIONA
 	  @GET
-	   @Path("/{reviewid: [0-9]+}") 
 	  @Produces(MediaType.APPLICATION_JSON)
-	  public Review getReviewByIdJSON(@PathParam("reviewid") long reviewid,@Context HttpServletRequest request) {
+	  public List<Review> getAllReviewsJSON(@Context HttpServletRequest request) {
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
 		reviewDao.setConnection(conn);
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
 		
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		
+		List<Review> reviews;
+		
+		reviews = reviewDao.getAll();
+		
+	    return reviews; 
+	  }
+	  
+	  @GET
+	  @Produces(MediaType.APPLICATION_JSON)
+	  @Path("/property/{idp: [0-9]+}") 
+	  public List<Review> getReviewsByIdpJSON(@PathParam("idp") long idp,@Context HttpServletRequest request) {
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
+		reviewDao.setConnection(conn);
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
+		
+		
+		List<Review> reviews;
+		
+		reviews = reviewDao.getAllByProperty(idp);
+		
+	    return reviews; 
+	  }
+	  
+	  //FUNCIONA
+	  @GET
+	   @Path("/{reviewid: [0-9]+}/user/{idu: [0-9]+}") 
+	  @Produces(MediaType.APPLICATION_JSON)
+	  public Review getReviewByIdJSON(@PathParam("idu") long idu,@PathParam("reviewid") long reviewid,@Context HttpServletRequest request) {
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
+		reviewDao.setConnection(conn);
+		UserDAO userDao = new JDBCUserDAOImpl();
+		userDao.setConnection(conn);
+		
+		
+		User user = userDao.get(idu);
 		Review review = new Review();
 		
 		
@@ -76,7 +115,8 @@ public class ReviewResource {
 		
 		  @POST
 		  @Consumes (MediaType.APPLICATION_JSON) 
-		  public Response createReview(Review review, 
+		  @Path("/user/{idu: [0-9]+}") 
+		  public Response createReview(@PathParam("idu") long idu,Review review, 
 				  @Context HttpServletRequest request) { 
 			  Response res;
 		  
@@ -85,9 +125,13 @@ public class ReviewResource {
 			reviewDao.setConnection(conn);
 			PropertyDAO propDao = new JDBCPropertyDAOImpl();
 			propDao.setConnection(conn);
+			UserDAO userDao = new JDBCUserDAOImpl();
+			userDao.setConnection(conn);
 			
-			HttpSession session = request.getSession();
-			User user = (User) session.getAttribute("user");
+			
+			User user = userDao.get(idu);
+			
+		
 		  
 			if(propDao.get(review.getIdp()) != null && user.getId()==review.getIdu() && reviewDao.get(review.getIdp(), review.getIdu()) == null) {
 				reviewDao.add(review);
@@ -149,14 +193,18 @@ public class ReviewResource {
 	  //funciona el PUT con JSON
 	  @PUT
 	  @Consumes(MediaType.APPLICATION_JSON)
-	  public Response putReviewJSON(Review review,
+	  @Path("/user/{idu: [0-9]+}") 
+	  public Response putReview(@PathParam("idu") long idu,Review review, 
 			  @Context HttpServletRequest request) {
 		  Connection conn = (Connection) sc.getAttribute("dbConn");
 			ReviewDAO reviewDao = new JDBCReviewDAOImpl();
 			reviewDao.setConnection(conn);
 			
-			HttpSession session = request.getSession();
-			User user = (User) session.getAttribute("user");
+			UserDAO userDao = new JDBCUserDAOImpl();
+			userDao.setConnection(conn);
+			
+			
+			User user = userDao.get(idu);
 			
 			
 		  Response res = null;
@@ -228,22 +276,20 @@ public class ReviewResource {
 	  
 	  //FUNCIONA EL DELETE DE UNA REVIEW
 	  @DELETE
-	  @Path("/{reviewid: [0-9]+}")	  
-	  public Response deleteOrder(@PathParam("reviewid") long reviewid,
+	  @Path("/user/{idu: [0-9]+}/property/{idp: [0-9]+}")	  
+	  public Response deleteOrder(@PathParam("idu") long idu,@PathParam("idp") long idp,
 			  					  @Context HttpServletRequest request) {
 		  
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		ReviewDAO reviewDao = new JDBCReviewDAOImpl();
 		reviewDao.setConnection(conn);
-		logger.info("API DELETE by idp: "+reviewid);
-		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+		logger.info("API DELETE by idp e idu: "+idp + "-" + idu);
 		
-		Review review = reviewDao.get(reviewid, user.getId());
+		
+		Review review = reviewDao.get(idp, idu);
 		if ((review != null)
-			&&(user.getId()==review.getIdu())
 			  ){
-					reviewDao.delete(reviewid, user.getId());
+					reviewDao.delete(idp, idu);
 					return Response.noContent().build(); //204 no content 
 		}
 		else throw new CustomBadRequestException("Error in user or id");		

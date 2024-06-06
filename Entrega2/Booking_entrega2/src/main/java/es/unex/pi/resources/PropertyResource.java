@@ -53,6 +53,57 @@ public class PropertyResource {
 			throw new CustomBadRequestException("No se ha encontrado el alojamiento");
 
 	}
+	
+	@GET
+	@Path("/disponibilidad/{disp:[0-1]}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Property> getAllPropertyByDisponibilidadJSON(@PathParam("disp") int disp, @Context HttpServletRequest request) {
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+
+		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
+		alojamientoDao.setConnection(conn);
+
+		List<Property> alojamientos = alojamientoDao.getAllByDisp(disp);
+
+		if (alojamientos != null) {
+			return alojamientos;
+		} else
+			throw new CustomBadRequestException("No se ha encontrado el alojamiento");
+
+	}
+	
+	@GET
+  	@Path("/user/{idu: [0-9]+}")
+  	public int getNumAccommodationsByIdu(@PathParam("idu") long idu, @Context HttpServletRequest request) {
+  		int contador = 0;
+  		
+  		Connection conn = (Connection) sc.getAttribute("dbConn");
+  		
+  		//Primero hay que obtener los alojamientos del usuario
+  		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
+  		alojamientoDao.setConnection(conn);
+  		
+  		List<Property> listaAlojamientos = alojamientoDao.getAllByUser(idu);
+  		
+  		List<Accommodation> listaHabitaciones;
+  		
+  		for (Property alojamiento : listaAlojamientos) {
+			
+  			//Se obtiene el id del alojamiento
+  			long idp = alojamiento.getId();
+  			
+  			//Se obtiene las habitaciones de ese alojamiento
+  			AccommodationDAO habitacionDao = new JDBCAccommodationDAOImpl();
+  			habitacionDao.setConnection(conn);
+  			
+  			listaHabitaciones = habitacionDao.getAllBySearchIdp(idp);
+  			
+  			contador = contador + listaHabitaciones.size();
+  			
+		}
+  		
+  		return contador;
+  	}
 
 	// Por el nombre, ya sea de Ciudad o del Alojamiento
 	@GET
