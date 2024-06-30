@@ -36,7 +36,8 @@ public class BookingResources {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Booking> getBooksJSON(@Context HttpServletRequest request){
+	@Path("/user/{idu: [0-9]+}")
+	public List<Booking> getBooksJSON(@PathParam("idu") long idu,@Context HttpServletRequest request){
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 		BookingDAO bookDao = new JDBCBookingDAOImpl();
 		bookDao.setConnection(conn);
@@ -44,10 +45,10 @@ public class BookingResources {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 
-		if(user != null ) 
-			return bookDao.getAllByIdUser(user.getId());
-		else 
-			throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
+		//if(user != null ) 
+			return bookDao.getAllByIdUser(idu);
+		//else 
+			//throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
 
 	}
 	@GET
@@ -104,28 +105,28 @@ public class BookingResources {
 		
 		
 		Response res = null;
-		if(user != null ) 
-			if(bookDao.get(book.getId()) != null)
-				if(book.getIdu() == user.getId()) {
+		//if(user != null ) 
+			//if(bookDao.get(book.getId()) != null)
+				//if(book.getIdu() == user.getId()) {
 					bookDao.add(book);
 					res = Response //return 201 and Location: /orders/newid
 							   .created(
 								uriInfo.getAbsolutePathBuilder()
-									   .path(Long.toString(user.getId()))
+									   .path("")
 									   .build())
 							   .contentLocation(
 								uriInfo.getAbsolutePathBuilder()
-								       .path(Long.toString(book.getId()))
+								       .path("")
 								       .build())
 								.build();
 					return res;
 				}
-				else throw new CustomBadRequestException("No puedes añadir una reserva a un usuario externo a ti");
-			else throw new CustomNotFoundException("Esta reserva ya existe");
-		else 
-			throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
+				//else throw new CustomBadRequestException("No puedes añadir una reserva a un usuario externo a ti");
+			//else throw new CustomNotFoundException("Esta reserva ya existe");
+		//else 
+			//throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
 		
-	}
+	//}
 	
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)

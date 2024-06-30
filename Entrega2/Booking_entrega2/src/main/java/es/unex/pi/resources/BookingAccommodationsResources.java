@@ -49,9 +49,9 @@ public class BookingAccommodationsResources {
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		List<BookingsAccommodations> booksAccoms;
-		if(user != null)
+		//if(user != null)
 			booksAccoms = booksAccomsDao.getAllByBooking(idb);
-		else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
+		//else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 
 		return booksAccoms; 
 	}
@@ -107,7 +107,7 @@ public class BookingAccommodationsResources {
 
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
-		if(user != null) {
+		//if(user != null) {
 
 
 			Response res = null;
@@ -128,8 +128,8 @@ public class BookingAccommodationsResources {
 				return res;
 			}
 			else throw new CustomBadRequestException("Ya existe una reserva con esta habitacion. Llama al PUT si la quieres actualizar");
-		}
-		else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
+		//}
+		//else throw new CustomBadRequestException("Tienes que iniciar sesión para poder acceder a este recurso: GET PropertyUser");
 
 
 	}

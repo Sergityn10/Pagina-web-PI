@@ -172,7 +172,7 @@ public class AccomodationsResources {
 
 
 		  Response res = null;
-		  if(user != null) {
+		  //if(user != null) {
 			  if(propDao.get(idp).getIdu() == user.getId()) {
 				Accommodation accommodation = new Accommodation();
 				accommodation.setDescription(descripcion);
@@ -196,9 +196,9 @@ public class AccomodationsResources {
 			  } else {
 				throw new CustomBadRequestException("No puedes añadir una habitación a un alojamiento que no este tuyo.");
 			}
-		  } else {
-			throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
-		}
+		 // } else {
+			//throw new CustomBadRequestException("Debes iniciar sesión para poder añadir una habitacion a un alojamiento");
+		//}
 
 
 
