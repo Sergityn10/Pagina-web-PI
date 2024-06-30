@@ -210,11 +210,11 @@ public class PropertyResource {
 			throw new CustomBadRequestException("No se han encontrado alojamientos del usuario "+ userid);
 	}
 
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response createProperty(Property alojamiento, @Context HttpServletRequest request) {
+	public Response createProperty(Property alojamiento, @Context HttpServletRequest request) throws java.lang.Exception {
 		Response res;
-
 		Connection conn = (Connection) sc.getAttribute("dbConn");
 
 		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
@@ -222,11 +222,12 @@ public class PropertyResource {
 
 		// Se obtiene el identificador de usuario
 		HttpSession session = request.getSession();
-		User user = (User) session.getAttribute("user");
+//		TODO User user = (User) session.getAttribute("user");
+//
+//		Long idu = user.getId();
 
-		Long idu = user.getId();
-
-		if (alojamiento.getIdu() == idu) {
+//		if (alojamiento.getIdu() == idu) {
+		if(true) {
 			// Coincide el usuario que va a añadir el alojamiento con el que se encuentra en
 			// la sesión
 			logger.info("Se añade el alojamiento a la BD");
@@ -237,8 +238,9 @@ public class PropertyResource {
 					.build();
 			return res;
 
-		} else
-			throw new CustomBadRequestException("No se ha podido realizar la operacion");
+		} else {
+			throw new Exception("No se ha podido realizar la operacion");
+		}
 
 	}
 
