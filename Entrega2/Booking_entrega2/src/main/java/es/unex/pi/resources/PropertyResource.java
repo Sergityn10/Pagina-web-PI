@@ -271,6 +271,40 @@ public class PropertyResource {
 			throw new CustomBadRequestException("No existe ningún alojamiento con ese identificador");
 
 	}
+	
+	@PUT
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/disp")
+	public Response changeDisponibilityProperty(Property editAlojamiento, @Context HttpServletRequest request) {
+		Response res;
+
+		Connection conn = (Connection) sc.getAttribute("dbConn");
+
+		PropertyDAO alojamientoDao = new JDBCPropertyDAOImpl();
+		alojamientoDao.setConnection(conn);
+
+		// Se comprueba si esxiste un alojamiento con ese id
+		Long idA = editAlojamiento.getId();
+		Property alojamientoAux = alojamientoDao.get(idA);
+
+		if (alojamientoAux != null) {
+			// Sí que existe, se realizan los cambios
+			if(editAlojamiento.getAvailable() == 1) {
+				editAlojamiento.setAvailable(0);
+			}else {
+				editAlojamiento.setAvailable(1);
+			}
+			if (alojamientoDao.update(editAlojamiento)) {
+				res = Response.created(uriInfo.getAbsolutePathBuilder().path("property/" + idA).build())
+						.contentLocation(uriInfo.getAbsolutePathBuilder().path("property/" + idA).build()).build();
+
+				return res;
+			} else
+				throw new CustomBadRequestException("No se ha podido realizar la operacion");
+		} else
+			throw new CustomBadRequestException("No existe ningún alojamiento con ese identificador");
+
+	}
 
 	@DELETE
 	@Path("/property/{propertyid: [0-9]+}")
