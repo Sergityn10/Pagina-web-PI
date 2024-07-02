@@ -323,24 +323,24 @@ public class AccomodationsResources {
 		  accomDao.setConnection(conn);
 
 		  logger.info("API DELETE Accommodation by ida: "+ida);
-		  HttpSession session = request.getSession();
-		  User user = (User) session.getAttribute("user");
+		  //HttpSession session = request.getSession();
+		  //User user = (User) session.getAttribute("user");
 
 
-		  if (user != null){
+		 // if (user != null){
 			  if(accomDao.get(ida)!= null) {
-				  if(user.getId() == propDao.get(accomDao.get(ida).getIdp()).getIdu()) {
+				//  if(user.getId() == propDao.get(accomDao.get(ida).getIdp()).getIdu()) {
 					  accomDao.delete(ida);
 					  return Response.noContent().build(); //204 no content
 				  } else {
 					throw new CustomBadRequestException("No puedes eliminar una habitación a un alojamiento que no este tuyo.");
 				}
-			  } else {
+			  /*} else {
 				throw new CustomNotFoundException("No se puede eliminar una habitacion que no existe");
 			}
 		  } else {
 			throw new CustomBadRequestException("Error in user. Sign in");
-		}
+		}*/
 	  }
 
 	  //FUNCIONA EL DELETE EN CASCADA
